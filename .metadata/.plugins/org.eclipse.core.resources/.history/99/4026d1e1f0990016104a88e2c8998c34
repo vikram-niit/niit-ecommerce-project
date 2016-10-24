@@ -1,0 +1,10 @@
+package com.niit.shoppingCartFrontEnd;
+
+@Controller
+public class HelloWorldController {
+
+	@RequestMapping("/")
+	public String Hello(){
+		return "hello";
+	}
+}

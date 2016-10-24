@@ -1,0 +1,6 @@
+package com.niit.shoppingCartFrontEnd;
+
+@Controller
+public class HelloWorldController {
+
+}
