@@ -1,0 +1,38 @@
+---------------
+Product Table
+---------------
+id(Primary key)
+name
+category_id(Foreign key)
+price
+brand
+description
+
+
+-------------
+Category
+-------------
+id(Primary key)
+name
+description
+
+------------
+Supplier
+------------
+id(Primary key)
+name
+
+------------
+User
+------------
+id(Primary key)
+name
+password
+role(user, admin etc.)
+
+-----------------
+Product_Supplier
+-----------------
+product_id
+supplier_id
+Primary key(product_id, supplier_id)
