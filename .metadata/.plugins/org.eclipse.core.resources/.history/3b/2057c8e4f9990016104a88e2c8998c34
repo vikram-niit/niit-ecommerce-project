@@ -1,0 +1,8 @@
+package com.niit.shoppingCartFrontEnd;
+
+public class UserController {
+
+	public String home(){
+		return "index";
+	}
+}
