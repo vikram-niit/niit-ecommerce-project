@@ -11,18 +11,24 @@ import org.springframework.web.servlet.ModelAndViewDefiningException;
 public class UserController {
 
 	@RequestMapping("/home")
-	public String home(){
+	public String home(Model model){
+		model.addAttribute("displayHomePage", true);
+		
 		return "index";
 	}
 	@RequestMapping("/LoginForm")
-	public ModelAndView login(Model model){
-		
-		
+	public String login(Model model){
+	
 		model.addAttribute("displayLoginPage", true);
-		ModelAndView mv = new ModelAndView("index",
-				"loginModel", model);
 		
-		return mv;
+		return "index";
 	}
 	
+	@RequestMapping("/RegistrationForm")
+	public String register(Model model){
+
+		model.addAttribute("displayRegistrationForm", true);
+		
+		return "index";
+	}
 }

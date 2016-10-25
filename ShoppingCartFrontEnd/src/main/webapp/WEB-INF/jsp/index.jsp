@@ -122,9 +122,11 @@ rel="stylesheet" />
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
-                     <li>
+                    <%--  <li>
                         <a class="page-scroll" href='<c:url value="/LoginForm"></c:url>'>Login</a>
-                     </li>
+                     </li> --%>
+                     <li><a href='<c:url value="/RegistrationForm"></c:url>'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href='<c:url value="/LoginForm"></c:url>'><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     
                    <!--  <li>
                         <a class="page-scroll" id="myBtn" href="#">Login</a>
@@ -140,6 +142,7 @@ rel="stylesheet" />
     </nav>
 
     <header>
+    <c:if test="${displayHomePage }">
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
@@ -148,9 +151,14 @@ rel="stylesheet" />
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
             </div>
         </div>
+        </c:if>
         
-        <c:if test="${loginModel.displayLoginPage }">
+        <c:if test="${displayLoginPage }">
      <jsp:include page="loginForm.jsp"></jsp:include>
+     </c:if>
+     
+     <c:if test="${displayRegistrationForm }">
+     <jsp:include page="registrationForm.jsp"></jsp:include>
      </c:if>
     </header>
 
