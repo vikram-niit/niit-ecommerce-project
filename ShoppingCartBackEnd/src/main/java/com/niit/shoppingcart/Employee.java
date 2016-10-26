@@ -6,11 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 
 @Entity
 @Table(name="Employee")
+
 public class Employee {
 
+	public Employee(){
+		
+	}
+	
 	@Override
 	public String toString() {
 		return "Employee [eid=" + eid + ", name=" + name + ", salary=" + salary + "]";
