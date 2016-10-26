@@ -31,4 +31,11 @@ public class UserController {
 		
 		return "index";
 	}
+	
+	@RequestMapping("/Products")
+		public String Products(Model model){
+		
+		model.addAttribute("displayProductsPage", true);
+		return "index";
+	}
 }

@@ -1,0 +1,60 @@
+package com.niit.shoppingcart;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+	
+	private static Configuration cfg;
+    public static void main( String[] args )
+    {
+    	cfg = new Configuration();
+        cfg.configure("hibernate.cfg.xml");
+        
+        SessionFactory factory = cfg.buildSessionFactory();
+        Session session = factory.openSession();
+        
+        // Create new employee object
+        Employee emp = new Employee();
+        emp.setEid(11);
+        emp.setName("cccc");
+        emp.setSalary(50000);
+        
+        Transaction t = session.beginTransaction();
+        session.persist(emp);
+        
+       emp = (Employee)session.get(Employee.class, 11);
+       System.out.println(emp);
+        t.commit();
+        session.close();
+
+    }
+    
+    public static listEmployees(){
+    	 SessionFactory factory = cfg.buildSessionFactory();
+         Session session = factory.openSession();
+         
+         Transaction t = session.beginTransaction();
+         
+    	List employees = session.createQuery("FROM Employee").list(); 
+        for (Iterator iterator = 
+                          employees.iterator(); iterator.hasNext();){
+           Employee employee = (Employee) iterator.next(); 
+           System.out.print("First Name: " + employee.getEid()); 
+           System.out.print("  Last Name: " + employee.getLastName()); 
+           System.out.println("  Salary: " + employee.getSalary()); 
+        }
+       
+        
+           
+        t.commit();
+        session.close();
+    }
+}

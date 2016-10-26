@@ -117,7 +117,7 @@ rel="stylesheet" />
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#products">Products</a>
+                        <a class="page-scroll" href='<c:url value="/Products"></c:url>'>Products</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -160,8 +160,12 @@ rel="stylesheet" />
      <c:if test="${displayRegistrationForm }">
      <jsp:include page="registrationForm.jsp"></jsp:include>
      </c:if>
+     
+     
     </header>
-
+ <c:if test="${displayProductsPage }">
+     <jsp:include page="products.jsp"></jsp:include>
+     </c:if>
    
 
     

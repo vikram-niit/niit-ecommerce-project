@@ -1,0 +1,37 @@
+package com.niit.shoppingcart;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Configuration cfg = new Configuration();
+        cfg.configure("hibernate.cfg.xml");
+        
+        SessionFactory factory = cfg.buildSessionFactory();
+        Session session = factory.openSession();
+        
+        // Create new employee object
+        Employee emp = new Employee();
+        emp.setEid(11);
+        emp.setName("cccc");
+        emp.setSalary(50000);
+        
+        Transaction t = session.beginTransaction();
+        session.persist(emp);
+        
+       emp = (Employee)session.get(Employee.class, 11);
+       System.out.println(emp);
+        t.commit();
+        session.close();
+
+    }
+}
