@@ -9,7 +9,7 @@ import java.util.*;
 
 import javax.transaction.Transactional;  
 
-@Transactional
+
 public class EmployeeDao {  
 	
 	public EmployeeDao() {

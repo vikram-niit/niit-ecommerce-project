@@ -45,7 +45,7 @@ public class App2
           
       
         EmployeeDao dao = (EmployeeDao) context.getBean("EmployeeDao");
-        dao.saveEmployee(emp);
+       dao.saveEmployee(emp);
          
         List<Employee>  list = dao.getEmployees();  
         
