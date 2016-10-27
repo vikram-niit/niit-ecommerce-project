@@ -24,8 +24,7 @@ public class EmployeeDao {
 	public void setTemplate(HibernateTemplate template) {  
 	    this.template = template;  
 	}  
-	//method to save employee  
-	@Transactional
+	//method to save employee
 	public void saveEmployee(Employee e){  
 	    template.save(e);  
 	}  

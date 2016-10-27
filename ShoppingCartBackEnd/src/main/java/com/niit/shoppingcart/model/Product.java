@@ -9,12 +9,7 @@ import javax.persistence.Table;
 public class Product {
 
 	@Id
-	private Integer id;
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", categoryId=" + categoryId + ", price=" + price + ", brand="
-				+ brand + ", description=" + description + "]";
-	}
+	private Integer id;	
 	private String name;
 	private Integer categoryId;
 	private String price;
@@ -58,5 +53,10 @@ public class Product {
 		this.description = description;
 	}
 	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", categoryId=" + categoryId + ", price=" + price + ", brand="
+				+ brand + ", description=" + description + "]";
+	}
 	
 }

@@ -3,6 +3,8 @@ package com.niit.shoppingcart.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import com.niit.shoppingcart.model.Product;
 
