@@ -1,0 +1,11 @@
+package com.niit.shoppingcart.model;
+
+@Entity
+@Table(name="Category")
+public class Category {
+
+	@Id
+	private Integer id;
+	private String name;
+	private String description;
+}

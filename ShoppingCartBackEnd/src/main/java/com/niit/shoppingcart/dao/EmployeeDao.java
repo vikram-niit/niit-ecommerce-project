@@ -20,6 +20,7 @@ public class EmployeeDao {
 		super();
 		this.template = template;
 	}
+	
 	HibernateTemplate template;  
 	public void setTemplate(HibernateTemplate template) {  
 	    this.template = template;  

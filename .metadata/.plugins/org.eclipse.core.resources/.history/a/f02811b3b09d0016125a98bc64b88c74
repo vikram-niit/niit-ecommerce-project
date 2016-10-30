@@ -1,0 +1,10 @@
+package com.niit.shoppingcart.model;
+
+@Entity
+@Table(name="Supplier")
+public class Supplier {
+
+	@Id
+	private Integer id;
+	private String supplierName;
+}
