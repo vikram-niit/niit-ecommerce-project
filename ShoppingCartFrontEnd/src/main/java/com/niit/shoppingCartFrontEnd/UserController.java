@@ -38,4 +38,10 @@ public class UserController {
 		model.addAttribute("displayProductsPage", true);
 		return "index";
 	}
+	
+	@RequestMapping(value="/ProductList", produces="application/json")
+	public String ProductList(Model model){
+		return "json string";
+	}
+	
 }

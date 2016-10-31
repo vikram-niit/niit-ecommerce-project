@@ -1,0 +1,52 @@
+package com.niit.shoppingcart;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.niit.shoppingcart.config.AppConfig;
+import com.niit.shoppingcart.dao.EmployeeDao;
+
+/**
+ * Hello world!
+ *
+ */
+public class App2 
+{
+	
+	
+	private static Employee emp;
+	
+    public static void main( String[] args )
+    {
+    	
+        AnnotationConfigApplicationContext context = new 
+    			AnnotationConfigApplicationContext(AppConfig.class);
+        
+        // Create new employee object
+        Employee emp = new Employee();
+        emp.setEid(14);
+        emp.setName("spring-hibernate4");
+        emp.setSalary(50000);
+        JSONObject j  = new JSONObject();
+        //context.scan("com.niit.shoppingcart");
+        
+        //emp = (Employee)context.getBean("employee");
+    
+          
+      
+        EmployeeDao dao = (EmployeeDao) context.getBean("EmployeeDao");
+        dao.saveEmployee(emp);
+         
+        List<Employee>  list = dao.getEmployees();  
+        
+        for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+			Employee employee = (Employee) iterator.next();
+			System.out.println(employee);
+			
+		}
+    }
+    
+    
+}
