@@ -15,6 +15,7 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.niit.shoppingcart.Employee;
 import com.niit.shoppingcart.dao.EmployeeDao;
@@ -28,6 +29,7 @@ import com.niit.shoppingcart.model.User;
 @Configuration
 @ComponentScan(basePackages = "com.niit.shoppingcart")
 @EnableTransactionManagement
+@EnableWebMvc
 public class AppConfig {
 
     

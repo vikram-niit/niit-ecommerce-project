@@ -51,7 +51,12 @@
     <version>4.3.1.RELEASE</version>
 </dependency>
 
-
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>4.2.8.RELEASE</version>
+</dependency>
 
   </dependencies>
 </project>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,25 +18,47 @@ margin-bottom:100px;
 	 <div class="header-content" id="home">
             <div class="header-content-inner">
             <h2 id="registrationPageHeading">Registration Page</h2>
-               <form class="form-horizontal">
+               <form:form method="post" action="register" 
+               class="form-horizontal">
+               
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Name:</label>
+    <div class="col-sm-10"> 
+      <form:input class="form-control" id="pwd" placeholder="Enter name"
+      	path="name"/>
+    </div>
+  </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="email">Email:</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <form:input type="email" class="form-control" id="email"
+       placeholder="Enter email" path="email" />
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Password:</label>
     <div class="col-sm-10"> 
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+      <form:input type="password" class="form-control" id="pwd" 
+      placeholder="Enter password" path="password"/>
     </div>
   </div>
+  
   <div class="form-group">
-    <label class="control-label col-sm-2" for="pwd">Confirm Password:</label>
+    <label class="control-label col-sm-2" for="pwd">Password:</label>
     <div class="col-sm-10"> 
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+      <form:input  class="form-control" id="pwd" 
+      placeholder="Enter password" path="mobile"/>
     </div>
   </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Password:</label>
+    <div class="col-sm-10"> 
+      <form:input type="password" class="form-control" id="pwd" 
+      placeholder="Enter address" path="address"/>
+    </div>
+  </div>
+  
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
@@ -48,7 +71,7 @@ margin-bottom:100px;
       <button type="submit" class="btn btn-default">Register</button>
     </div>
   </div>
-</form>
+</form:form>
             </div>
         </div>
 </body>

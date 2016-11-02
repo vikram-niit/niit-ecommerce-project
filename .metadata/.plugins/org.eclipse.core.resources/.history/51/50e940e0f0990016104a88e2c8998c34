@@ -1,9 +1,0 @@
-package com.niit.shoppingCartFrontEnd;
-
-@Controller
-public class HelloWorldController {
-
-	public String Hello(){
-		return "hello";
-	}
-}
