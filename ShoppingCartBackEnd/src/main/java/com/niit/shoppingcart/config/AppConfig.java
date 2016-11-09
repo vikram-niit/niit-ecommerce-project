@@ -14,11 +14,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.niit.shoppingcart.Employee;
-import com.niit.shoppingcart.dao.EmployeeDao;
+import com.niit.shoppingcart.dao.EmployeeDao3;
 import com.niit.shoppingcart.dao.ProductDao;
 import com.niit.shoppingcart.dao.UserDao;
 import com.niit.shoppingcart.model.Category;
@@ -29,7 +29,7 @@ import com.niit.shoppingcart.model.User;
 @Configuration
 @ComponentScan(basePackages = "com.niit.shoppingcart")
 @EnableTransactionManagement
-@EnableWebMvc
+@Component
 public class AppConfig {
 
     
@@ -91,9 +91,9 @@ public HibernateTemplate getHibernateTemplate(SessionFactory sessionFactory){
     
 @Autowired
 @Bean(name="EmployeeDao")
-public EmployeeDao getEmployeeDao(HibernateTemplate template){		
+public EmployeeDao3 getEmployeeDao(HibernateTemplate template){		
 	
-	return new EmployeeDao(template);
+	return new EmployeeDao3(template);
 }
 
 @Autowired

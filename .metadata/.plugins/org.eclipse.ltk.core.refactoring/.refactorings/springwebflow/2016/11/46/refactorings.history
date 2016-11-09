@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;springwebflow/src/main/webapp/WEB-INF/cancel.jsp&apos; to &apos;cancelled.jsp&apos;" description="Rename resource &apos;cancel.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/cancel.jsp" name="cancelled.jsp" stamp="1478535919248" updateReferences="true"/>
+</session>

@@ -1,0 +1,27 @@
+package com.niit.shoppingcart.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.niit.shoppingcart.Employee;
+
+public interface EmployeeDAO2 {
+
+	//method to save employee
+		public void saveEmployee(Employee e){  
+		    template.save(e);  
+		}  
+		//method to update employee  
+		public void updateEmployee(Employee e){  
+		 //   template.update(e);
+			sessionFactory.getCurrentSession().update(e);
+		}  
+		//method to delete employee  
+		public void deleteEmployee(Employee e){  
+		    template.delete(e);  
+		}  
+		//method to return one employee of given id  
+		public Employee getById(int id);
+		//method to return all employees  
+		public List<Employee> getEmployees();
+}

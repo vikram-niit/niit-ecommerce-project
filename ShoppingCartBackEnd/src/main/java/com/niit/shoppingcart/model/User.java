@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class User {
 
 	@javax.persistence.Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	//@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer Id;
 	private String name;
 	private String email;
@@ -68,5 +68,14 @@ public class User {
 		return "User [Id=" + Id + ", name=" + name + ", password=" + password + ", role=" + role + "]";
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+
+		User user = (User) obj;
+		
+		if(this.getId() == user.getId());
+			
+		return super.equals(obj);
+	}
 	
 }

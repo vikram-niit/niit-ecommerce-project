@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="Employee")
+@Component
 public class Employee {
 
 	public Employee(){
@@ -47,5 +48,12 @@ public class Employee {
 		this.salary = salary;
 	}
 	
-	
+	@Override
+	public boolean equals(Object obj) {
+		Employee emp = (Employee)obj;
+		
+		if(this.getEid() == emp.getEid())
+	     	return true;
+	     	 return false;
+	}
 }

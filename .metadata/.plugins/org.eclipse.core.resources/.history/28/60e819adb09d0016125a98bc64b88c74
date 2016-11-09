@@ -1,8 +1,0 @@
-package com.niit.shoppingcart.model;
-
-public class Supplier {
-
-	@Id
-	private Integer id;
-	private String supplierName;
-}

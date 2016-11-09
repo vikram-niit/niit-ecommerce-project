@@ -8,7 +8,7 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import com.niit.shoppingcart.Employee;
 import com.niit.shoppingcart.config.AppConfig;
-import com.niit.shoppingcart.dao.EmployeeDao;
+import com.niit.shoppingcart.dao.EmployeeDao3;
 import com.niit.shoppingcart.dao.ProductDao;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
@@ -55,7 +55,7 @@ public class ProductDaoTest {
     }
    
    
-   EmployeeDao empDao = (EmployeeDao) context.getBean("EmployeeDao");
+   EmployeeDao3 empDao = (EmployeeDao3) context.getBean("EmployeeDao");
    
    /* List<Employee> list=new ArrayList<Employee>();  
     list=template.loadAll(Employee.class);  

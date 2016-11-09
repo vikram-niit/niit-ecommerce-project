@@ -14,7 +14,8 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 
 import com.niit.shoppingcart.config.AppConfig;
-import com.niit.shoppingcart.dao.EmployeeDao;
+import com.niit.shoppingcart.dao.EmployeeDAO;
+import com.niit.shoppingcart.dao.EmployeeDao3;
 
 /**
  * Hello world!
@@ -34,17 +35,18 @@ public class App2
         
         // Create new employee object
         Employee emp = new Employee();
-        emp.setEid(14);
+        emp.setEid(119);
         emp.setName("spring-hibernate4");
         emp.setSalary(50000);
        
-        //context.scan("com.niit.shoppingcart");
+        context.scan("com.niit.shoppingcart");
         
-        //emp = (Employee)context.getBean("employee");
-    
-          
+        emp = (Employee)context.getBean("employee");
+        
+        EmployeeDAO empDAO = (EmployeeDAO) context.getBean("EmployeeDAO");
+        System.out.println("empDAO="+empDAO);  
       
-        EmployeeDao dao = (EmployeeDao) context.getBean("EmployeeDao");
+        EmployeeDao3 dao = (EmployeeDao3) context.getBean("EmployeeDao");
         dao.saveEmployee(emp);
          
         List<Employee>  list = dao.getEmployees();  

@@ -11,7 +11,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
 import com.niit.shoppingcart.config.AppConfig;
-import com.niit.shoppingcart.dao.EmployeeDao;
+import com.niit.shoppingcart.dao.EmployeeDao3;
 
 public class App {
 
@@ -22,10 +22,10 @@ public class App {
     	 Resource r=new ClassPathResource("applicationContext.xml");  
     	    BeanFactory factory=new XmlBeanFactory(r);  
     	    
-    	    EmployeeDao dao=(EmployeeDao)factory.getBean("d");  
+    	    EmployeeDao3 dao=(EmployeeDao3)factory.getBean("d");  
     	      
     	    Employee e=new Employee();  
-    	    e.setEid(2);  
+    	    e.setEid(3);  
     	    e.setName("hibernatesetname");  
     	    e.setSalary(50000);  
     	      

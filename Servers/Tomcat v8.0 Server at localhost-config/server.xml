@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="ShoppingCartFrontEnd" path="/ShoppingCartFrontEnd" reloadable="true" source="org.eclipse.jst.j2ee.server:ShoppingCartFrontEnd"/></Host>
+      <Context docBase="webflow-showcase" path="/webflow-showcase" reloadable="true" source="org.eclipse.jst.j2ee.server:webflow-showcase"/><Context docBase="ShoppingCartFrontEnd" path="/ShoppingCartFrontEnd" reloadable="true" source="org.eclipse.jst.j2ee.server:ShoppingCartFrontEnd"/><Context docBase="springwebflow" path="/springwebflow" reloadable="true" source="org.eclipse.jst.j2ee.server:springwebflow"/></Host>
     </Engine>
   </Service>
 </Server>
