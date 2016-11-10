@@ -9,7 +9,7 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import com.niit.shoppingcart.Employee;
 import com.niit.shoppingcart.config.AppConfig;
 import com.niit.shoppingcart.dao.EmployeeDao3;
-import com.niit.shoppingcart.dao.ProductDao;
+import com.niit.shoppingcart.dao.ProductDao3;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
 
@@ -25,7 +25,7 @@ public class ProductDaoTest {
     c.setId(7);
 	
     Product p = new Product();
-    p.setId(11);
+    p.setId(110);
     p.setName("newProduct");
     p.setCategory(c);
     
@@ -41,7 +41,7 @@ public class ProductDaoTest {
       HibernateTemplate template=(HibernateTemplate)context.getBean("template");
    /* EmployeeDao dao=(EmployeeDao)factory.getBean("d");*/  
      /* HibernateTransactionManager t = (HibernateTransactionManager) context.getBean("transactionManager");*/
-        ProductDao dao = (ProductDao) context.getBean("ProductDao");
+        ProductDao3 dao = (ProductDao3) context.getBean("ProductDao");
        
    //template.setCheckWriteOperations(false);
    //template.save(p);

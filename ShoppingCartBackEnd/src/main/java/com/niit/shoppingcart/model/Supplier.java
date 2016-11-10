@@ -1,18 +1,14 @@
 package com.niit.shoppingcart.model;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="Supplier")
+@Component
 public class Supplier {
 
 	@Id
@@ -20,8 +16,8 @@ public class Supplier {
 	private String supplierName;
 	
 	
-	@ManyToMany(mappedBy="suppliers", fetch=FetchType.EAGER)
-	private Set<Product> products;
+	/*@ManyToMany(mappedBy="suppliers", fetch=FetchType.EAGER)
+	private Set<Product> products;*/
 
 	public Supplier() {
 		// TODO Auto-generated constructor stub
@@ -46,18 +42,28 @@ public class Supplier {
 	public void setSupplierName(String supplierName) {
 		this.supplierName = supplierName;
 	}
+	@Override
+	public String toString() {
+		return "Supplier [id=" + id + ", supplierName=" + supplierName + "]";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Supplier s = (Supplier)obj;
+		
+		if(this.getId().equals(s.getId()))
+			return true;
+		return false;		
+	}
 
-	public Set<Product> getProducts() {
+	/*public Set<Product> getProducts() {
 		return products;
 	}
 
 	public void setProducts(Set<Product> products) {
 		this.products = products;
-	}
+	}*/
 
-	@Override
-	public String toString() {
-		return "Supplier [id=" + id + ", supplierName=" + supplierName + ", products=" + products + "]";
-	}	
+		
 	
 }

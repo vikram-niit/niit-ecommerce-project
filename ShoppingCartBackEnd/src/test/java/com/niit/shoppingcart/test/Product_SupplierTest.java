@@ -11,7 +11,7 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import com.niit.shoppingcart.Employee;
 import com.niit.shoppingcart.config.AppConfig;
 import com.niit.shoppingcart.dao.EmployeeDao3;
-import com.niit.shoppingcart.dao.ProductDao;
+import com.niit.shoppingcart.dao.ProductDao3;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
 import com.niit.shoppingcart.model.Supplier;
@@ -40,10 +40,10 @@ public class Product_SupplierTest {
 	    suppliers.add(s1);
 	    suppliers.add(s2);
 	    suppliers.add(s3);
-	   p.setSuppliers(suppliers);
+	 //  p.setSuppliers(suppliers);
 	   
 	   
-	    ProductDao dao = (ProductDao) context.getBean("ProductDao");
+	    ProductDao3 dao = (ProductDao3) context.getBean("ProductDao");
 	       
 	   
 	   dao.saveProduct(p);
@@ -52,7 +52,7 @@ public class Product_SupplierTest {
 	    for (Iterator iterator = list.iterator(); iterator.hasNext();) {
 			p = (Product) iterator.next();
 			System.out.println(p);
-	        System.out.println(p.getSuppliers());
+	  //      System.out.println(p.getSuppliers());
 	    }
 	   
 	   

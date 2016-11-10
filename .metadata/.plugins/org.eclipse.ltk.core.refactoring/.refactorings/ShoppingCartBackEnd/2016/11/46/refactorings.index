@@ -1,3 +1,7 @@
 1478589286696	Delete element
 1478599985924	Rename type 'EmployeeDao'
 1478599998401	Rename type 'EmployeeDAO2'
+1478686781715	Rename type 'ProductDao'
+1478717604678	Rename type 'SupplierDao'
+1478723520952	Rename field 'c'
+1478724730583	Rename type 'UserDao'

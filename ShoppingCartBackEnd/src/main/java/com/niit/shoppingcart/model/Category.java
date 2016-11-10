@@ -4,8 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name="Category")
+@Component
 public class Category {
 
 	@Id
@@ -33,5 +36,15 @@ public class Category {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Category c  = (Category)obj;
+		
+		if(this.id.equals(c.getId()))
+			return true;
+		
+		return false;
 	}
 }

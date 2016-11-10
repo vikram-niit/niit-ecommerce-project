@@ -1,12 +1,13 @@
 package com.niit.shoppingcart.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="user")
+@Component
 public class User {
 
 	@javax.persistence.Id
@@ -73,9 +74,10 @@ public class User {
 
 		User user = (User) obj;
 		
-		if(this.getId() == user.getId());
+		if(this.getId().equals(user.getId()))
+			return true;
+		return false;
 			
-		return super.equals(obj);
 	}
 	
 }

@@ -19,8 +19,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.shoppingcart.Employee;
 import com.niit.shoppingcart.dao.EmployeeDao3;
-import com.niit.shoppingcart.dao.ProductDao;
-import com.niit.shoppingcart.dao.UserDao;
+import com.niit.shoppingcart.dao.ProductDao3;
+import com.niit.shoppingcart.dao.UserDao3;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
 import com.niit.shoppingcart.model.Supplier;
@@ -89,25 +89,25 @@ public HibernateTemplate getHibernateTemplate(SessionFactory sessionFactory){
 	return new HibernateTemplate(sessionFactory);
 }
     
-@Autowired
+/*@Autowired
 @Bean(name="EmployeeDao")
 public EmployeeDao3 getEmployeeDao(HibernateTemplate template){		
 	
 	return new EmployeeDao3(template);
-}
+}*/
 
-@Autowired
+/*@Autowired
 @Bean(name="ProductDao")
-public ProductDao getProductDao(HibernateTemplate template){		
+public ProductDao3 getProductDao(HibernateTemplate template){		
 	
-	return new ProductDao(template);
-}
+	return new ProductDao3(template);
+}*/
 
 @Autowired
 @Bean(name="UserDao")
-public UserDao getUserDao(HibernateTemplate template){		
+public UserDao3 getUserDao(HibernateTemplate template){		
 	
-	return new UserDao(template);
+	return new UserDao3(template);
 }
 
 }

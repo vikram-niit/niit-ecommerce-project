@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.niit.shoppingcart.model.User;
 import com.niit.shoppingcart.config.AppConfig;
-import com.niit.shoppingcart.dao.UserDao;
+import com.niit.shoppingcart.dao.UserDao3;
 
 public class UserDaoTest {
 
@@ -19,7 +19,7 @@ public static void main(String[] args){
 	    
 		
 	   
-	    UserDao dao = (UserDao) context.getBean("UserDao");
+	    UserDao3 dao = (UserDao3) context.getBean("UserDao");
 	       
 	   
 	   User user = new User();

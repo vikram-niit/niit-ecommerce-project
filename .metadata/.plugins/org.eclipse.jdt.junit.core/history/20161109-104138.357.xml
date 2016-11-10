@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="EmployeeTestCase" project="ShoppingCartBackEnd" tests="5" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.niit.shoppingcart.test.EmployeeTestCase" incomplete="true">
-    <testcase name="createEmployee" classname="com.niit.shoppingcart.test.EmployeeTestCase" incomplete="true"/>
-    <testcase name="deleteEmployee" classname="com.niit.shoppingcart.test.EmployeeTestCase" incomplete="true"/>
-    <testcase name="updateEmployee" classname="com.niit.shoppingcart.test.EmployeeTestCase" incomplete="true"/>
-    <testcase name="getEmployeeList" classname="com.niit.shoppingcart.test.EmployeeTestCase" incomplete="true"/>
-    <testcase name="getEmployee" classname="com.niit.shoppingcart.test.EmployeeTestCase" incomplete="true"/>
-  </testsuite>
-</testrun>

@@ -5,8 +5,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -15,9 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.transaction.Transactional;
 
-@Transactional
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name="Product")
+@Component
 public class Product {
 
 	@Id	
@@ -34,10 +34,14 @@ public class Product {
 	
 	private String description;
 	
-	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	/*@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(name="product_supplier", joinColumns={@JoinColumn(referencedColumnName="id")}
 			, inverseJoinColumns={@JoinColumn(referencedColumnName="id")})
-	private Set<Supplier> suppliers;
+	private Set<Supplier> suppliers;*/
+	
+	@ManyToOne
+	@JoinColumn(name="supplierId", referencedColumnName="id", nullable=false)
+	private Supplier supplier;
 	
 	public Product() {
 		// TODO Auto-generated constructor stub
@@ -82,18 +86,35 @@ public class Product {
 		this.description = description;
 	}
 	
-	public Set<Supplier> getSuppliers() {
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	
+	/*public Set<Supplier> getSuppliers() {
 		return suppliers;
 	}
 	public void setSuppliers(Set<Supplier> suppliers) {
 		this.suppliers = suppliers;
-	}
+	}*/
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + ", brand="
 				+ brand + ", description=" + description + "]";
 	}
 	
-	
-	
+	@Override
+	public boolean equals(Object obj) {
+		
+		Product p = (Product)obj;
+		if(this.getId().equals(p.getId()))
+			return true;
+		else 
+			return false;
+		
+	}
 }

@@ -6,14 +6,14 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.model.User;
 import com.niit.shoppingcart.config.AppConfig;
-import com.niit.shoppingcart.dao.UserDao;
+import com.niit.shoppingcart.dao.UserDAO;
+import com.niit.shoppingcart.model.User;
 
 public class UserTestCase {
 
 	@Autowired
-	UserDao dao;
+	UserDAO dao;
 	
 	@Autowired 
 	AnnotationConfigApplicationContext context;
@@ -21,15 +21,16 @@ public class UserTestCase {
 	@Before
 	public void init(){
 		context = new AnnotationConfigApplicationContext(AppConfig.class);
-		dao = (UserDao) context.getBean("UserDao");
+		dao = (UserDAO) context.getBean("UserDAO");
 	}
 	
 	@Test
 	public void getUser() {
-		Assert.assertNotNull("Get User", dao.getById(30));
+		Assert.assertNotNull("Get User", dao.getUserById(1006));
 	}
 	
-	@Test
+	
+	/*@Test
 	public void createUser(){
 		
 		int id = 1006;
@@ -40,46 +41,48 @@ public class UserTestCase {
 		
 		dao.saveUser(e);
 		
-		Assert.assertNotNull("Get User", dao.getById(id));	
-	}
+		Assert.assertNotNull("Get User", dao.getUserById(id));	
+	}*/
 	
-	@Test
+	
+	/*@Test
 	public void deleteUser(){
 		
 		int id=1000;
 		
 		// delete the User
-		User emp = dao.getById(id);
-	//	Assert.assertNotNull("check User exists", emp);
+		User temp = dao.getUserById(id);
+	//	Assert.assertNotNull("check User exists", temp);
 		
-		if(emp != null){
-			dao.deleteUser(emp);	
-			Assert.assertNull("delete User", dao.getById(id));
+		if(temp != null){
+			dao.deleteUser(temp);	
+			Assert.assertNull("delete User", dao.getUserById(id));
 		}		
-	}
+	}*/
+	
+	
 	
 	@Test
 	public void updateUser(){
-		int id=30;
+		int id=1006;
 		
 		// update the User
-		User emp = dao.getById(id);
-		//Assert.assertNotNull("check User exists", emp);
-		if(emp != null){
-			emp.setName("updatedname3");
-			dao.updateUser(emp);
-			
-			emp = dao.getById(id);
-			
-			Assert.assertEquals("updatedname3", emp.getName());
+		User temp = dao.getUserById(id);
+		//Assert.assertNotNull("check User exists", temp);
+		if(temp != null){
+			temp.setName("updatedname2"+id);
+			dao.updateUser(temp);
+					
+			Assert.assertEquals(temp, dao.getUserById(id));
 		}
 	}
 
-	@Test
+
+	/*@Test
 	public void getUserList() {
 		Assert.assertNotNull("Get User", dao.getUsers());
 		
 		//Assert.assertEquals(10, dao.getUsers().size());
 	}
-
+*/
 }

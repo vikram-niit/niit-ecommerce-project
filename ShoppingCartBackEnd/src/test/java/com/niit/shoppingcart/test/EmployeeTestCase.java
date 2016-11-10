@@ -32,16 +32,10 @@ public class EmployeeTestCase {
 	@Before
 	public void init(){
 		context = new AnnotationConfigApplicationContext(AppConfig.class);
-		//context.refresh();
-		System.out.println("dao="+dao);
+		//context.refresh();		
 		//context.scan("com.niit.shoppingcart");
-		dao = (EmployeeDAO) context.getBean("EmployeeDAO");
-		//dao = (EmployeeDao3) context.getBean("EmployeeDao");
-		
-		e = (Employee) context.getBean("employee");
-		
-		System.out.println("dao="+dao);
-		
+		dao = (EmployeeDAO) context.getBean("EmployeeDAO");		
+		e = (Employee) context.getBean("employee");		
 	}
 	
 	@Test
@@ -56,9 +50,7 @@ public class EmployeeTestCase {
 			e.setEid(id);
 			dao.saveEmployee(e);
 			
-			emp = dao.getById(id);
-			
-			
+			emp = dao.getById(id);			
 		}
 		
 		Assert.assertNotNull("Get employee", emp);
@@ -77,11 +69,12 @@ public class EmployeeTestCase {
 		
 		// checks whether employee with the specified id does not exist already
 		// if it exists increment the id
-		do{
+		while(emp != null)
+		{
 			id+=1;
 			e.setEid(id);
 			emp = dao.getById(id);
-		}while(emp != null);
+		}
 				
 		dao.saveEmployee(e);
 		
