@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.test;
+/*package com.niit.shoppingcart.test;
 
 import static org.junit.Assert.*;
 
@@ -31,8 +31,8 @@ public class CategoryTestCase {
 	public void init(){
 		context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
-		/*context.refresh();
-		context.scan("com.niit.shoppingcart");*/
+		context.refresh();
+		context.scan("com.niit.shoppingcart");
 		
 		categoryDao = (CategoryDAO) context.getBean("CategoryDAO");
 		c = (Category)context.getBean(Category.class);
@@ -151,3 +151,4 @@ public class CategoryTestCase {
 	}
 
 }
+*/

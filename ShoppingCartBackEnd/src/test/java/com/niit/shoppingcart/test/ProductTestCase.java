@@ -63,7 +63,7 @@ public class ProductTestCase {
 		p.setSupplier(s);
 	}
 
-	@Test
+	/*@Test
 	public void getProduct(){
 		int id = 111;
 		Product temp = dao.getProductById(id);
@@ -172,5 +172,5 @@ public class ProductTestCase {
 		Assert.assertNotNull("Get Product", list);
 		
 		//Assert.assertEquals(10, dao.getProducts().size());
-	}
+	}*/
 }

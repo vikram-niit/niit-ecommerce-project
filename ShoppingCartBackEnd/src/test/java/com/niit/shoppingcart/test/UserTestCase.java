@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.test;
+/*package com.niit.shoppingcart.test;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -30,7 +30,7 @@ public class UserTestCase {
 	}
 	
 	
-	/*@Test
+	@Test
 	public void createUser(){
 		
 		int id = 1006;
@@ -42,10 +42,10 @@ public class UserTestCase {
 		dao.saveUser(e);
 		
 		Assert.assertNotNull("Get User", dao.getUserById(id));	
-	}*/
+	}
 	
 	
-	/*@Test
+	@Test
 	public void deleteUser(){
 		
 		int id=1000;
@@ -58,7 +58,7 @@ public class UserTestCase {
 			dao.deleteUser(temp);	
 			Assert.assertNull("delete User", dao.getUserById(id));
 		}		
-	}*/
+	}
 	
 	
 	
@@ -78,11 +78,12 @@ public class UserTestCase {
 	}
 
 
-	/*@Test
+	@Test
 	public void getUserList() {
 		Assert.assertNotNull("Get User", dao.getUsers());
 		
 		//Assert.assertEquals(10, dao.getUsers().size());
 	}
-*/
+
 }
+*/

@@ -5,6 +5,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="E:\niit\workspace\spring-webflow-samples-master\booking-mvc"/>
 			<item value="E:\niit\workspace\spring-webflow-samples-master\webflow-showcase"/>
 			<item value="E:\niit\AJKartBackendProject"/>
 		</list>

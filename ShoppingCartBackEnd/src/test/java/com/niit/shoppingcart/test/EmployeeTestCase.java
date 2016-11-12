@@ -1,4 +1,4 @@
-package com.niit.shoppingcart.test;
+/*package com.niit.shoppingcart.test;
 
 import java.util.List;
 
@@ -17,8 +17,8 @@ import com.niit.shoppingcart.dao.EmployeeDao3;
 
 public class EmployeeTestCase {
 
-	/*@Autowired
-	EmployeeDao3 dao;*/
+	@Autowired
+	EmployeeDao3 dao;
 	
 	@Autowired
 	EmployeeDAO dao;
@@ -152,3 +152,4 @@ public class EmployeeTestCase {
 		//Assert.assertEquals(10, dao.getEmployees().size());
 	}
 }
+*/

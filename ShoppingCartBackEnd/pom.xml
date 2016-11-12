@@ -66,4 +66,8 @@
 </dependency>
 
   </dependencies>
+  
+  <build>
+    <finalName>ShoppingCartBackEnd</finalName>
+  </build>
 </project>
