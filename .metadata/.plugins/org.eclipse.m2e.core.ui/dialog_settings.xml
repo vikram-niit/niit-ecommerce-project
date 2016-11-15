@@ -33,6 +33,8 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="E:\niit\workspace\blueheavenfront"/>
+			<item value="E:\niit\workspace\blueheaven"/>
 			<item value="E:\niit\workspace\niit-ecommerce-project\ShoppingCartFrontEnd"/>
 			<item value="E:\niit\workspace\niit-ecommerce-project\ShoppingCartBackEnd"/>
 		</list>

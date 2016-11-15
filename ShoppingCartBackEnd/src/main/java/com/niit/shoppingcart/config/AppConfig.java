@@ -40,7 +40,7 @@ public class AppConfig {
     dataSource.setUrl("jdbc:h2:~/test");
     dataSource.setUsername("sa");
     dataSource.setPassword("");
-   
+  
     return dataSource;
     }
     
