@@ -91,6 +91,10 @@ rel="stylesheet" />
  margin:60%;
  
  }
+ 
+ header{
+ padding-top:100px;
+ }
   </style>
 
 </head>
@@ -111,16 +115,16 @@ rel="stylesheet" />
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                 	<li>
-                        <a class="page-scroll" href="#">Home</a>
+                        <a class="page-scroll" href='<c:url value="/home"></c:url>'>Home</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href='<c:url value="/about"></c:url>'>About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href='<c:url value="/Products"></c:url>'>Products</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href='<c:url value="/contact"></c:url>'>Contact</a>
                     </li>
                     <%--  <li>
                         <a class="page-scroll" href='<c:url value="/LoginForm"></c:url>'>Login</a>
@@ -142,6 +146,7 @@ rel="stylesheet" />
     </nav>
 
     <header>
+    <div id="content">
     <c:if test="${displayHomePage }">
         <div class="header-content">
             <div class="header-content-inner">
@@ -161,13 +166,20 @@ rel="stylesheet" />
      <jsp:include page="registrationForm.jsp"></jsp:include>
      </c:if>
      
-     
-    </header>
- <c:if test="${displayProductsPage }">
+     <c:if test="${displayProductsPage }">
      <jsp:include page="products.jsp"></jsp:include>
      </c:if>
    
-
+<c:if test="${displayAboutPage }">
+     <jsp:include page="about.jsp"></jsp:include>
+     </c:if>
+     
+     <c:if test="${displayContactPage }">
+     <jsp:include page="contact.jsp"></jsp:include>
+     </c:if>
+     
+    </header>
+ </div>
     
     <section class="no-padding" id="products">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -200,6 +212,26 @@ rel="stylesheet" />
      <a href="<c:url value="/resources/img/electronicDevices/4.jpg" />" >
        <img src="<c:url value="/resources/img/electronicDevices/4.jpg" />" class="img-responsive" alt="">
     </div>
+    
+    <div class="item">
+     <a href="<c:url value="/resources/img/electronicDevices/5.jpg" />" >
+       <img src="<c:url value="/resources/img/electronicDevices/5.jpg" />" class="img-responsive" alt="">
+    </div>
+    
+    <div class="item">
+     <a href="<c:url value="/resources/img/electronicDevices/6.jpg" />" >
+       <img src="<c:url value="https://rukminim1.flixcart.com/flap/3376/560/brandtest/0c22be4686953814092555569.jpg?q=50" />" class="img-responsive" alt="">
+    </div>
+    
+    <div class="item">
+     <a href="<c:url value="/resources/img/electronicDevices/6.jpg" />" >
+       <img src="<c:url value="https://rukminim1.flixcart.com/flap/50/50/brandtest/3d6553977760090958650613.jpg?q=50" />" class="img-responsive" alt="">
+    </div>
+    
+    <div class="item">
+     <a href="<c:url value="/resources/img/electronicDevices/7.jpg" />" >
+       <img src="<c:url value="/resources/img/electronicDevices/7.jpg" />" class="img-responsive" alt="">
+    </div>
   </div>
 
   <!-- Left and right controls -->
@@ -216,71 +248,10 @@ rel="stylesheet" />
 
     
     
-    <section class="bg-primary" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">We've got what you need!</h2>
-                    <hr class="light">
-                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>              
-              
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
     
-
+<jsp:include page="footer.jsp"></jsp:include>
     
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-     <!--  <a class="navbar-brand" href="#">WebSiteName</a> -->
-    </div>
-    <ul class="nav navbar-nav">
-      <!-- <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>  -->
-       <li ><a href="#"><i class="fa fa-copyright" aria-hidden="true"></i>
-               <span>2016 NIIT LTD. </span></a> </li>
-               
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-     <!--  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
-      <li><a href="#"> <span>Follow us on: </span>
-                    <span>
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    <i class="fa fa-google-plus-official" aria-hidden="true"></i>
-                    
-                   
-                    </span></a></li>
-     
-    </ul>
-  </div>
-</nav>
+    
 
   
     <!-- jQuery -->

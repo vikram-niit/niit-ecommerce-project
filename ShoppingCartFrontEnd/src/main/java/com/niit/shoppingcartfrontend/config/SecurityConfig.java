@@ -16,7 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	/*@Override
+	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http
@@ -42,9 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.withUser("jeremy").password("57c6cbff0d421449be820763f03139eb").roles("USER").and()
 			.withUser("scott").password("942f2339bf50796de535a384f0d1af3e").roles("USER");
 		
-	}*/
+	}
 	
-	@Autowired
+/*	@Autowired
 	DataSource dataSource;
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
@@ -81,6 +81,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		  .csrf();
 	  
 	  System.out.println("endof configure");
-	}
+	}*/
 
 }
