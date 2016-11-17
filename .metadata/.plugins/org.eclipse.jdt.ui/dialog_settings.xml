@@ -69,6 +69,7 @@
 		<item value="10" key="LimitValue"/>
 	</section>
 	<section name="RenameInformationPopup">
+		<item value="2" key="snap_position"/>
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>

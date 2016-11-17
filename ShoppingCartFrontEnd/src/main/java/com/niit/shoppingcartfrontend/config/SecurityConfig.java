@@ -16,7 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Override
+/*	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http
@@ -42,9 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.withUser("jeremy").password("57c6cbff0d421449be820763f03139eb").roles("USER").and()
 			.withUser("scott").password("942f2339bf50796de535a384f0d1af3e").roles("USER");
 		
-	}
+	}*/
 	
-/*	@Autowired
+	@Autowired
 	DataSource dataSource;
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
@@ -52,10 +52,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
              System.out.println("data source:"+dataSource);
 	  auth.jdbcAuthentication().dataSource(dataSource)
 		.usersByUsernameQuery(
-			"select emailid,password,enabled from applicationuser where emailid=?")
+			"select username, password from user where username=?")
 		.authoritiesByUsernameQuery(
-			"select u1.emailid, u2.authority from applicationuser u1, userrole u2 where u1.userid = u2.userid and u1.emailid =?");
+			"select u1.username, u2.authority from user u1, userrole2 u2 where u1.id = u2.userid and u1.username=?");
 	}
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		 System.out.println("Inside the configure");
@@ -81,6 +82,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		  .csrf();
 	  
 	  System.out.println("endof configure");
-	}*/
+	}
 
 }

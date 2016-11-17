@@ -10,6 +10,7 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcart.model.UserRole;
 
 @Transactional
 @Repository("UserDAO")
@@ -18,9 +19,17 @@ public class UserDAOImpl implements UserDAO{
 	@Autowired
 	private HibernateTemplate template;
 
+		
 	public void saveUser(User user) {
-		try {
-			template.save(user);	
+		try {						
+			template.save(user);
+			
+			UserRole u = new UserRole();
+			u.setUser(user);
+			u.setAuthority("ROLE_USER");
+			template.save(u);
+			
+			
 		} catch (HibernateException e) {
 			System.out.println(e);
 		}			

@@ -1,8 +1,6 @@
 package com.niit.shoppingcartfrontend.controller;
 
-import java.util.Iterator;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,13 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.ModelAndViewDefiningException;
+
+import com.niit.shoppingcart.dao.UserDAO;
+import com.niit.shoppingcart.model.User;
 
 
 
 @Controller
 public class UserController {
 
+	@Autowired
+	private UserDAO userdao;
+	
 	@RequestMapping("/home")
 	public String home(Model model){
 		model.addAttribute("displayHomePage", true);
@@ -25,11 +28,11 @@ public class UserController {
 		return "index";
 	}
 	@RequestMapping("/LoginForm")
-	public String login(Model model){
+	public ModelAndView login(Model model){
 	
 		model.addAttribute("displayLoginPage", true);
 		
-		return "index";
+		return new ModelAndView("index", "command", new User());
 	}
 	
 	@RequestMapping("/RegistrationForm")
@@ -56,6 +59,11 @@ public class UserController {
 	public String register2(@ModelAttribute("user") User user){
 	
 		System.out.println(user);
+		
+		user.setId(3);
+		userdao.saveUser(user);
+		
+
 		
 		/*AnnotationConfigWebApplicationContext context = new 
 				AnnotationConfigWebApplicationContext();
