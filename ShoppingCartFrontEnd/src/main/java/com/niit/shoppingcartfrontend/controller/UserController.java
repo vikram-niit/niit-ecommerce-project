@@ -21,19 +21,29 @@ public class UserController {
 	@Autowired
 	private UserDAO userdao;
 	
-	@RequestMapping("/home")
+	@RequestMapping("/user/home")
 	public String home(Model model){
 		model.addAttribute("displayHomePage", true);
 		
 		return "index";
 	}
-	@RequestMapping("/LoginForm")
+	@RequestMapping("/login")
 	public ModelAndView login(Model model){
 	
 		model.addAttribute("displayLoginPage", true);
 		
 		return new ModelAndView("index", "command", new User());
 	}
+	
+	@RequestMapping("/log")
+	public ModelAndView login2(Model model){
+	
+		model.addAttribute("displayLoginPage", true);
+		
+		return new ModelAndView("index", "command", new User());
+	}
+	
+	
 	
 	@RequestMapping("/RegistrationForm")
 	public ModelAndView register(Model model){
@@ -87,11 +97,19 @@ public class UserController {
 	return "index";
 }
 	
-	@RequestMapping("/login")
+	/*@RequestMapping("/login")
 	public String login2(@RequestParam("email") String email){
 	
 		System.out.println("email="+email);
 	//model.addAttribute("displayProductsPage", true);
 	return "index";
-}
+}*/
+	
+	@RequestMapping("/admin/home")
+	public String adminHome(Model model){
+		//model.addAttribute("displayHomePage", true);
+		model.addAttribute("isAdmin", true);
+		model.addAttribute("loggedin", "true");
+		return "index";
+	}
 }

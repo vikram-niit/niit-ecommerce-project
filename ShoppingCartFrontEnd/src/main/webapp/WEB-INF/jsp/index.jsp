@@ -130,7 +130,7 @@ rel="stylesheet" />
                         <a class="page-scroll" href='<c:url value="/LoginForm"></c:url>'>Login</a>
                      </li> --%>
                      <li><a href='<c:url value="/RegistrationForm"></c:url>'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href='<c:url value="/LoginForm"></c:url>'><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href='<c:url value="/login"></c:url>'><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     
                    <!--  <li>
                         <a class="page-scroll" id="myBtn" href="#">Login</a>
@@ -147,6 +147,11 @@ rel="stylesheet" />
 
     <header>
     <div id="content">
+    
+    <c:if test="${isAdmin }">
+     <jsp:include page="admin.jsp"></jsp:include>
+     </c:if>
+    
     <c:if test="${displayHomePage }">
         <div class="header-content">
             <div class="header-content-inner">

@@ -25,7 +25,7 @@ margin-bottom:100px;
     <label class="control-label col-sm-2" for="pwd">Name:</label>
     <div class="col-sm-10"> 
       <form:input class="form-control" id="pwd" placeholder="Enter name"
-      	path="name"/>
+      	path="username"/>
     </div>
   </div>
   <div class="form-group">

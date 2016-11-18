@@ -18,7 +18,12 @@ margin-bottom:100px;
 	 <div class="header-content" id="home">
             <div class="header-content-inner">
             <h2 id="registrationPageHeading">Login Page</h2>
-               <form:form method="post" action="login" 
+            
+            <c:if test="${not empty error}">
+			<div class="error">${error}</div>
+		</c:if>
+		
+               <form:form method="post" action="j_spring_security_check" 
                class="form-horizontal">
                
     <div class="form-group">

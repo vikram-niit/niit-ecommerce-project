@@ -2,15 +2,24 @@ package com.niit.shoppingcartfrontend.config;
 
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
@@ -50,16 +59,79 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
              System.out.println("Inside the configauthentication");
              System.out.println("data source:"+dataSource);
-	  auth.jdbcAuthentication().dataSource(dataSource)
-		.usersByUsernameQuery(
+	  auth.jdbcAuthentication().dataSource(dataSource);
+	 // .withUser("niitadmin").password("niitadmin").roles("ADMIN");
+	  
+		/*.usersByUsernameQuery(
 			"select username, password from user where username=?")
 		.authoritiesByUsernameQuery(
-			"select u1.username, u2.authority from user u1, userrole2 u2 where u1.id = u2.userid and u1.username=?");
+			"select u1.username, u2.authority from user u1, userrole2 u2 where u1.id = u2.userid and u1.username=?");*/
 	}
 	
+	/*@Bean
+	public UserDetailsService userDetailsService() {
+		
+		UserDetails e = new UserDetails() {
+			
+			public boolean isEnabled() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			public boolean isCredentialsNonExpired() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			public boolean isAccountNonLocked() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			public boolean isAccountNonExpired() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			public String getUsername() {
+				// TODO Auto-generated method stub
+				return "niituser";
+			}
+			
+			public String getPassword() {
+				// TODO Auto-generated method stub
+				return "niitpassword";
+			}
+			
+			public Collection<? extends GrantedAuthority> getAuthorities() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+		List<UserDetails> users = new ArrayList<UserDetails>();
+		users.add(e);
+		
+		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(users);
+		manager.createUser(User.withUsername("user").password("password").roles("USER").build());
+		manager.createUser(User.withUsername("admin").password("password").roles("USER","ADMIN").build());
+		return manager;
+	}*/
+	
+	/*@Autowired
+	DataSource dataSource;
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth
+			.jdbcAuthentication()
+				.dataSource(dataSource)
+				.withDefaultSchema()
+				.withUser("niituser2").password("niitpassword2").roles("USER").and()
+				//.withUser("select username from user where username=?").and()
+				.withUser("admin").password("password").roles("USER", "ADMIN");
+	}*/
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		 System.out.println("Inside the configure");
+		 /*System.out.println("Inside the configure");
+		 //System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	  http.authorizeRequests()
 		.antMatchers("/user/**").access("hasRole('ROLE_USER')")
 		.and()
@@ -81,7 +153,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		  .csrf();
 	  
-	  System.out.println("endof configure");
+	  System.out.println("endof configure");*/
+		
+		http
+		.authorizeRequests()
+			//.anyRequest().authenticated()
+		.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+			.and()
+			.formLogin().defaultSuccessUrl("/home").failureUrl("/login?error").usernameParameter("username").passwordParameter("password")
+			.and()
+			  .logout().logoutSuccessUrl("/login?logout")
+			  .and()
+		.httpBasic();
+		
+		http
+		.authorizeRequests()
+			//.anyRequest().authenticated()
+		.antMatchers("/user/**").access("hasRole('ROLE_USER')")
+			.and()
+			.formLogin().defaultSuccessUrl("/home").failureUrl("/login?error").usernameParameter("username").passwordParameter("password")
+			.and()
+			  .logout().logoutSuccessUrl("/login?logout")
+			  .and()
+		.httpBasic();
 	}
+	
+	
+	
 
 }
