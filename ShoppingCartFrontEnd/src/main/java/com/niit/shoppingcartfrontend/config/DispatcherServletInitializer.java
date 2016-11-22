@@ -21,7 +21,7 @@ public class DispatcherServletInitializer  extends AbstractAnnotationConfigDispa
 			SecurityConfig.class,
 			//DataAccessConfig.class,
 			WebMvcConfig.class,
-			//WebFlowConfig.class
+			WebFlowConfig.class
 		};
 	}
 

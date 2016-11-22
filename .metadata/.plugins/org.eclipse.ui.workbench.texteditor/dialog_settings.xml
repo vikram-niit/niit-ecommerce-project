@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="WEB-INF" key="selection"/>
+		<item value="slf4j" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="slf4j"/>
 			<item value="WEB-INF"/>
 			<item value="web-inf/dispatcher-serlvet"/>
 			<item value="1 Spring WebApplicationInitializers detected on classpath"/>
@@ -15,7 +16,6 @@
 			<item value="Supplier"/>
 			<item value="Category"/>
 			<item value="category"/>
-			<item value="dao"/>
 		</list>
 		<list key="replacehistory">
 			<item value="temp"/>

@@ -129,13 +129,14 @@ placeholder="Search Products">
 <script>
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-    $http.get("http://www.w3schools.com/angular/customers.php")
-    //$http.get("/ShoppingCartFrontEnd/LoginForm")
-    .then(function (response) {$scope.names = response.data.records;});
-    $scope.products = products;
+    //$http.get("http://www.w3schools.com/angular/customers.php")
+    $http.get("/ShoppingCartFrontEnd/productList")
+    //.then(function (response) {$scope.names = response.data.records;});
+    .then(function (response) {$scope.products = response.data.records;});
+    //$scope.products = products;
 });
 
-var products = [
+/* var products = [
                 {
                 	id:1,
                 	name:"aaaa",
@@ -176,7 +177,7 @@ var products = [
                 
                 
                 ];
-
+ */
 
 
 </script>

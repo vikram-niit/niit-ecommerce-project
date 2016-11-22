@@ -23,7 +23,22 @@ margin-bottom:100px;
 			<div class="error">${error}</div>
 		</c:if>
 		
-               <form:form method="post" action="j_spring_security_check" 
+		
+		<c:if test="${param.error != null}">        
+		<p>
+			Invalid username and password.
+		</p>
+	</c:if>
+	<c:if test="${param.logout != null}">       
+		<p>
+			You have been logged out.
+		</p>
+	</c:if>
+	
+	<c:url value="/login" var="loginUrl"/>
+             <%--   <form:form method="post" action="j_spring_security_check" --%>
+             <form:form method="post" action="${loginUrl }" 
+             
                class="form-horizontal">
                
     <div class="form-group">
@@ -50,6 +65,11 @@ margin-bottom:100px;
       </div>
     </div>
   </div>
+  
+  <input type="hidden"                      
+		name="${_csrf.parameterName}"
+		value="${_csrf.token}"/>
+		
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Login</button>

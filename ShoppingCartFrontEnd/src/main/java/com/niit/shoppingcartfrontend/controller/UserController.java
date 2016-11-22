@@ -24,6 +24,7 @@ public class UserController {
 	@RequestMapping("/user/home")
 	public String home(Model model){
 		model.addAttribute("displayHomePage", true);
+		model.addAttribute("loggedin", "true");
 		
 		return "index";
 	}
@@ -31,6 +32,7 @@ public class UserController {
 	public ModelAndView login(Model model){
 	
 		model.addAttribute("displayLoginPage", true);
+		
 		
 		return new ModelAndView("index", "command", new User());
 	}

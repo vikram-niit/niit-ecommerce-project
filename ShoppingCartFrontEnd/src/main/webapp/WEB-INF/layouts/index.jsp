@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -294,7 +295,7 @@ rel="stylesheet" />
     
      <!-- Theme JavaScript(links modified -->
     <script src="<c:url value="/resources/js/creative.min.js" /> " ></script>
-    
+  	<%-- <tiles:insertAttribute name="body"></tiles:insertAttribute> --%>
   
 
 </body>

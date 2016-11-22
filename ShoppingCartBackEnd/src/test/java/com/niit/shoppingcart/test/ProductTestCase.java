@@ -54,16 +54,16 @@ public class ProductTestCase {
 		s = (Supplier) context.getBean(Supplier.class);
 		
 		c.setId(1);
-		categoryDao.saveCategory(c);
+		//categoryDao.saveCategory(c);
 		
 		s.setId(1);
-		supplierDao.saveSupplier(s);
+		//supplierDao.saveSupplier(s);
 		
 		p.setCategory(c);
 		p.setSupplier(s);
 	}
 
-	/*@Test
+	@Test
 	public void getProduct(){
 		int id = 111;
 		Product temp = dao.getProductById(id);
@@ -103,7 +103,7 @@ public class ProductTestCase {
 		Assert.assertNotNull("Create product", dao.getProductById(id));
 	}
 	
-	@Test
+	/*@Test
 	public void deleteProduct(){
 		
 		int id=2000;

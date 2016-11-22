@@ -162,7 +162,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.formLogin().defaultSuccessUrl("/home").failureUrl("/login?error").usernameParameter("username").passwordParameter("password")
 			.and()
-			  .logout().logoutSuccessUrl("/login?logout")
+			  .logout().logoutSuccessUrl("/login?logout").invalidateHttpSession(true)
 			  .and()
 		.httpBasic();
 		
@@ -171,7 +171,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			//.anyRequest().authenticated()
 		.antMatchers("/user/**").access("hasRole('ROLE_USER')")
 			.and()
-			.formLogin().defaultSuccessUrl("/home").failureUrl("/login?error").usernameParameter("username").passwordParameter("password")
+			.formLogin()/*.loginPage("/login").loginProcessingUrl("/processLogin").permitAll()*/
+			.defaultSuccessUrl("/home").failureUrl("/login?error").usernameParameter("username").passwordParameter("password")
 			.and()
 			  .logout().logoutSuccessUrl("/login?logout")
 			  .and()
