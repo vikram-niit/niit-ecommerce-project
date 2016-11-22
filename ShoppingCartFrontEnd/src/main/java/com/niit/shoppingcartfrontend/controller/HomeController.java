@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.niit.shoppingcart.dao.CategoryDAO;
@@ -25,11 +26,24 @@ public class HomeController {
 	
 	@Autowired
 	Supplier supplier;
-	@RequestMapping("/home")
-	public String home(HttpSession session){
+	
+	@RequestMapping("/")
+	public String home(Model model, HttpSession session){
 		
 		session.setAttribute("categories", categorydao.getCategories());
+		session.setAttribute("displayProductMenu", true);
+		session.setAttribute("category", category);
+		session.setAttribute("categories", categorydao.getCategories());
 		
-		return "admin/products";
+		/*model.addAttribute("displayProductMenu", true);
+		model.addAttribute("category", category);
+		model.addAttribute("categories", categorydao.getCategories());*/
+		
+		model.addAttribute("displayHomePage", true);
+		model.addAttribute("loggedin", "true");
+		
+		
+		return "admin/categories";
 	}
+	
 }

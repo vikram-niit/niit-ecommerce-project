@@ -135,14 +135,17 @@ rel="stylesheet" />
                     </c:if>
                     
                       <c:if test="${loggedin == true}">                     
-      <li><a href='<c:url value="/login"></c:url>'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li>
+      <c:url value="/logout" var="logoutUrl"/>
+            
+             <form method="post" action="${logoutUrl }" >
+      
+    <input type="submit" value="Log out" />
+   <%--  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>. --%>
+		</form>
+      <a href='<c:url value="/logout"></c:url>'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </c:if>
-                   <!--  <li>
-                        <a class="page-scroll" id="myBtn" href="#">Login</a>
-                       Trigger the modal with a button
-  <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
-                       
-                    </li> -->
+                  
                     
                   
                 </ul>
@@ -174,6 +177,8 @@ rel="stylesheet" />
      <jsp:include page="loginForm.jsp"></jsp:include>
      </c:if>
      
+    
+     
      <c:if test="${displayRegistrationForm }">
      <jsp:include page="registrationForm.jsp"></jsp:include>
      </c:if>
@@ -190,6 +195,9 @@ rel="stylesheet" />
      <jsp:include page="contact.jsp"></jsp:include>
      </c:if>
      
+     <c:if test="${displayProductMenu }">
+     <jsp:include page="admin/products.jsp"></jsp:include>
+     </c:if>
     </header>
  </div>
     

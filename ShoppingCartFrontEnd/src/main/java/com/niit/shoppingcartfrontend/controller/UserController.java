@@ -28,6 +28,9 @@ public class UserController {
 		
 		return "index";
 	}
+	
+	
+	
 	@RequestMapping("/login")
 	public ModelAndView login(Model model){
 	

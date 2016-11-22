@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,12 +25,13 @@ margin-bottom:100px;
 		</c:if>
 		
 		
-		<c:if test="${param.error != null}">        
-		<p>
+		<c:if test="${param.error!=null}">        
+		<p style="color:red;">
 			Invalid username and password.
 		</p>
 	</c:if>
-	<c:if test="${param.logout != null}">       
+	 
+	<c:if test="${param.logout!=null}">       
 		<p>
 			You have been logged out.
 		</p>
@@ -37,23 +39,27 @@ margin-bottom:100px;
 	
 	<c:url value="/login" var="loginUrl"/>
              <%--   <form:form method="post" action="j_spring_security_check" --%>
-             <form:form method="post" action="${loginUrl }" 
+             <form method="post" action="${loginUrl }" 
              
                class="form-horizontal">
                
     <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Name:</label>
     <div class="col-sm-10"> 
-      <form:input class="form-control" id="pwd" placeholder="Enter name"
-      	path="username"/>
+      <%-- <form:input class="form-control" id="pwd" placeholder="Enter name"
+      	path="username"/> --%>
+      	<input class="form-control" id="pwd" placeholder="Enter name"
+      	name="username"/>
     </div>
   </div>
   
   <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Password:</label>
     <div class="col-sm-10"> 
-      <form:input type="password" class="form-control" id="pwd" 
-      placeholder="Enter password" path="password"/>
+      <%-- <form:input type="password" class="form-control" id="pwd" 
+      placeholder="Enter password" path="password"/> --%>
+       <input type="password" class="form-control" id="pwd" 
+      placeholder="Enter password" name="password"/>
     </div>
   </div>
   
@@ -75,7 +81,7 @@ margin-bottom:100px;
       <button type="submit" class="btn btn-default">Login</button>
     </div>
   </div>
-</form:form>
+</form>
             </div>
         </div>
 </body>

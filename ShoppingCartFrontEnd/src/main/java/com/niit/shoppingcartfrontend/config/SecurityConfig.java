@@ -128,9 +128,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				//.withUser("select username from user where username=?").and()
 				.withUser("admin").password("password").roles("USER", "ADMIN");
 	}*/
-	@Override
+	/*@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		 /*System.out.println("Inside the configure");
+		 System.out.println("Inside the configure");
 		 //System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	  http.authorizeRequests()
 		.antMatchers("/user/**").access("hasRole('ROLE_USER')")
@@ -153,7 +153,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		  .csrf();
 	  
-	  System.out.println("endof configure");*/
+	  System.out.println("endof configure");
+		
+		
+	}*/
+	
+	/*@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		 
 		
 		http
 		.authorizeRequests()
@@ -171,12 +178,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			//.anyRequest().authenticated()
 		.antMatchers("/user/**").access("hasRole('ROLE_USER')")
 			.and()
-			.formLogin()/*.loginPage("/login").loginProcessingUrl("/processLogin").permitAll()*/
+			.formLogin().loginPage("/login").loginProcessingUrl("/processLogin").permitAll()
 			.defaultSuccessUrl("/home").failureUrl("/login?error").usernameParameter("username").passwordParameter("password")
 			.and()
 			  .logout().logoutSuccessUrl("/login?logout")
 			  .and()
 		.httpBasic();
+	}*/
+	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+        .authorizeRequests()
+        .antMatchers("/resources/**").permitAll()
+            .anyRequest().authenticated() 
+            .and()
+        .formLogin().loginPage("/login").permitAll()
+        .defaultSuccessUrl("/admin/home");                     
+            /*.and()
+        .httpBasic();    */ 
+		
+		
 	}
 	
 	
