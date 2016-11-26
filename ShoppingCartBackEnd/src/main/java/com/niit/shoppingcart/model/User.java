@@ -23,6 +23,7 @@ public class User {
 	private String password;
 	private Integer mobile;
 	private String address;	
+	private Boolean enabled;
 //	private String role;
 	
 	

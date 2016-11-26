@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<h1>This is admin page</h1>
+	<h2>finish.jsp</h2>
 </body>
 </html>

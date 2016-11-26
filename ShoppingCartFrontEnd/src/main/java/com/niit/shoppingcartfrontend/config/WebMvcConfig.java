@@ -15,6 +15,8 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
 import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
 import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
@@ -37,13 +39,32 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Autowired
 	private WebFlowConfig webFlowConfig;
 
+	@Bean(name="flows")
+	public CheckoutFlowHandler handler(){
+		return new CheckoutFlowHandler();
+	}
+	
+	
+	@Bean
+	public ViewResolver viewResolver2(){
+		UrlBasedViewResolver resolver = 
+				new UrlBasedViewResolver();
+		resolver.setViewClass(JstlView.class);
+		resolver.setPrefix("/WEB-INF/flows/");
+		resolver.setSuffix(".jsp");
+		resolver.setOrder(4);
+		
+		return resolver;
+	}
+	
+	
 	@Bean
 	public ViewResolver viewResolver(){
 		InternalResourceViewResolver resolver = 
 				new InternalResourceViewResolver();
 		resolver.setPrefix("/WEB-INF/jsp/");
 		resolver.setSuffix(".jsp");
-		resolver.setOrder(-1);
+		resolver.setOrder(1);
 		
 		return resolver;
 	}
@@ -85,7 +106,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		return handlerAdapter;
 	}
 	
-	@Bean
+	/*@Bean
 	public AjaxThymeleafViewResolver tilesViewResolver() {
 		AjaxThymeleafViewResolver viewResolver = new AjaxThymeleafViewResolver();
 		viewResolver.setViewClass(FlowAjaxThymeleafTilesView.class);
@@ -95,8 +116,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		
 		return viewResolver;
 	}
-	
-	@Bean
+	*/
+	/*@Bean
 	public AjaxUrlBasedViewResolver tilesViewResolver2() {
 		AjaxUrlBasedViewResolver viewResolver = new AjaxUrlBasedViewResolver();
 		viewResolver.setViewClass(FlowAjaxTilesView.class);
@@ -106,8 +127,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		
 		return viewResolver;
 	}
-
-	@Bean
+*/
+	/*@Bean
 	public SpringTemplateEngine templateEngine(){
 
 		Set<IDialect> dialects = new LinkedHashSet<IDialect>();
@@ -119,28 +140,28 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		templateEngine.setTemplateResolver(templateResolver());
 		templateEngine.setAdditionalDialects(dialects);
 		return templateEngine;
-	}
+	}*/
 
-	@Bean
+	/*@Bean
 	public ServletContextTemplateResolver templateResolver() {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/");
 		//templateResolver.setTemplateMode("HTML5");
 		return templateResolver;
-	}
+	}*/
 
-	@Bean
-	public ThymeleafTilesConfigurer tilesConfigurer() {
-		ThymeleafTilesConfigurer configurer = new ThymeleafTilesConfigurer();
-		configurer.setDefinitions("/WEB-INF/**/views.xml");
-		return configurer;
-	}
+	//@Bean
+	//public ThymeleafTilesConfigurer tilesConfigurer() {
+	//	ThymeleafTilesConfigurer configurer = new ThymeleafTilesConfigurer();
+	//	configurer.setDefinitions("/WEB-INF/**/views.xml");
+	//	return configurer;
+	//}
 	
-	@Bean
-	public TilesConfigurer tilesConfigurer2() {
-		TilesConfigurer configurer = new TilesConfigurer();
-		configurer.setDefinitions("/WEB-INF/**/views.xml");
-		return configurer;
-	}
+	//@Bean
+	//public TilesConfigurer tilesConfigurer2() {
+	//	TilesConfigurer configurer = new TilesConfigurer();
+	//	configurer.setDefinitions("/WEB-INF/**/views.xml");
+	//	return configurer;
+	//}
 	
 }

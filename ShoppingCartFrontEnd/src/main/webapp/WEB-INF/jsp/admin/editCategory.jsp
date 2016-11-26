@@ -22,7 +22,7 @@
     <label class="control-label col-sm-2" for="pwd">Category id:</label>
     <div class="col-sm-10"> 
       <form:input class="form-control" id="pwd" placeholder="Enter id"
-      	path="id" value="${category.id }"/>
+      	path="id" value="${category.id }" readonly="true"/>
     </div>
   </div>
                

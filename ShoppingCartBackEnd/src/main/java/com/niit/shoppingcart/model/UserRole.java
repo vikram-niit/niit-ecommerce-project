@@ -19,7 +19,7 @@ public class UserRole {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name="userid", referencedColumnName="Id", nullable=false)
+	@JoinColumn(name="userid", nullable=false)
 	private User user;
 	private String authority;	
 	

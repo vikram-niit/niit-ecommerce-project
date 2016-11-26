@@ -5,9 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<style>
+#footer{
+margin-top:50px;
+}
+</style>
+
 </head>
 <body>
 
+<div id="footer">
 		<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -37,6 +45,6 @@
     </ul>
   </div>
 </nav>
-
+</div>
 </body>
 </html>

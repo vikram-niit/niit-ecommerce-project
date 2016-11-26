@@ -59,8 +59,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
              System.out.println("Inside the configauthentication");
              System.out.println("data source:"+dataSource);
-	  auth.jdbcAuthentication().dataSource(dataSource);
-	 // .withUser("niitadmin").password("niitadmin").roles("ADMIN");
+	  auth.jdbcAuthentication().dataSource(dataSource)
+	//  .withUser("niitadmin").password("niitadmin").roles("ADMIN");
+	  
+	  /*.usersByUsernameQuery(
+		"select username,password,enabled from users where username = ?")
+	.authoritiesByUsernameQuery(
+		"select username,authority from authorities where username = ?");*/
+	  
+	  .usersByUsernameQuery(
+		"select username, password, enabled from user where username=?")
+	.authoritiesByUsernameQuery(
+		"select u1.username, u2.authority from user u1, userrole2 u2 where u1.id = u2.userid and u1.username=?");
 	  
 		/*.usersByUsernameQuery(
 			"select username, password from user where username=?")
@@ -191,13 +201,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
         .authorizeRequests()
         .antMatchers("/resources/**").permitAll()
+        //.antMatchers("/flows/**").permitAll()
+        .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
             .anyRequest().authenticated() 
             .and()
         .formLogin().loginPage("/login").permitAll()
-        .defaultSuccessUrl("/admin/home");                     
+        .defaultSuccessUrl("/admin/home")
+        .and()
+        .logout().permitAll();
+        
+		
             /*.and()
         .httpBasic();    */ 
-		
+		http.csrf().disable();
 		
 	}
 	

@@ -22,6 +22,13 @@ public class CategoryController {
 	@Autowired
 	Category category;
 	
+	@RequestMapping("/admin/manageCategories")
+	public ModelAndView manageCategories(Model model, HttpSession session){		
+		
+		model.addAttribute("displayManageCategoriesPage", true);
+		return new ModelAndView("index");
+	}
+	
 	@RequestMapping("/admin/addCategory")
 	public ModelAndView addCategory(Model model, HttpSession session){		
 		
@@ -75,10 +82,21 @@ public class CategoryController {
 	
 	@RequestMapping("/admin/saveCategory")
 	public ModelAndView saveCategory(@ModelAttribute("category") Category category, Model model, HttpSession session){		
+		Integer id = category.getId();
 		
+		
+		if(categorydao.getCategoryById(id)!=null)
+		{
+			model.addAttribute("userAlreadyExists", true);
+			model.addAttribute("displayCreateCategoryForm", true);
+			model.addAttribute("displayErrorMessage", "Category with specified id already exists");
+		}
+		else
+		{
 		categorydao.saveCategory(category);
 		model.addAttribute("displayCreateCategoryForm", false);
 		session.setAttribute("categories", categorydao.getCategories());
+		}
 		return new ModelAndView("admin/categories", "command", category);
 	}
 }

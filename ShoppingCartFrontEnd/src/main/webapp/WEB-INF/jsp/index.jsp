@@ -101,78 +101,18 @@ rel="stylesheet" />
 
 <body id="page-top">
   
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                	<li>
-                        <a class="page-scroll" href='<c:url value="/home"></c:url>'>Home</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href='<c:url value="/about"></c:url>'>About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href='<c:url value="/Products"></c:url>'>Products</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href='<c:url value="/contact"></c:url>'>Contact</a>
-                    </li>
-                    <%--  <li>
-                        <a class="page-scroll" href='<c:url value="/LoginForm"></c:url>'>Login</a>
-                     </li> --%>
-                     <c:if test="${loggedin == false}">
-                     <li><a href='<c:url value="/RegistrationForm"></c:url>'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href='<c:url value="/login"></c:url>'><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </c:if>
-                    
-                      <c:if test="${loggedin == true}">                     
-      <li>
-      <c:url value="/logout" var="logoutUrl"/>
-            
-             <form method="post" action="${logoutUrl }" >
-      
-    <input type="submit" value="Log out" />
-   <%--  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>. --%>
-		</form>
-      <a href='<c:url value="/logout"></c:url>'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                    </c:if>
-                  
-                    
-                  
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+    <jsp:include page="menubar.jsp"/>
 
     <header>
     <div id="content">
-    
+    <a href="flows">Start flow</a>
     <c:if test="${isAdmin }">
-     <jsp:include page="admin.jsp"></jsp:include>
+     <jsp:include page="./admin/admin.jsp"></jsp:include>
      </c:if>
+     
     
-    <c:if test="${displayHomePage }">
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
-                <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
-            </div>
-        </div>
-        </c:if>
-        
+    
+    
         <c:if test="${displayLoginPage }">
      <jsp:include page="loginForm.jsp"></jsp:include>
      </c:if>
@@ -195,79 +135,22 @@ rel="stylesheet" />
      <jsp:include page="contact.jsp"></jsp:include>
      </c:if>
      
-     <c:if test="${displayProductMenu }">
-     <jsp:include page="admin/products.jsp"></jsp:include>
-     </c:if>
+     
     </header>
  </div>
     
-    <section class="no-padding" id="products">
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-  </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <a href="<c:url value="/resources/img/electronicDevices/1.jpg" />" >
-       <img src="<c:url value="/resources/img/electronicDevices/1.jpg" />" class="img-responsive" alt="">
-    </div>
 
-    <div class="item">
-      <a href="<c:url value="/resources/img/electronicDevices/2.jpg" />" >
-       <img src="<c:url value="/resources/img/electronicDevices/2.jpg" />" class="img-responsive" alt="">
-    </div>
-
-    <div class="item">
-       <a href="<c:url value="/resources/img/electronicDevices/3.jpg" />" >
-       <img src="<c:url value="/resources/img/electronicDevices/3.jpg" />" class="img-responsive" alt="">
-    </div>
-
-    <div class="item">
-     <a href="<c:url value="/resources/img/electronicDevices/4.jpg" />" >
-       <img src="<c:url value="/resources/img/electronicDevices/4.jpg" />" class="img-responsive" alt="">
+    <div>
+    	 <c:if test="${displayManageCategoriesPage }">
+     <jsp:include page="admin/categories.jsp"></jsp:include>
+     </c:if>
     </div>
     
-    <div class="item">
-     <a href="<c:url value="/resources/img/electronicDevices/5.jpg" />" >
-       <img src="<c:url value="/resources/img/electronicDevices/5.jpg" />" class="img-responsive" alt="">
-    </div>
-    
-    <div class="item">
-     <a href="<c:url value="/resources/img/electronicDevices/6.jpg" />" >
-       <img src="<c:url value="https://rukminim1.flixcart.com/flap/3376/560/brandtest/0c22be4686953814092555569.jpg?q=50" />" class="img-responsive" alt="">
-    </div>
-    
-    <div class="item">
-     <a href="<c:url value="/resources/img/electronicDevices/6.jpg" />" >
-       <img src="<c:url value="https://rukminim1.flixcart.com/flap/50/50/brandtest/3d6553977760090958650613.jpg?q=50" />" class="img-responsive" alt="">
-    </div>
-    
-    <div class="item">
-     <a href="<c:url value="/resources/img/electronicDevices/7.jpg" />" >
-       <img src="<c:url value="/resources/img/electronicDevices/7.jpg" />" class="img-responsive" alt="">
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-    </section>
-
-    
-    
+    <c:if test="${displayHomePage }">
+       <jsp:include page="home.jsp"/>
+        </c:if>
+        
     
 <jsp:include page="footer.jsp"></jsp:include>
     

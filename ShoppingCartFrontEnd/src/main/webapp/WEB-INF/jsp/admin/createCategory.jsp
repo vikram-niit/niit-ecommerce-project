@@ -13,7 +13,15 @@
 <title>Insert title here</title>
 </head> --%>
 <body>
+
+
 		<h2 id="registrationPageHeading">Create Product</h2>
+		
+		<c:if test="${userAlreadyExists }">
+     <div class="alert alert-danger">
+ <strong><c:out value="${displayErrorMessage }"/></strong>
+</div>
+     </c:if>
 		<c:url value="/admin/saveCategory" var="saveURL"/>
                <form:form method="post" action="${saveURL}"
                class="form-horizontal">

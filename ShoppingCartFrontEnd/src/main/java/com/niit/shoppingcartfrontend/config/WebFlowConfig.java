@@ -22,7 +22,7 @@ public class WebFlowConfig extends AbstractFlowConfiguration{
 	@Bean
 	public FlowDefinitionRegistry flowRegistry(){
 		return getFlowDefinitionRegistryBuilder()
-				.setBasePath("/WEB-INF")
+				.setBasePath("/WEB-INF")				
 				.addFlowLocationPattern("/**/flow.xml").build();
 	}
 	
@@ -44,7 +44,7 @@ public class WebFlowConfig extends AbstractFlowConfiguration{
 	@Bean
 	public MvcViewFactoryCreator mvcViewFactoryCreator() {
 		MvcViewFactoryCreator factoryCreator = new MvcViewFactoryCreator();
-		factoryCreator.setViewResolvers(Arrays.<ViewResolver>asList(this.webMvcConfig.tilesViewResolver()));
+//		factoryCreator.setViewResolvers(Arrays.<ViewResolver>asList(this.webMvcConfig.tilesViewResolver()));
 		factoryCreator.setUseSpringBeanBinding(true);
 		return factoryCreator;
 	}

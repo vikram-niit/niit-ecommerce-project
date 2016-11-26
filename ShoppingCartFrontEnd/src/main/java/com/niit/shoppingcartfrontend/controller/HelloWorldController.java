@@ -41,5 +41,20 @@ public class HelloWorldController {
 		model.addAttribute("displayContactPage", true);
 		return "index";
 	}
+	
+	@RequestMapping("/flow")
+	public String viewResolverTest(){
+		return "welcome";
+	}
+	
+	@RequestMapping("/tiles")
+	public String tilesViewResolverTest(){
+		return "checkout";
+	}
+	
+	@RequestMapping("/step2")
+	public String webflow(){
+		return "step2";
+	}
 
 }
