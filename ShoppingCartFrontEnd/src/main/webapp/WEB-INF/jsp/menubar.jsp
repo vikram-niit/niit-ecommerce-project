@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+        <div id="main-nav" class="container-fluid" >
         
        
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -10,10 +10,12 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                 <c:if test="${loggedin == true}">    
+                 <c:if test="${loggedin == true}">   
+                  <ul class="nav navbar-nav "> 
                  <li>
                         <a class="page-scroll" href="#">Welcome <c:out value="${userDetails.username }"></c:out></a>
       </li>
+      </ul>
       </c:if>
               <!--   <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a> -->
             </div>

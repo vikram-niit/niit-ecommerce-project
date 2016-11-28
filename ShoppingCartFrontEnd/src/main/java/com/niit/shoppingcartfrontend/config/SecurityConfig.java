@@ -210,6 +210,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
         .logout().permitAll();
         
+		http
+        .authorizeRequests()
+        .antMatchers("/resources/**").permitAll()
+        //.antMatchers("/flows/**").permitAll()
+        .antMatchers("/user/**").access("hasRole('ROLE_USER')")
+            .anyRequest().authenticated() 
+            .and()
+        .formLogin().loginPage("/login").permitAll()
+        .defaultSuccessUrl("/")
+        .and()
+        .logout().permitAll();
 		
             /*.and()
         .httpBasic();    */ 

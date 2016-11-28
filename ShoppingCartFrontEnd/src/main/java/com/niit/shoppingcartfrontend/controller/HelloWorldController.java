@@ -28,6 +28,17 @@ public class HelloWorldController {
 		return "hello";
 	}
 	
+	@RequestMapping("/home")
+	public String home(){
+		
+		
+		
+		List<Category> categories = dao.getCategories();
+		
+		System.out.println(categories);
+		return "index";
+	}
+	
 	@RequestMapping("/about")
 	public String about(Model model){
 		

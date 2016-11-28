@@ -11,9 +11,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="Product")
@@ -34,11 +36,16 @@ public class Product {
 	
 	private String description;
 	
+	@Transient
+	private MultipartFile image;
+	
 	/*@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(name="product_supplier", joinColumns={@JoinColumn(referencedColumnName="id")}
 			, inverseJoinColumns={@JoinColumn(referencedColumnName="id")})
 	private Set<Supplier> suppliers;*/
 	
+	
+
 	@ManyToOne
 	@JoinColumn(name="supplierId", referencedColumnName="id", nullable=false)
 	private Supplier supplier;
@@ -92,6 +99,15 @@ public class Product {
 
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
+	}
+	
+	
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
 	}
 	
 	/*public Set<Supplier> getSuppliers() {

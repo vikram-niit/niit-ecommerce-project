@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -10,54 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
-<style>
 
-ul#categoryList li{
-
-list-style-type:none;
-
-}
-/* li,li a{
-	font-size:30px;
-	font-family:Arial, sans-serif, helvetica;
-	
-	text-decoration:none;
-	margin:20px;	
-	
-} */
-
-table, td, th{
-font-size:20px;
-}
-
-td a{
-
-text-decoration:none;
-color:blue;
-font-style:italic;
-}
-table{
-border: 1px solid black;
-width:100%;
-}
-td{
-
-padding:15px;
-border-bottom:1px solid #ddd;
-font-size:15px;
-
-}
-tr:hover {background-color: #f5f5f5}
-tr:nth-child(even) {background-color: #f2f2f2}
-h2{
-text-align:center;
-}
-
-#displayCategory{
-margin:20px;
-}
-
-</style>
 </head>
 <body>
 		<h2>Manage Categories</h2>
@@ -89,6 +43,51 @@ margin:20px;
 			</c:forEach>
 		</ul> --%>
 		
+		
+		
+				<c:if test="${displayCategoryDetails }">
+     		<table class="table">
+     			<tr>
+     			<td><strong>Category Id:</strong></td>
+     			<td>${category.id }</td>
+     			
+     			
+     			<td><strong>Category Name:</strong></td>
+     			<td>${category.name }</td>
+     			
+     			
+     			<td><strong>Category Description:</strong></td>
+     			<td>${category.description }</td>
+     			</tr>
+     		</table>
+     		
+     		
+     
+    
+     		
+     		<%-- <div id="displayCategory">
+     		<h2>Category ${category.id }</h2>
+  <div class="list-group">
+    <a href="#" class="list-group-item active">
+      <h4 class="list-group-item-heading">Category Id</h4>
+      <p class="list-group-item-text">${category.id }</p>
+    </a>
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Category Name:</h4>
+      <p class="list-group-item-text">${category.name }</p>
+    </a>
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Category Description:</h4>
+      <p class="list-group-item-text">${category.description }</p>
+    </a>
+  </div>
+  </div> --%>
+     </c:if>
+		
+	 <c:if test="${displayEditCategoryForm }">
+     <jsp:include page="./editCategory.jsp"></jsp:include>
+     </c:if>
+     
 		<table>
 		<c:forEach items="${categories }" var="category">
 				<tr>
@@ -122,49 +121,15 @@ margin:20px;
 		</c:forEach>
 			
 		</table>
+	
 		
-		<c:if test="${displayCategoryDetails }">
-<%--      		<table class="table">
-     			<tr>
-     			<td>Category Id:</td>
-     			<td>${category.id }</td>
-     			</tr>
-     			<tr>
-     			<td>Category Name:</td>
-     			<td>${category.name }</td>
-     			</tr>
-     			<tr>
-     			<td>Category Description:</td>
-     			<td>${category.description }</td>
-     			</tr>
-     		</table> --%>
-     		
-     		<div id="displayCategory">
-     		<h2>Category ${category.id }</h2>
-  <div class="list-group">
-    <a href="#" class="list-group-item active">
-      <h4 class="list-group-item-heading">Category Id</h4>
-      <p class="list-group-item-text">${category.id }</p>
-    </a>
-    <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Category Name:</h4>
-      <p class="list-group-item-text">${category.name }</p>
-    </a>
-    <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Category Description:</h4>
-      <p class="list-group-item-text">${category.description }</p>
-    </a>
-  </div>
-  </div>
-     </c:if>
 		
-		<c:if test="${displayCreateCategoryForm }">
+		
+<c:if test="${displayCreateCategoryForm }">
      <jsp:include page="./createCategory.jsp"></jsp:include>
      </c:if>
-     
-     <c:if test="${displayEditCategoryForm }">
-     <jsp:include page="./editCategory.jsp"></jsp:include>
-     </c:if>
+		
+		
 		
 		<%-- <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example

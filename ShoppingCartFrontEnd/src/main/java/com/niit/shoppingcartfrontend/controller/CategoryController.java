@@ -26,28 +26,35 @@ public class CategoryController {
 	public ModelAndView manageCategories(Model model, HttpSession session){		
 		
 		model.addAttribute("displayManageCategoriesPage", true);
+		
 		return new ModelAndView("index");
 	}
 	
 	@RequestMapping("/admin/addCategory")
 	public ModelAndView addCategory(Model model, HttpSession session){		
 		
+		model.addAttribute("displayManageCategoriesPage", true);
 		model.addAttribute("displayCreateCategoryForm", true);
-		return new ModelAndView("admin/categories", "command", new Category());
+		
+		return new ModelAndView("index", "command", new Category());
 	}
 	
 	@RequestMapping("/admin/readCategory/{id}")
 	public String readCategory(@PathVariable int id, Model model, HttpSession session){
 				
+		model.addAttribute("displayManageCategoriesPage", true);
+		
 		session.setAttribute("categories", categorydao.getCategories());
 		model.addAttribute("category", categorydao.getCategoryById(id));
 		model.addAttribute("displayCategoryDetails", true);
 		
-		return "admin/categories";
+		return "index";
 	}
 	
 	@RequestMapping("/admin/updateCategory/{id}")
 	public ModelAndView editCategory(@PathVariable int id, Model model, HttpSession session){
+		
+		model.addAttribute("displayManageCategoriesPage", true);
 		
 		category.setId(id);
 		
@@ -55,7 +62,7 @@ public class CategoryController {
 		session.setAttribute("categories", categorydao.getCategories());
 		
 		model.addAttribute("displayEditCategoryForm", true);
-		return new ModelAndView("admin/categories", "command", new Category());
+		return new ModelAndView("index", "command", new Category());
 		
 		
 	}
@@ -63,27 +70,33 @@ public class CategoryController {
 	@RequestMapping("/admin/updateCategory")
 	public ModelAndView updateCategory(@ModelAttribute("category") Category category, Model model, HttpSession session){		
 		
+		model.addAttribute("displayManageCategoriesPage", true);
+		
 		categorydao.updateCategory(category);
 		model.addAttribute("displayCreateCategoryForm", false);
 		session.setAttribute("categories", categorydao.getCategories());
-		return new ModelAndView("admin/categories", "command", category);
+		return new ModelAndView("index", "command", category);
 	}
 	
 	@RequestMapping("/admin/deleteCategory/{id}")
 	public String deleteCategory(@PathVariable int id, Model model, HttpSession session){
+		
+		model.addAttribute("displayManageCategoriesPage", true);
+		
 		
 		category.setId(id);
 		categorydao.deleteCategory(category);
 		
 		session.setAttribute("categories", categorydao.getCategories());
 		
-		return "admin/categories";
+		return "index";
 	}
 	
 	@RequestMapping("/admin/saveCategory")
 	public ModelAndView saveCategory(@ModelAttribute("category") Category category, Model model, HttpSession session){		
 		Integer id = category.getId();
 		
+		model.addAttribute("displayManageCategoriesPage", true);
 		
 		if(categorydao.getCategoryById(id)!=null)
 		{
@@ -97,6 +110,6 @@ public class CategoryController {
 		model.addAttribute("displayCreateCategoryForm", false);
 		session.setAttribute("categories", categorydao.getCategories());
 		}
-		return new ModelAndView("admin/categories", "command", category);
+		return new ModelAndView("index", "command", category);
 	}
 }

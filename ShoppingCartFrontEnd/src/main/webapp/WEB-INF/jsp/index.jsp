@@ -46,8 +46,8 @@ rel="stylesheet" />
     <!-- <link href="/resources/css/creative.min.css" rel="stylesheet"> -->
 
 	<!-- Theme CSS(links modified) -->
-	<link href="<c:url value="/resources/css/creative.min.css" />" rel="stylesheet" type="text/css" />	
-	
+	<%-- <link href="<c:url value="/resources/css/creative.min.css" />" rel="stylesheet" type="text/css" /> --%>	
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/main.css" />" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -95,17 +95,27 @@ rel="stylesheet" />
  header{
  padding-top:100px;
  }
+ 
+ 
+ #div1, #div2, #footer{
+ //border: 1px solid red;
+ padding:10px;
+ //#ecf0f1(grey), #2c3e50(dark-blue), #f9f9f9(light-grey), #18bc9c(lightgreen), #e74c3c(red), #3498db(light-blue);
+ }
+ 
+ 
   </style>
 
 </head>
 
 <body id="page-top">
-  
+  <div id="div1" class="jumbotron">
     <jsp:include page="menubar.jsp"/>
 
-    <header>
+  <!--   <header> -->
+  <div id="div2">
     <div id="content">
-    <a href="flows">Start flow</a>
+   <!--  <a href="flows">Start flow</a> -->
     <c:if test="${isAdmin }">
      <jsp:include page="./admin/admin.jsp"></jsp:include>
      </c:if>
@@ -136,26 +146,32 @@ rel="stylesheet" />
      </c:if>
      
      
-    </header>
+    <!-- </header> -->
  </div>
     
 
 
-    <div>
-    	 <c:if test="${displayManageCategoriesPage }">
-     <jsp:include page="admin/categories.jsp"></jsp:include>
-     </c:if>
-    </div>
+
+    
     
     <c:if test="${displayHomePage }">
        <jsp:include page="home.jsp"/>
         </c:if>
         
-    
-<jsp:include page="footer.jsp"></jsp:include>
-    
+        <c:if test="${displayManageCategories == true }">
+			<jsp:include page="categories.jsp"/>
+		</c:if>
     
 
+</div>
+
+   
+    
+</div>
+
+<div id="footer">
+<jsp:include page="footer.jsp"></jsp:include>
+</div> 
   
     <!-- jQuery -->
   <!--   <script src="vendor/jquery/jquery.min.js"></script> -->

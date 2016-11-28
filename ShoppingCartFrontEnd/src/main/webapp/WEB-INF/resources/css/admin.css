@@ -1,0 +1,50 @@
+@CHARSET "ISO-8859-1";
+ul#categoryList li{
+
+list-style-type:none;
+
+}
+/* li,li a{
+	font-size:30px;
+	font-family:Arial, sans-serif, helvetica;
+	
+	text-decoration:none;
+	margin:20px;	
+	
+} */
+
+table, td, th{
+font-size:20px;
+}
+
+td a{
+
+text-decoration:none;
+color:blue;
+font-style:italic;
+}
+table{
+border: 1px solid black;
+width:100%;
+}
+td{
+
+padding:15px;
+border-bottom:1px solid #ddd;
+font-size:15px;
+
+}
+tr:hover {background-color: #f5f5f5}
+tr:nth-child(even) {background-color: #f2f2f2}
+h2{
+text-align:center;
+}
+
+#displayCategory{
+margin:20px;
+}
+
+
+#manage-list{
+	margin-bottom:20px;
+}

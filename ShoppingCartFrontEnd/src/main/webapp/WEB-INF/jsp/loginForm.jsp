@@ -12,6 +12,7 @@
 
 h2#registrationPageHeading{
 margin-bottom:100px;
+text-align:center;
 }
 </style>
 </head>
