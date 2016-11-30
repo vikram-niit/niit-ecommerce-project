@@ -57,7 +57,7 @@ public class SupplierDAOImpl implements SupplierDAO{
 		}		
 	}
 
-	public List<Supplier> getCategories() {
+	public List<Supplier> getSuppliers() {
 		
 		List<Supplier> list = null;
 		try {

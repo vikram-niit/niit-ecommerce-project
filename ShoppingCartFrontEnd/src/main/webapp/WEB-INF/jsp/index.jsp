@@ -120,6 +120,11 @@ rel="stylesheet" />
      <jsp:include page="./admin/admin.jsp"></jsp:include>
      </c:if>
      
+     <div>${flowRequestContext.flowScope}</div>
+     <c:if test="${admin }">
+     <div>Checkout flow scope variables working</div>
+     </c:if>
+     
     
     
     
@@ -158,9 +163,9 @@ rel="stylesheet" />
        <jsp:include page="home.jsp"/>
         </c:if>
         
-        <c:if test="${displayManageCategories == true }">
+        <%-- <c:if test="${displayManageCategories == true }">
 			<jsp:include page="categories.jsp"/>
-		</c:if>
+		</c:if> --%>
     
 
 </div>
@@ -169,9 +174,9 @@ rel="stylesheet" />
     
 </div>
 
-<div id="footer">
+
 <jsp:include page="footer.jsp"></jsp:include>
-</div> 
+ 
   
     <!-- jQuery -->
   <!--   <script src="vendor/jquery/jquery.min.js"></script> -->

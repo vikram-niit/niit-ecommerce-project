@@ -5,6 +5,9 @@
 		http://www.springframework.org/schema/webflow 
 		http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
+<!-- <on-start>
+	<set name="flowscope.admin" value="true"></set>
+</on-start> -->
 	<view-state id="step1" >
 		<transition on="next" to="step2"/> 
 		<transition on="cancel" to="cancel"/>

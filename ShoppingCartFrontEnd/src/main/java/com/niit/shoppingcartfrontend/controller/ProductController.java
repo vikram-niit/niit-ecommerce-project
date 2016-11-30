@@ -16,17 +16,24 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.shoppingcart.dao.ProductDAO;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcart.model.Supplier;
 import com.niit.shoppingcartfrontend.util.FileUtil;
 
 @Controller
 public class ProductController {
 
 	@Autowired
-	ProductDAO dao;
+	ProductDAO productdao;
 	
 	@Autowired
 	Product product;
 
+	@Autowired
+	Category category;
+	
+	@Autowired
+	Supplier supplier;
+	
 	private String path = "";
 	
 	@RequestMapping("/admin/manageProducts")
@@ -42,6 +49,7 @@ public class ProductController {
 		
 		model.addAttribute("displayManageProductsPage", true);
 		model.addAttribute("displayCreateProductForm", true);
+		model.addAttribute("category", new Category());
 		
 		return new ModelAndView("index", "command", new Product());
 	}
@@ -49,11 +57,11 @@ public class ProductController {
 	@RequestMapping("/admin/productList")
 	public String products(Model model){
 		
-		List<Product> list = dao.getProducts();
+		List<Product> list = productdao.getProducts();
 		System.out.println(list+" list-size="+list.size());
 		
 		model.addAttribute("products", list);
-		product = dao.getProductById(1001);
+		product = productdao.getProductById(1001);
 		model.addAttribute("product", product);
 		
 		System.out.println("Product="+product);
@@ -61,29 +69,54 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/admin/saveProduct")
-	public ModelAndView saveCategory(Model model, HttpSession session,
+	public ModelAndView saveCategory(@ModelAttribute("product") Product product, Model model, HttpSession session,
 			@RequestParam("image") MultipartFile image){		
 		
 		System.out.println("product="+product);
 		System.out.println("file="+image);
 		
+		/* Image upload*/
+		System.out.println("session.getservletcontext().getrealpath="+session.getServletContext().getRealPath("/"));
+		path = session.getServletContext().getRealPath("/");
+		path = path.concat("/WEB-INF/resources/uploadedImages");
 		FileUtil.upload(path, image, product.getId()+".jpg");
-		/*Integer id = category.getId();
+		/*End of image upload*/
+		
+		/* default category and suppliers set*/
+		category.setId(1);
+		product.setCategory(category);
+		supplier.setId(1);
+		product.setSupplier(supplier);
+		/*End of set defaults*/
+		
+		Integer id = product.getId();
 		
 		model.addAttribute("displayManageCategoriesPage", true);
 		
-		if(categorydao.getCategoryById(id)!=null)
+		if(productdao.getProductById(id)!=null)
 		{
-			model.addAttribute("userAlreadyExists", true);
-			model.addAttribute("displayCreateCategoryForm", true);
-			model.addAttribute("displayErrorMessage", "Category with specified id already exists");
+			model.addAttribute("productAlreadyExists", true);
+			model.addAttribute("displayCreateProductForm", true);
+			model.addAttribute("displayErrorMessage", "Product with specified id already exists");
 		}
 		else
 		{
-		categorydao.saveCategory(category);
-		model.addAttribute("displayCreateCategoryForm", false);
-		session.setAttribute("categories", categorydao.getCategories());
-		}*/
+		productdao.saveProduct(product);
+		model.addAttribute("displayCreateProductForm", false);
+		session.setAttribute("products", productdao.getProducts());
+		}
 		return new ModelAndView("index", "command", product);
 	}
+	
+	@RequestMapping("/Products")
+	public String Products(Model model){
+	
+	model.addAttribute("displayProductsPage", true);
+	List<Product> list = productdao.getProducts();
+	System.out.println(list+" list-size="+list.size());
+	
+	model.addAttribute("products", list);
+	
+	return "index";
+}
 }

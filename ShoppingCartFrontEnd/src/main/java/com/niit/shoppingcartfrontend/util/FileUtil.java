@@ -30,7 +30,10 @@ public class FileUtil {
 		if(!dir.exists())
 			dir.mkdirs();
 		
+		
 		File serverFile = new File(dir.getAbsolutePath()+File.separator+filename);
+		
+		System.out.println("Absolute path of uploaded file="+dir.getAbsolutePath()+File.separator+filename);
 		
 		BufferedOutputStream stream = null;
 		try {
@@ -40,6 +43,7 @@ public class FileUtil {
 			e.printStackTrace();
 		}
 		try {
+			System.out.println("Writing bytes to destination file");
 			stream.write(bytes);
 			stream.close();
 		} catch (IOException e) {

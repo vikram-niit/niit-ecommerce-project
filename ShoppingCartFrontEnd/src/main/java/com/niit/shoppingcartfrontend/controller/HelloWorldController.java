@@ -29,9 +29,9 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping("/home")
-	public String home(){
+	public String home(Model model){
 		
-		
+		model.addAttribute("displayHomePage", true);
 		
 		List<Category> categories = dao.getCategories();
 		

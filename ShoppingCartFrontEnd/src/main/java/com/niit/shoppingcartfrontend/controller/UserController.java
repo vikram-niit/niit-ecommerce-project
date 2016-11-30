@@ -58,12 +58,7 @@ public class UserController {
 		return new ModelAndView("index", "command", new User());
 	}
 	
-	@RequestMapping("/Products")
-		public String Products(Model model){
-		
-		model.addAttribute("displayProductsPage", true);
-		return "index";
-	}
+	
 	
 	@RequestMapping(value="/ProductList", produces="application/json")
 	public String ProductList(Model model){

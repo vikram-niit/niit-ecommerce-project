@@ -8,16 +8,22 @@
 
 <style>
 #footer{
-margin-top:50px;
+//margin-top:50px;
+}
+
+i, span{
+color:#555;
 }
 </style>
 
 </head>
 <body>
 
-<div id="footer">
-		<nav class="navbar navbar-inverse">
+
+		<nav class="navbar navbar-default">
   <div class="container-fluid">
+  <div id="footer">
+  	
     <div class="navbar-header">
      <!--  <a class="navbar-brand" href="#">WebSiteName</a> -->
     </div>
@@ -43,8 +49,10 @@ margin-top:50px;
                     </span></a></li>
      
     </ul>
+   
   </div>
-</nav>
-</div>
+  </div>
+ </nav>
+
 </body>
 </html>

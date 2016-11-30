@@ -88,6 +88,11 @@
      <jsp:include page="./editCategory.jsp"></jsp:include>
      </c:if>
      
+     <c:if test="${not empty displayErrorMessage }">
+     <div class="alert alert-danger">
+ <strong><c:out value="${displayErrorMessage }"/></strong>
+</div>
+     </c:if>
 		<table>
 		<c:forEach items="${categories }" var="category">
 				<tr>

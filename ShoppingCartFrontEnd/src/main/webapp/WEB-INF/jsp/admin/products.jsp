@@ -48,5 +48,6 @@
 		</c:forEach>
 			
 		</table>
+		<!-- End of List products -->
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,6 +43,10 @@ caption {
     text-align:center;
 }
 
+img{
+width:200px;
+height:400px;
+}
 <!-- End of Table styles -->
 
 <!--  Search Box styles -->
@@ -57,7 +62,35 @@ position:relative;
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
 <body>
+
+
+<!-- List products -->
+		<table>
+		<c:forEach items="${products }" var="product">
+				<tr>
+				<td>
+					
+				</td>
+				<td>
+					<img alt="Product Image" src='<c:url value="/resources/uploadedImages/${product.id}.jpg"></c:url>'/>
+					<strong><c:out value="${product.name }"/></strong>
+					<span>Price:</span><strong><c:out value="${product.price }"/></strong>
+				</td>
+				<td>
+				<a href="flows">Start flow</a>
+					<%-- <a class="btn btn-info"
+				href='<c:url value="/admin/readCategory/${category.id}"></c:url>'>
+				read			</a> --%>
+				</td>
+				
+				</tr>
+		</c:forEach>
+			
+		</table>
+		<!-- End of List products -->
 	
+	
+	<a href="flows">Start flow</a>
 		<!-- <div ng-app="">Angular JS
 			<input type="text" ng-model="name"/>
 			<input type="text" ng-model="name"/>

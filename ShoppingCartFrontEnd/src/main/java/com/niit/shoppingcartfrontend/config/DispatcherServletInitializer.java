@@ -8,8 +8,6 @@ import javax.servlet.Filter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import com.niit.shoppingcartfrontend.config.*;
-
 public class DispatcherServletInitializer  extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
@@ -21,7 +19,8 @@ public class DispatcherServletInitializer  extends AbstractAnnotationConfigDispa
 			SecurityConfig.class,
 			//DataAccessConfig.class,
 			WebMvcConfig.class,
-			WebFlowConfig.class
+			WebFlowConfig.class,
+			MultipartFileUploadConfig.class
 		};
 	}
 

@@ -2,6 +2,7 @@ package com.niit.shoppingcartfrontend.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,7 +63,7 @@ public class CategoryController {
 		session.setAttribute("categories", categorydao.getCategories());
 		
 		model.addAttribute("displayEditCategoryForm", true);
-		return new ModelAndView("index", "command", new Category());
+		return new ModelAndView("index", "command", categorydao.getCategoryById(id));
 		
 		
 	}
@@ -85,7 +86,15 @@ public class CategoryController {
 		
 		
 		category.setId(id);
-		categorydao.deleteCategory(category);
+		try{
+			categorydao.deleteCategory(category);
+		}catch(Exception ex){
+			System.out.println("Exception occured");
+			model.addAttribute("displayErrorMessage", "Exception: cannot delete the specified item");
+			return "index";
+		}
+		
+		
 		
 		session.setAttribute("categories", categorydao.getCategories());
 		
@@ -100,7 +109,7 @@ public class CategoryController {
 		
 		if(categorydao.getCategoryById(id)!=null)
 		{
-			model.addAttribute("userAlreadyExists", true);
+			model.addAttribute("categoryAlreadyExists", true);
 			model.addAttribute("displayCreateCategoryForm", true);
 			model.addAttribute("displayErrorMessage", "Category with specified id already exists");
 		}

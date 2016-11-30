@@ -10,6 +10,19 @@
 <link href="<c:url value="/resources/css/admin.css" />" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script>
+  $(document).ready(function(){
+	  
+	  var selector = $('.nav li');
+	  	
+	  	$(selector).on('click', function(){
+	  		$(selector).removeClass('active');alert('active class removed');
+	  		$(this).addClass('active');
+	  	});
+	  	
+  });
+  	
+  </script> -->
 <title>Insert title here</title>
 
 <style>
@@ -22,9 +35,20 @@
 		
 		<div id="managelist">
 		<ul class="nav nav-pills">
-		<li> <a class="list-group-item active" href="<c:url value="/admin/manageCategories" />" >Manage Categories</a></li>
-		<li><a href="<c:url value="/admin/manageProducts" />">Manage Products</a></li>
-		<li><a href="<c:url value="/admin/manageSuppliers" />">Manage Suppliers</a></li>
+		<li> <a class="list-group-item <c:if test="${displayManageCategoriesPage == true }">
+			<c:out value="active"/>
+					</c:if>		
+		" href="<c:url value="/admin/manageCategories" />" >Manage Categories</a></li>
+		<li><a class="list-group-item 
+		<c:if test="${displayManageProductsPage == true }">
+			<c:out value="active"/>
+					</c:if>		
+		" href="<c:url value="/admin/manageProducts" />">Manage Products</a></li>
+		<li><a class="list-group-item 
+			<c:if test="${displayManageSuppliersPage == true }">
+			<c:out value="active"/>
+					</c:if>	
+		"href="<c:url value="/admin/manageSuppliers" />">Manage Suppliers</a></li>
 		</ul>
 		</div>
 		
@@ -45,7 +69,7 @@
 		</c:if>
 		
 		<c:if test="${displayManageSuppliersPage == true }">
-			<jsp:include page="categories.jsp"/>
+			<jsp:include page="suppliers.jsp"/>
 		</c:if>
 	</div>
 </div>

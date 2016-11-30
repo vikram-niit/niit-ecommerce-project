@@ -19,7 +19,7 @@
      </c:if>
 		<c:url value="/admin/saveProduct" var="saveURL"/>
                <form:form method="post" action="${saveURL}"
-               class="form-horizontal">
+               class="form-horizontal" enctype="multipart/form-data">
                
                <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Product id:</label>
@@ -28,6 +28,29 @@
       	path="id" />
     </div>
   </div>
+  
+   <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Category</label>
+    <div class="col-sm-10"> 
+      <form:select class="form-control" id="pwd" placeholder="Enter id"
+      	items="${categories}" >
+      	<%-- <form:option value="${null}" label="Select" /> 
+      	<form:options items="${categories }">
+      		
+      	</form:options> --%>
+      	
+      	<form:option value="-" label="--Please Select"/>
+            <form:options items="${categories}" itemValue="name" itemLabel="name"/>
+      	</form:select>
+    </div>
+  </div>
+               
+             <%--   <input name="category" value="${category }"/> --%>
+               <%-- <select name="category">
+               <c:forEach items="${categories }" var="category">
+               		<option value="${category }">${category.name }</option>
+               		</c:forEach>
+               </select> --%>
                
     <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Product name:</label>
@@ -64,8 +87,10 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Image:</label>
     <div class="col-sm-10"> 
-      <form:input type="file" class="form-control" id="pwd" placeholder="Upload file"
-      	path="image"/>
+      <%-- <form:input type="file" class="form-control" id="pwd" placeholder="Upload file"
+      	path="image"/> --%>
+      	<input type="file" class="form-control" id="pwd" placeholder="Upload file"
+      	name="image"/>
     </div>
   </div>
   
