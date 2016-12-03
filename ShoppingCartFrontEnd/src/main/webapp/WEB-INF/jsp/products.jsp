@@ -20,6 +20,7 @@ font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; }
  
  table{
  width:100%;
+ border:none;
  }
  
  th{
@@ -30,6 +31,7 @@ font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; }
  th, td{
  text-align:left;
  padding:15px;
+ 
  }
  tr:hover {background-color: #f5f5f5}
  
@@ -44,7 +46,7 @@ caption {
 }
 
 img{
-width:200px;
+width:100%;
 height:400px;
 }
 <!-- End of Table styles -->
@@ -57,6 +59,9 @@ position:relative;
  #searchBox{
  padding:20px;
  }
+ 
+ table {border-collapse:separate;border-spacing:0;}
+ 
 <!--  End of Search Box styles -->
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -65,22 +70,39 @@ position:relative;
 
 
 <!-- List products -->
-		<table>
+		<table class="table">
 		<c:forEach items="${products }" var="product">
 				<tr>
+				
 				<td>
+					<img alt="/resources/img/electronicDevices/2.jpg" src='<c:url value="/resources/uploadedImages/${product.id}.jpg"></c:url>'/>
+				
 					
 				</td>
 				<td>
-					<img alt="Product Image" src='<c:url value="/resources/uploadedImages/${product.id}.jpg"></c:url>'/>
-					<strong><c:out value="${product.name }"/></strong>
-					<span>Price:</span><strong><c:out value="${product.price }"/></strong>
-				</td>
-				<td>
-				<a href="flows">Start flow</a>
-					<%-- <a class="btn btn-info"
-				href='<c:url value="/admin/readCategory/${category.id}"></c:url>'>
-				read			</a> --%>
+						<div class="span-5">
+				    
+							        <h3>${product.name}</h3>
+							        
+							        <address>
+							            <span>Thyme Square, 13</span>
+							            <br />
+							            <span>${product.description}Icetown</span>, 
+							            <span >North Pole</span>, 
+							            <span>0W</span>
+							            <br />
+							            <span>Earth</span>
+							            <span>${product.price }</span>
+							        </address>
+				
+				
+										<strong><c:out value="${product.name }"/></strong>
+											<span>Price:</span><strong><c:out value="${product.price }"/></strong>
+										<div><a class="btn btn-danger" href="flows">Buy Product</a></div>
+											<%-- <a class="btn btn-info"
+										href='<c:url value="/admin/readCategory/${category.id}"></c:url>'>
+										read			</a> --%>
+				    			</div>
 				</td>
 				
 				</tr>

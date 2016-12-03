@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-		Your order has been cancelled
+			<h2>Your order has been confirmed. Your order will be shipped in 2 to 3 business days.</h2>
+			
 </body>
 </html>
+

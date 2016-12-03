@@ -17,6 +17,10 @@
 		<put-attribute name="body" value="/flows/checkout.jsp :: content" type="thymeleaf"/>
 	</definition>
 	
+	<definition name="index" template="/WEB-INF/jsp/index.jsp">
+		
+	</definition>
+	
 	
 	
 </tiles-definitions>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+
     <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,7 +11,7 @@
 </head>
 <body>
 
-		<h2 id="registrationPageHeading">Create Category</h2>
+		<h2 id="registrationPageHeading">Create Product</h2>
 		
 		<c:if test="${userAlreadyExists }">
      <div class="alert alert-danger">
@@ -32,21 +33,21 @@
    <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Category</label>
     <div class="col-sm-10"> 
-      <form:select class="form-control" id="pwd" placeholder="Enter id"
+      <form:select path="category" class="form-control" id="pwd" placeholder="Enter id"
       	items="${categories}" >
       	<%-- <form:option value="${null}" label="Select" /> 
       	<form:options items="${categories }">
       		
       	</form:options> --%>
       	
-      	<form:option value="-" label="--Please Select"/>
-            <form:options items="${categories}" itemValue="name" itemLabel="name"/>
+      	<%-- <form:option value="-" label="--Please Select"/>
+            <form:options items="${categories}" itemValue="name" itemLabel="name"/> --%>
       	</form:select>
     </div>
   </div>
                
-             <%--   <input name="category" value="${category }"/> --%>
-               <%-- <select name="category">
+              <%--  <input name="category" value="${category }"/> --%>
+              <%--  <select name="category">
                <c:forEach items="${categories }" var="category">
                		<option value="${category }">${category.name }</option>
                		</c:forEach>

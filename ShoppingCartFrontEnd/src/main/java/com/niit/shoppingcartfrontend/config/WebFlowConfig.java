@@ -45,6 +45,7 @@ public class WebFlowConfig extends AbstractFlowConfiguration{
 	public MvcViewFactoryCreator mvcViewFactoryCreator() {
 		MvcViewFactoryCreator factoryCreator = new MvcViewFactoryCreator();
 //		factoryCreator.setViewResolvers(Arrays.<ViewResolver>asList(this.webMvcConfig.tilesViewResolver()));
+//		factoryCreator.setViewResolvers(Arrays.<ViewResolver>asList(this.webMvcConfig.tilesViewResolver3()));
 		factoryCreator.setUseSpringBeanBinding(true);
 		return factoryCreator;
 	}

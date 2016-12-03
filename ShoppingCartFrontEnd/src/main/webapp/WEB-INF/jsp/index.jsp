@@ -166,6 +166,10 @@ rel="stylesheet" />
         <%-- <c:if test="${displayManageCategories == true }">
 			<jsp:include page="categories.jsp"/>
 		</c:if> --%>
+		
+    <c:if test="${displayOrderConfirmationPage }">
+       <jsp:include page="orderConfirmation.jsp"/>
+        </c:if>
     
 
 </div>

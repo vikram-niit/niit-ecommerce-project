@@ -5,22 +5,48 @@
 		http://www.springframework.org/schema/webflow 
 		http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
+
+<var name="shippingAddress" class="com.niit.shoppingcart.model.ShippingAddress"/>
+<var name="billingAddress" class="com.niit.shoppingcart.model.BillingAddress"/>
+<var name="cart" class="com.niit.shoppingcart.model.Cart"/>
+<var name="order" class="com.niit.shoppingcart.model.Order"/>
+<var name="paymentMethod" class="com.niit.shoppingcart.model.PaymentMethod"/>
+<var name="orderWebFlow" class="com.niit.shoppingcartfrontend.webflow.OrderWebFlow"/>
+
+<on-start>
+<evaluate expression="orderwebflow.initFlow()" result="flowScope.order"></evaluate>
+</on-start>
 <!-- <on-start>
 	<set name="flowscope.admin" value="true"></set>
 </on-start> -->
-	<view-state id="step1" >
-		<transition on="next" to="step2"/> 
+	<view-state id="step1" model="shippingAddress" popup="true">
+	<binder>
+        <binding property="addressline1" />
+        <binding property="street" />
+        <binding property="city" />
+        <binding property="state" />
+      
+    </binder>
+		<transition on="next" to="addShippingDetails"/> 
 		<transition on="cancel" to="cancel"/>
 	</view-state>
 
-	<view-state id="step2" >
+<action-state id="addShippingDetails">
+	<evaluate expression="orderwebflow.addShippingAddress(flowScope.order, shippingAddress)"></evaluate>
+	<transition on="success" to="step2"></transition>
+</action-state>
+
+	<view-state id="step2" model="flowScope.order" popup="true">
 		<transition on="previous" to="step1"/>
 		<transition on="finish" to="success"/>
 		<transition on="cancel" to="cancel"/>
 	</view-state>
 
-	<end-state id="success" />
+	<end-state id="success" >
+		<output name="confirmed" value="'Your booking is confirmed, you can buy another product by searching again.'"/>
+		<output name="attribute2" value="shippingAddress"/>
+	</end-state>
 
-	<end-state id="cancel" />
+	<end-state id="cancel"/>
 
 </flow>

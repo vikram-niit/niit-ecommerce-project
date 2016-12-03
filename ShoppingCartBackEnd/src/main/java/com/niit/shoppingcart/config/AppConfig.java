@@ -18,11 +18,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.shoppingcart.Employee;
-import com.niit.shoppingcart.dao.EmployeeDao3;
-import com.niit.shoppingcart.dao.ProductDao3;
 import com.niit.shoppingcart.dao.UserDao3;
 import com.niit.shoppingcart.model.Category;
+import com.niit.shoppingcart.model.Order;
 import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcart.model.ShippingAddress;
 import com.niit.shoppingcart.model.Supplier;
 import com.niit.shoppingcart.model.User;
 import com.niit.shoppingcart.model.UserRole;
@@ -111,6 +111,19 @@ public ProductDao3 getProductDao(HibernateTemplate template){
 public UserDao3 getUserDao(HibernateTemplate template){		
 	
 	return new UserDao3(template);
+}
+
+@Bean(name="order")
+public Order order(){
+	Order order =  new Order();
+	order.setShippingAddress(getShippingAddress());
+	
+	return order;
+}
+
+@Bean(name="shippingAddress")
+public ShippingAddress getShippingAddress(){
+	return new ShippingAddress();
 }
 
 }

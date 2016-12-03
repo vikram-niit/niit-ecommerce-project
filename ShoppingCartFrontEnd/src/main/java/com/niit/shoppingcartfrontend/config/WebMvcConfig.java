@@ -1,6 +1,7 @@
 package com.niit.shoppingcartfrontend.config;
 
 import java.util.LinkedHashSet;
+import java.util.Properties;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles2.TilesView;
 import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
 import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
 import org.springframework.webflow.mvc.view.FlowAjaxTilesView;
@@ -107,6 +109,28 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	}
 	
 	/*@Bean
+	public TilesConfigurer tilesConfigurer3() {
+		TilesConfigurer configurer = new TilesConfigurer();*/
+	//	configurer.setDefinitions("/WEB-INF/**/views.xml");
+	//	return configurer;
+	//}
+	/*
+	@Bean 
+	public AjaxUrlBasedViewResolver tilesViewResolver3(){
+		AjaxUrlBasedViewResolver tilesViewResolver = new AjaxUrlBasedViewResolver();
+		tilesViewResolver.setViewClass(TilesView.class);
+		tilesViewResolver.setOrder(-1);
+		Properties props = new Properties();
+		props.put("viewClass", FlowAjaxTilesView.class);
+		tilesViewResolver.setAttributes(props);
+		
+		return new AjaxUrlBasedViewResolver();
+		
+		
+	}
+*/
+	
+	/*@Bean
 	public AjaxThymeleafViewResolver tilesViewResolver() {
 		AjaxThymeleafViewResolver viewResolver = new AjaxThymeleafViewResolver();
 		viewResolver.setViewClass(FlowAjaxThymeleafTilesView.class);
@@ -140,16 +164,16 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		templateEngine.setTemplateResolver(templateResolver());
 		templateEngine.setAdditionalDialects(dialects);
 		return templateEngine;
-	}*/
+	}
 
-	/*@Bean
+	@Bean
 	public ServletContextTemplateResolver templateResolver() {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/");
 		//templateResolver.setTemplateMode("HTML5");
 		return templateResolver;
-	}*/
-
+	}
+*/
 	//@Bean
 	//public ThymeleafTilesConfigurer tilesConfigurer() {
 	//	ThymeleafTilesConfigurer configurer = new ThymeleafTilesConfigurer();

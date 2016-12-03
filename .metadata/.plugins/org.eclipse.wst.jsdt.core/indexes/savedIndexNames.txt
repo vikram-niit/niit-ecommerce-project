@@ -6,6 +6,6 @@ INDEX VERSION 1.3+E:\niit\workspace\niit-ecommerce-project\.metadata\.plugins\or
 3682785496.index
 1168728560.index
 4146938682.index
-96487493.index
 704454807.index
+96487493.index
 443435302.index
