@@ -33,25 +33,39 @@
    <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Category</label>
     <div class="col-sm-10"> 
-      <form:select path="category" class="form-control" id="pwd" placeholder="Enter id"
-      	items="${categories}" >
+     <%--  <form:select path="category.name" class="form-control" id="pwd" placeholder="Enter id"
+      	items="${categories}" > --%>
+      	 <form:select path="category.name" class="form-control" id="pwd" placeholder="Enter id" >
       	<%-- <form:option value="${null}" label="Select" /> 
       	<form:options items="${categories }">
       		
       	</form:options> --%>
       	
-      	<%-- <form:option value="-" label="--Please Select"/>
-            <form:options items="${categories}" itemValue="name" itemLabel="name"/> --%>
+      	<form:option value="-" label="--Please Select"/>
+            <form:options items="${categories}" itemValue="name" itemLabel="name"/>
       	</form:select>
     </div>
   </div>
                
+        
               <%--  <input name="category" value="${category }"/> --%>
               <%--  <select name="category">
                <c:forEach items="${categories }" var="category">
                		<option value="${category }">${category.name }</option>
                		</c:forEach>
                </select> --%>
+        
+        <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Supplier</label>
+    <div class="col-sm-10"> 
+     
+      	 <form:select path="supplier.supplierName" class="form-control" id="pwd" placeholder="Enter id" >      	
+      	
+      	<form:option value="-" label="--Please Select"/>
+            <form:options items="${suppliers}" itemValue="supplierName" itemLabel="supplierName"/>
+      	</form:select>
+    </div>
+  </div>
                
     <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Product name:</label>

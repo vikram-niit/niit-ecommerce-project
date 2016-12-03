@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -98,10 +99,24 @@ position:relative;
 				
 										<strong><c:out value="${product.name }"/></strong>
 											<span>Price:</span><strong><c:out value="${product.price }"/></strong>
+										
+										<c:if test="${displayBuyButton == true }">
+										
 										<div><a class="btn btn-danger" href="flows">Buy Product</a></div>
 											<%-- <a class="btn btn-info"
 										href='<c:url value="/admin/readCategory/${category.id}"></c:url>'>
 										read			</a> --%>
+										</c:if>
+										
+										<c:if test="${displayAddToCartButton == true }">
+										<form id="step2" action="${flowExecutionUrl}" method="POST">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		<button id="cancel" type="submit" name="_eventId_cancel">Cancel</button>
+		<button id="previous" type="submit" name="_eventId_next">&lt;&lt; Add to cart</button>
+		<button id="finish" type="submit" name="_eventId_finish">Finish &gt;&gt;</button>
+		
+	</form>										
+										</c:if>
 				    			</div>
 				</td>
 				

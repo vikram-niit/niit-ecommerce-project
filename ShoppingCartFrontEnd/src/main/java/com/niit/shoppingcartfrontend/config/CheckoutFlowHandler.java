@@ -13,13 +13,20 @@ public class CheckoutFlowHandler extends AbstractFlowHandler {
 										HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("In handleExecutionOutcome method");
 		System.out.println("AttributeMap="+outcome.getOutput());
-		System.out.println("AttributeMap="+outcome.getOutput().get("attribute2").toString());
+		
 		System.out.println("order="+outcome.getOutput().get("success"));
 		System.out.println("EndstateId="+outcome.getId());
-		if (outcome.getId().equals("bookingConfirmed")) {
+		/*if (outcome.getId().equals("bookingConfirmed")) {
 			return "/booking/show?bookingId=" + outcome.getOutput().get("bookingId");
 		} else {
 			return "/orderConfirmation";
+		}*/
+		
+		if (outcome.getId().equals("success")) {
+			System.out.println("AttributeMap="+outcome.getOutput().get("attribute2").toString());
+			return "/orderConfirmation";
+		} else {
+			return "/Products";
 		}
 	}
 	

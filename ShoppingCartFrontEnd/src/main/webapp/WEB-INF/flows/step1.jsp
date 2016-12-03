@@ -19,7 +19,7 @@ background:#ecf0f1;
 
 #div2{
 border-radius:5px;
-}
+} 
 
 #label{
 text-align:center;
@@ -103,6 +103,7 @@ text-align:center;
   		<div class="form-group">
   		<div class="col-sm-2 col-sm-10">
 		<input id="cancel" type="submit" name="_eventId_cancel" value="cancel" class="btn btn-default"/>
+			<button id="previous" type="submit" name="_eventId_previous">&lt;&lt; Previous</button>
 		<input id="next" type="submit" name="_eventId_next" value="next" class="btn btn-default"/> &gt;&gt;
 		</div>
 		</div>

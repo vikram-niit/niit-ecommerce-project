@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.HibernateException;
+import org.hibernate.exception.spi.TemplatedViolatedConstraintNameExtracter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -67,5 +68,14 @@ public class CategoryDAOImpl implements CategoryDAO{
 		}
 		
 		return list;
+	}
+
+	public Category getCategoryByName(String name) {
+		
+		String query = "from Category where name=?";
+		Object[] queryParams = {name};System.out.println("Category list="+template.find(query, queryParams));
+		Category c = (Category) template.find(query, queryParams).get(0);
+		
+		return c;		
 	}
 }

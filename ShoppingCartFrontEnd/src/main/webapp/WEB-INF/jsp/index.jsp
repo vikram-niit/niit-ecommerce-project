@@ -167,10 +167,19 @@ rel="stylesheet" />
 			<jsp:include page="categories.jsp"/>
 		</c:if> --%>
 		
+		<!-- Web flow Pages -->
+		 <c:if test="${displayStep1 }">
+       <jsp:include page="../flows/step1.jsp"/>
+        </c:if>
+        
+         <c:if test="${displayStep2 }">
+       <jsp:include page="../flows/step2.jsp"/>
+        </c:if>
+		
     <c:if test="${displayOrderConfirmationPage }">
        <jsp:include page="orderConfirmation.jsp"/>
         </c:if>
-    
+    <!-- End of web flow -->
 
 </div>
 

@@ -69,4 +69,13 @@ public class SupplierDAOImpl implements SupplierDAO{
 		return list;
 	}
 
+	public Supplier getSupplierByName(String name) {
+
+		String query = "from Supplier where supplierName=?";
+		Object[] queryParams = {name};
+		Supplier supplier = (Supplier) template.find(query, queryParams).get(0);
+		
+		return supplier;		
+	}
+
 }

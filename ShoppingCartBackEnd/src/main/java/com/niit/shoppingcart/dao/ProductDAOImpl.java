@@ -60,7 +60,8 @@ public class ProductDAOImpl implements ProductDAO{
 		
 		return p;		
 	}
-
+	
+	
 	public void updateProduct(Product p) {
 		
 		try {
@@ -90,5 +91,13 @@ public class ProductDAOImpl implements ProductDAO{
 		}
 		
 		return list;
+	}
+
+	public Product getProductByName(String name) {
+
+		String query = "from Product where name="+name;
+		Product p = (Product) template.find(query);
+		
+		return p;
 	}
 }
