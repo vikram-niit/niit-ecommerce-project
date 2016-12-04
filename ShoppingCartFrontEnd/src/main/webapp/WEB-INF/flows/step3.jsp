@@ -31,10 +31,10 @@ text-align:center;
 <div id="div1">
 <div id="div2">
 	<!-- <p class="notice">This is step 1 of the embedded flow</p> -->
-	<div class="header-content" id="label">Enter Billing Address</div>
+	<div class="header-content" id="label">Enter Shipping Address</div>
 	<c:url value="/flows" var="flowURL"/>
              
-	<form:form id="step1"  action="${flowExecutionUrl}" method="POST" modelAttribute="billingAddress">
+	<form:form id="step1"  action="${flowExecutionUrl}" method="POST" modelAttribute="shippingAddress">
 		<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
 		<!-- <button id="cancel" type="submit" name="_eventId_cancel">Cancel</button>
 		<button id="next" type="submit" name="_eventId_next">Next &gt;&gt;</button> -->

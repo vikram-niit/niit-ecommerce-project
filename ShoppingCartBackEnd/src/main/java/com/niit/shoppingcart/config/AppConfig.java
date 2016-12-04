@@ -1,5 +1,7 @@
 package com.niit.shoppingcart.config;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -126,4 +128,8 @@ public ShippingAddress getShippingAddress(){
 	return new ShippingAddress();
 }
 
+@Bean(name="productList")
+public List<Product> productList(){
+	return new ArrayList<Product>();
+}
 }

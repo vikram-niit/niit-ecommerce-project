@@ -100,23 +100,29 @@ position:relative;
 										<strong><c:out value="${product.name }"/></strong>
 											<span>Price:</span><strong><c:out value="${product.price }"/></strong>
 										
-										<c:if test="${displayBuyButton == true }">
+										<c:url value="/flows" var="flowUrl"/>
+										<c:choose>
+											<c:when test="${displayAddToCartButton}">
+												<form id="step2" action="${flowExecutionUrl}" method="POST">
+														<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+														<button id="cancel" type="submit" name="_eventId_cancel">Cancel</button>
+														<button id="previous" type="submit" name="_eventId_next">&lt;&lt; Add to cart</button>
+														<button id="finish" type="submit" name="_eventId_finish">Finish &gt;&gt;</button>
+														<input type="hidden" name="id" value="${product.id }"/>
+												</form>													
+											</c:when>
+											<c:otherwise>												
+												<div><!-- <a class="btn btn-danger" href="flows">Buy Product</a></div> -->
+												<form id="step2" action="${flowUrl }" method="POST">
+														<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+														<input type="hidden" name="id" value="${product.id }"/>
+														
+														<button id="previous" type="submit" name="_eventId_next">&lt;&lt; Buy Product</button>
+														
+												</form>	
+											</c:otherwise>
+										</c:choose>
 										
-										<div><a class="btn btn-danger" href="flows">Buy Product</a></div>
-											<%-- <a class="btn btn-info"
-										href='<c:url value="/admin/readCategory/${category.id}"></c:url>'>
-										read			</a> --%>
-										</c:if>
-										
-										<c:if test="${displayAddToCartButton == true }">
-										<form id="step2" action="${flowExecutionUrl}" method="POST">
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-		<button id="cancel" type="submit" name="_eventId_cancel">Cancel</button>
-		<button id="previous" type="submit" name="_eventId_next">&lt;&lt; Add to cart</button>
-		<button id="finish" type="submit" name="_eventId_finish">Finish &gt;&gt;</button>
-		
-	</form>										
-										</c:if>
 				    			</div>
 				</td>
 				

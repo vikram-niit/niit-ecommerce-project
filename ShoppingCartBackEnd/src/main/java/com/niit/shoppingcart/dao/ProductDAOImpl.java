@@ -1,5 +1,6 @@
 package com.niit.shoppingcart.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -14,7 +15,7 @@ import com.niit.shoppingcart.model.Product;
 
 @Transactional
 @Repository("ProductDAO")
-public class ProductDAOImpl implements ProductDAO{
+public class ProductDAOImpl implements ProductDAO, Serializable{
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -52,6 +53,7 @@ public class ProductDAOImpl implements ProductDAO{
 	public Product getProductById(int id) {
 		Product p = null;
 		try {
+			System.out.println("In try block of productdao.getProductById method");
 			p = template.get(Product.class, id);		
 			
 		} catch (HibernateException ex) {

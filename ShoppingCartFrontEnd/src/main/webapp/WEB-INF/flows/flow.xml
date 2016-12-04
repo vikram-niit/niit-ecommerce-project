@@ -5,16 +5,25 @@
 		http://www.springframework.org/schema/webflow 
 		http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
+<persistence-context />
 
 <var name="shippingAddress" class="com.niit.shoppingcart.model.ShippingAddress"/>
 <var name="billingAddress" class="com.niit.shoppingcart.model.BillingAddress"/>
 <var name="cart" class="com.niit.shoppingcart.model.Cart"/>
 <var name="order" class="com.niit.shoppingcart.model.Order"/>
 <var name="paymentMethod" class="com.niit.shoppingcart.model.PaymentMethod"/>
-<var name="orderWebFlow" class="com.niit.shoppingcartfrontend.webflow.OrderWebFlow"/>
+<!-- <var name="orderWebFlow" class="com.niit.shoppingcartfrontend.webflow.OrderWebFlow"/> -->
+<var name="product" class="com.niit.shoppingcart.model.Product"/>
+
+
+<input name="id"/>
 
 <on-start>
-<evaluate expression="orderwebflow.initFlow()" result="flowScope.order"></evaluate>
+<!-- <evaluate expression="orderService.initFlow()" result="flowScope.order"></evaluate> -->
+<!-- <evaluate expression="orderwebflow.initFlow()" result="flowScope.order"></evaluate> -->
+<!-- <evaluate expression="orderwebflow.addProductToCart(productId, flowScope.order)" ></evaluate> -->
+<evaluate expression="ProductDAO.getProductById(id)" result="flowScope.product"></evaluate>
+<evaluate expression="orderService.addProductToCart(flowScope.product)" result="flowScope.order"></evaluate>
 <!-- <set name="flashScope.displayStep1" value="true"></set> -->
 <!-- <set name="flowScope.admin" value="true"></set> -->
 </on-start>
@@ -22,52 +31,121 @@
 	<set name="flowscope.admin" value="true"></set>
 </on-start> -->
 
-	<view-state id="step1" view="../jsp/index.jsp" model="shippingAddress" popup="true">
-	<binder>
-        <binding property="addressline1" />
-        <binding property="street" />
-        <binding property="city" />
-        <binding property="state" />
-      
-    </binder>
+	<!-- Step 1 -->
+	<view-state id="step1" view="../jsp/index.jsp" >
+	
 	<on-render>
-	<set name="viewScope.displayStep1" value="true"></set>
+	<set name="viewScope.displaySelectedProductsPage" value="true"></set>
 	</on-render>
 		<transition on="previous" to="step0"/>
-		<transition on="next" to="addShippingDetails"/> 
+		<transition on="next" to="step2"/> 
 		<transition on="cancel" to="cancel"/>
 	</view-state>
+	<!-- End of Step1 -->
+
+	<!-- Step 0 -->
+	<view-state id="step0" view="../jsp/index.jsp" >
 	
-	<view-state id="step0" view="../jsp/index.jsp" model="shippingAddress" popup="true">
-	<binder>
-        <binding property="addressline1" />
-        <binding property="street" />
-        <binding property="city" />
-        <binding property="state" />
-      
-    </binder>
+	
+	
 	<on-render>
 	<set name="viewScope.displayProductsPage" value="true"></set>
 	<set name="viewScope.displayBuyButton" value="false"></set>
 	<set name="viewScope.displayAddToCartButton" value="true"></set>
 	</on-render>
 		
-		<transition on="next" to="addShippingDetails"/> 
+		<transition on="next" to="step1"/> 
 		<transition on="cancel" to="cancel"/>
+		
+		<on-exit>
+			<evaluate expression="ProductDAO.getProductById(requestParameters.id)" result="flowScope.product"></evaluate>
+		    <evaluate expression="orderService.addProductToCart(flowScope.product)" result="flowScope.order"></evaluate>
+		</on-exit>
+		
 	</view-state>
-
-<action-state id="addShippingDetails">
-	<evaluate expression="orderwebflow.addShippingAddress(flowScope.order, shippingAddress)"></evaluate>
-	<!-- <set name="flowScope.displayStep2" value="true"></set> -->
-	<transition on="success" to="step2"></transition>
-</action-state>
-
-	<view-state id="step2" view="../jsp/index.jsp" model="flowScope.order" popup="true">
+	<!-- End of Step 0 -->	
+	
+	<!-- Step2 -->
+	<view-state id="step2" view="../jsp/index.jsp" model="billingAddress">
+	<binder>
+        <binding property="addressline1" />
+        <binding property="street" />
+        <binding property="city" />
+        <binding property="state" />      
+    </binder>
 	<on-render>
-		<set name="viewScope.displayStep2" value="true"></set>
-		<set name="viewScope.displayProductsPage" value="true"></set>
+	<set name="viewScope.displayStep2" value="true"></set>
 	</on-render>
 		<transition on="previous" to="step1"/>
+		<transition on="next" to="step3"/> 
+		<transition on="cancel" to="cancel"/>
+		
+		<on-exit>
+			<evaluate expression="orderService.addBillingAddress(flowScope.order, billingAddress)"></evaluate>
+		</on-exit>
+		
+		
+	</view-state>
+	<!-- End of step2 -->
+	
+<!-- action state saveShippingDetails -->
+<!-- <action-state id="addShippingDetails">
+	<evaluate expression="orderwebflow.addShippingAddress(flowScope.order, shippingAddress)"></evaluate>
+	<set name="flowScope.displayStep2" value="true"></set>
+	<transition on="success" to="step3"></transition>
+</action-state> -->
+<!-- End of action state saveShippingDetails -->
+
+
+<!-- Step3 -->
+	<view-state id="step3" view="../jsp/index.jsp" model="shippingAddress">
+	<binder>
+        <binding property="addressline1" />
+        <binding property="street" />
+        <binding property="city" />
+        <binding property="state" />
+      
+    </binder>
+	<on-render>
+	<set name="viewScope.displayStep3" value="true"></set>
+	</on-render>
+		<transition on="previous" to="step2"/>
+		<transition on="next" to="step4"/> 
+		<transition on="cancel" to="cancel"/>
+		
+		<on-exit>
+			<evaluate expression="orderService.addShippingAddress(flowScope.order, shippingAddress)"></evaluate>
+		</on-exit>
+		
+		
+	</view-state>
+	<!-- End of step3 -->
+	
+	<!-- Step4 -->
+	<view-state id="step4" view="../jsp/index.jsp" >
+	
+	<on-render>
+	<set name="viewScope.displayStep4" value="true"></set>
+	</on-render>
+		<transition on="previous" to="step3"/>
+		<transition on="next" to="step5"/> 
+		<transition on="cancel" to="cancel"/>
+		
+		<on-exit>
+			<evaluate expression="orderService.addPaymentMethod(flowScope.order, requestParameters.paymentMethod)"></evaluate>
+		</on-exit>
+		
+		
+	</view-state>
+	<!-- End of step4 -->
+	
+	
+
+	<view-state id="step5" view="../jsp/index.jsp" model="flowScope.order" popup="true">
+	<on-render>
+		<set name="viewScope.displayStep5" value="true"></set>		
+	</on-render>
+		<transition on="previous" to="step4"/>
 		<transition on="finish" to="success"/>
 		<transition on="cancel" to="cancel"/>
 	</view-state>

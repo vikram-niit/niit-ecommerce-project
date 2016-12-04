@@ -168,12 +168,25 @@ rel="stylesheet" />
 		</c:if> --%>
 		
 		<!-- Web flow Pages -->
-		 <c:if test="${displayStep1 }">
-       <jsp:include page="../flows/step1.jsp"/>
-        </c:if>
+		
+		  <c:if test="${displaySelectedProductsPage }">
+       <jsp:include page="../flows/selectedProducts.jsp"/>
+        </c:if>		 
         
          <c:if test="${displayStep2 }">
        <jsp:include page="../flows/step2.jsp"/>
+        </c:if>
+        
+         <c:if test="${displayStep3 }">
+       <jsp:include page="../flows/step3.jsp"/>
+        </c:if>
+        
+         <c:if test="${displayStep4 }">
+       <jsp:include page="../flows/step4.jsp"/>
+        </c:if>
+        
+        <c:if test="${displayStep5 }">
+       <jsp:include page="../flows/step5.jsp"/>
         </c:if>
 		
     <c:if test="${displayOrderConfirmationPage }">

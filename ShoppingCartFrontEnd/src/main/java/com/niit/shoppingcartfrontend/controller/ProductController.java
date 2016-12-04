@@ -174,13 +174,14 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/Products")
-	public String Products(Model model){
+	public String Products(Model model, HttpSession session){
 	
 	model.addAttribute("displayProductsPage", true);
 	List<Product> list = productdao.getProducts();
 	System.out.println(list+" list-size="+list.size());
 	
 	model.addAttribute("products", list);
+	session.setAttribute("products", list);
 	
 	return "index";
 }
