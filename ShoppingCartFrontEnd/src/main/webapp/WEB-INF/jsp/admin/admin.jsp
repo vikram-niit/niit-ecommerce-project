@@ -35,20 +35,30 @@
 		
 		<div id="managelist">
 		<ul class="nav nav-pills">
-		<li> <a class="list-group-item <c:if test="${displayManageCategoriesPage == true }">
-			<c:out value="active"/>
+			<li>
+				 <a class="list-group-item 
+					 <c:if test="${displayManageCategoriesPage == true }">
+						<c:out value="active"/>
 					</c:if>		
-		" href="<c:url value="/admin/manageCategories" />" >Manage Categories</a></li>
-		<li><a class="list-group-item 
-		<c:if test="${displayManageProductsPage == true }">
-			<c:out value="active"/>
+				" href="<c:url value="/admin/manageCategories" />" >Manage Categories
+				</a>
+			</li>
+			<li>
+				<a class="list-group-item 
+					<c:if test="${displayManageProductsPage == true }">
+						<c:out value="active"/>
 					</c:if>		
-		" href="<c:url value="/admin/manageProducts" />">Manage Products</a></li>
-		<li><a class="list-group-item 
-			<c:if test="${displayManageSuppliersPage == true }">
-			<c:out value="active"/>
+				" href="<c:url value="/admin/manageProducts" />">Manage Products
+				</a>
+			</li>
+			<li>
+				<a class="list-group-item 
+					<c:if test="${displayManageSuppliersPage == true }">
+						<c:out value="active"/>
 					</c:if>	
-		"href="<c:url value="/admin/manageSuppliers" />">Manage Suppliers</a></li>
+				" href="<c:url value="/admin/manageSuppliers" />">Manage Suppliers
+				</a>
+			</li>
 		</ul>
 		</div>
 		

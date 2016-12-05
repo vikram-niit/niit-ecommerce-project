@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder"/>
 <fullyQualifiedTypeName name="org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer"/>
 <fullyQualifiedTypeName name="org.apache.maven.model.Model"/>
@@ -25,7 +24,6 @@
 <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetails"/>
 <fullyQualifiedTypeName name="org.springframework.webflow.mvc.servlet.AbstractFlowHandler"/>
 <fullyQualifiedTypeName name="javax.persistence.Transient"/>
-<fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
@@ -47,7 +45,6 @@
 <fullyQualifiedTypeName name="com.niit.shoppingcart.model.Order"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="org.codehaus.plexus.component.annotations.Component"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="org.hibernate.service.spi.InjectService"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.niit.shoppingcart.model.BillingAddress"/>
 <fullyQualifiedTypeName name="com.niit.shoppingcart.model.PaymentMethod"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
+<fullyQualifiedTypeName name="com.niit.shoppingcartfrontend.util.FileUtil"/>
 </qualifiedTypeNameHistroy>

@@ -202,7 +202,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests()
         .antMatchers("/resources/**").permitAll()
         //.antMatchers("/flows/**").permitAll()
+        //.antMatchers("/").permitAll()
+        .antMatchers("/Registration*").permitAll()
+        .antMatchers("/register").permitAll()
+        .antMatchers("/home").permitAll()
+        .antMatchers("/contact").permitAll()
+        .antMatchers("/about").permitAll()
         .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+        .antMatchers("/user/**").access("hasRole('ROLE_USER')")
+        .antMatchers("/flows*").access("hasRole('ROLE_USER')")
             .anyRequest().authenticated() 
             .and()
         .formLogin().loginPage("/login").permitAll()
@@ -212,7 +220,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         
 		http
         .authorizeRequests()
-        .antMatchers("/resources/**").permitAll()
+        .antMatchers("/resources/**").permitAll()    
         //.antMatchers("/flows/**").permitAll()
         .antMatchers("/user/**").access("hasRole('ROLE_USER')")
             .anyRequest().authenticated() 
@@ -221,6 +229,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .defaultSuccessUrl("/")
         .and()
         .logout().permitAll();
+		
+		http.authorizeRequests()
+		.antMatchers("/flows/*").access("hasRole('ROLE_USER')");
 		
             /*.and()
         .httpBasic();    */ 

@@ -116,6 +116,33 @@ rel="stylesheet" />
   <div id="div2">
     <div id="content">
    <!--  <a href="flows">Start flow</a> -->
+   
+   <ul class="accordion">
+   <c:forEach items="${categories }" var="category">
+				
+				<li>
+				
+				
+					<a  href='<c:url value="/getProductsByCategory/${category.id }"></c:url>'>
+				<strong><c:out value="${category.name }"/></strong>
+				</a>
+				
+				<span>${categoryId }${category.id }</span>
+				<c:if test="${categoryId } == ${category.id }">
+				<ul>
+						<c:forEach items="${productsByCategory }" var="product">
+						
+						<li><span>${product.name }</span></li>
+						
+						</c:forEach>
+					
+				</ul>
+				</c:if>
+						
+				</li>
+		</c:forEach>
+	</ul>
+	
     <c:if test="${isAdmin }">
      <jsp:include page="./admin/admin.jsp"></jsp:include>
      </c:if>
@@ -136,6 +163,10 @@ rel="stylesheet" />
      
      <c:if test="${displayRegistrationForm }">
      <jsp:include page="registrationForm.jsp"></jsp:include>
+     </c:if>
+     
+     <c:if test="${not empty displayRegistrationSuccessMessage}">
+     <div class="success">${displayRegistrationSuccessMessage}</div>
      </c:if>
      
      <c:if test="${displayProductsPage }">

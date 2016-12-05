@@ -12,4 +12,5 @@ public interface ProductDAO {
 	public void deleteProduct(Product p);
 	public List<Product> getProducts();
 	public Product getProductByName(String name);
+	public List<Product> getProductsByCategory(Integer categoryId);
 }

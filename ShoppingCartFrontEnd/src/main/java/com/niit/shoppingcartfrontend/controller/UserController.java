@@ -59,18 +59,17 @@ public class UserController {
 	}
 	
 	
-	
 	@RequestMapping(value="/ProductList", produces="application/json")
 	public String ProductList(Model model){
 		return "json string";
 	}
 	
 	@RequestMapping("/register")
-	public String register2(@ModelAttribute("user") User user){
+	public String register2(@ModelAttribute("user") User user, Model model){
 	
 		System.out.println(user);
 		
-		user.setId(3);
+		//user.setId(3);
 		userdao.saveUser(user);
 		
 
@@ -94,6 +93,8 @@ public class UserController {
 		}*/
 	
 	//model.addAttribute("displayProductsPage", true);
+		model.addAttribute("displayRegistrationSuccessMessage", "You have been successfully registered");
+		
 	return "index";
 }
 	

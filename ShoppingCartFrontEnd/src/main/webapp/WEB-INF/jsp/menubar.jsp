@@ -38,27 +38,41 @@
                     <%--  <li>
                         <a class="page-scroll" href='<c:url value="/LoginForm"></c:url>'>Login</a>
                      </li> --%>
-                     <c:if test="${loggedin == false}">
+                     <c:choose>
+                     	<c:when test="${loggedin == true}">
+                     		<li>	
+      							<a href='<c:url value="/logout"></c:url>'>
+      								<span class="glyphicon glyphicon-log-out"></span> Logout
+      							</a>
+      						</li>
+      
+                     	</c:when>
+                     	<c:otherwise>
+                     		<li><a href='<c:url value="/RegistrationForm"></c:url>'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      						<li><a href='<c:url value="/login"></c:url>'><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                     	</c:otherwise>
+                     </c:choose>
+                     <%-- <c:if test="${loggedin == false}">
                      <li><a href='<c:url value="/RegistrationForm"></c:url>'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href='<c:url value="/login"></c:url>'><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </c:if>
                     
                       <c:if test="${loggedin == true}">                     
       <li>
-    <%--   <c:url value="/logout" var="logoutUrl"/> --%>
+      <c:url value="/logout" var="logoutUrl"/>
             
-             <%-- form method="post" action="${logoutUrl }" >
+             form method="post" action="${logoutUrl }" >
       
     <input type="submit" value="Log out" />
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>.
-		</form> --%>
+		</form>
 		
       <a href='<c:url value="/logout"></c:url>'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       
      
      
                     </c:if>
-                  
+                   --%>
                     
                   
                 </ul>

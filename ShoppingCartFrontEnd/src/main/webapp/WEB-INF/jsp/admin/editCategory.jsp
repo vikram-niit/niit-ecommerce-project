@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head> --%>
 <body>
-		<h2 id="registrationPageHeading">Edit Product</h2>
+		<h2 id="registrationPageHeading">Edit Category</h2>
 		<c:url value="/admin/updateCategory" var="saveURL"/>
                <form:form method="post" action="${saveURL}"
                class="form-horizontal">

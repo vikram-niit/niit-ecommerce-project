@@ -14,7 +14,7 @@
 
 </head>
 <body>
-		<h2>Manage Categories</h2>
+		
 		<%-- <h1>Welcome ${user }</h1> --%>
 		
 		<%-- <ul id="categoryList" class="nav nav-pills" >
@@ -93,30 +93,40 @@
  <strong><c:out value="${displayErrorMessage }"/></strong>
 </div>
      </c:if>
-		<table>
+		<table class="table table-bordered">
+		<thead>
+		            <tr class="info">
+		                <th>Category Name</th>		                
+		                <th>&nbsp</th>
+		                <th>&nbsp</th>    
+		                <th>&nbsp</th>
+		                <th>&nbsp </th>                    
+		            </tr>
+        		</thead>
 		<c:forEach items="${categories }" var="category">
+				
 				<tr>
 				<td>
 					<strong><c:out value="${category.name }"/></strong>
 				</td>
 				<td>
-					<a class="btn btn-info" href='<c:url value="/admin/addCategory"></c:url>'>
+					<a  href='<c:url value="/admin/addCategory"></c:url>'>
 				create
 				</a>
 				</td>
 				<td>
-					<a class="btn btn-info"
+					<a 
 				href='<c:url value="/admin/readCategory/${category.id}"></c:url>'>
 				read			</a>
 				</td>
 				<td>
-					<a class="btn btn-info"
+					<a 
 			    href='<c:url value="/admin/updateCategory/${category.id}"></c:url>'>
 				update
 				</a>
 				</td>
 				<td>
-					<a class="btn btn-info"
+					<a 
 				href='<c:url value="/admin/deleteCategory/${category.id}"></c:url>'>
 				delete 
 				</a>

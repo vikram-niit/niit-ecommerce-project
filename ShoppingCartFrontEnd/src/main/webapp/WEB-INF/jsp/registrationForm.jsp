@@ -20,6 +20,13 @@ margin-bottom:100px;
             <h2 id="registrationPageHeading">Registration Page</h2>
                <form:form method="post" action="register" 
                class="form-horizontal">
+      
+      <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">UserId:</label>
+    <div class="col-sm-10"> 
+      <form:input class="form-control" id="pwd" placeholder="Enter name"
+      	path="Id"/>
+    </div>
                
     <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Name:</label>
@@ -44,7 +51,7 @@ margin-bottom:100px;
   </div>
   
   <div class="form-group">
-    <label class="control-label col-sm-2" for="pwd">Password:</label>
+    <label class="control-label col-sm-2" for="pwd">Mobile:</label>
     <div class="col-sm-10"> 
       <form:input  class="form-control" id="pwd" 
       placeholder="Enter password" path="mobile"/>
@@ -52,9 +59,9 @@ margin-bottom:100px;
   </div>
   
   <div class="form-group">
-    <label class="control-label col-sm-2" for="pwd">Password:</label>
+    <label class="control-label col-sm-2" for="pwd">Address:</label>
     <div class="col-sm-10"> 
-      <form:input type="password" class="form-control" id="pwd" 
+      <form:input class="form-control" id="pwd" 
       placeholder="Enter address" path="address"/>
     </div>
   </div>

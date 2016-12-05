@@ -4,24 +4,71 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style type="text/css">
+
+img{
+height:300px;
+width:250px;
+}
 
 </style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-		<h2>Manage Products</h2>
+<body>		
+		
+		<!-- Display Product details of a specific product -->
+		<c:if test="${displayProductDetails }">
+     		<table class="table">
+     			<tr>     			
+     			<td><img id="productImage" alt="/resources/img/electronicDevices/2.jpg" src='<c:url 
+     			value="/resources/uploadedImages/${product.id}.jpg"></c:url>'/>
+     			</td>
+     			<td>
+	     					
+			     			<strong>Product Id:${product.id }</strong><br/>
+			     			
+			     			
+			     			
+			     			
+			     			<strong>Product Name:${product.name }</strong><br/>
+			     			
+			     			
+			     			
+			     			<strong>Product Description:${product.description }</strong><br/>
+			     			
+			     			
+			     			
+			     			
+			     			<strong>Product price:${product.price }</strong><br/>	     			
+	     					
+     			</td>
+     			</tr>    			
+     			
+     		</table>
+		</c:if>
+		<!-- End of Display Product details of a specific product -->
+		
 		<!-- Create Product -->
 		<c:if test="${displayCreateProductForm }">
      <jsp:include page="./createProduct.jsp"></jsp:include>
      </c:if>
 		
+		<c:if test="${displayEditProductForm }">
+     <jsp:include page="./editProduct.jsp"></jsp:include>
+     </c:if>
+		
 		<!-- List products -->
-		<table class="table">
+		<table class="table table-bordered">
 		<thead>
-            <tr>
+            <tr class="info">
                 <th>Product Name</th>
-                <th>price</th>                
+                <th>price</th>
+                <th>&nbsp</th>
+                <th>&nbsp</th>    
+                <th>&nbsp</th>
+                <th>&nbsp </th>                    
             </tr>
         </thead>
 		

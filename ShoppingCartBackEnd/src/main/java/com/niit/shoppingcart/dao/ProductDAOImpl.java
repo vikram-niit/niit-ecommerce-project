@@ -102,4 +102,12 @@ public class ProductDAOImpl implements ProductDAO, Serializable{
 		
 		return p;
 	}
+
+	public List<Product> getProductsByCategory(Integer categoryId) {
+		
+		String query = "from Product p where p.category.id ="+categoryId;
+		List<Product> productList = (List<Product>) template.find(query);
+		
+		return productList;
+	}
 }

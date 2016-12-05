@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="&lt;output name=&quot;confirmed&quot; value=&quot;&apos;Your booking is confirmed, you can book another hotel by searching again.&apos;&quot;/&gt;" key="selection"/>
+		<item value="Product" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Category"/>
 			<item value="bookingId"/>
 			<item value="bookingid"/>
 			<item value="flowexecutionurl"/>
@@ -15,9 +16,9 @@
 			<item value="slf4j"/>
 			<item value="WEB-INF"/>
 			<item value="web-inf/dispatcher-serlvet"/>
-			<item value="1 Spring WebApplicationInitializers detected on classpath"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Product"/>
 			<item value="temp"/>
 			<item value="User"/>
 			<item value="user"/>
@@ -25,7 +26,6 @@
 			<item value="Supplier"/>
 			<item value="categoryDao"/>
 			<item value="Category"/>
-			<item value="saveProduct"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

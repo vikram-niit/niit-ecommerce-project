@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		Manage Suppliers Page
-		
+				
 		<!-- Create Supplier -->
 		<c:if test="${displayCreateSupplierForm }">
      <jsp:include page="./createSupplier.jsp"></jsp:include>
@@ -48,30 +47,40 @@
      </c:if>
 		
 		<!--  Supplier list -->
-		<table>
+		<table class="table table-bordered">
+		<thead>
+		            <tr class="info">
+		                <th>Supplier Name</th>		                
+		                <th>&nbsp</th>
+		                <th>&nbsp</th>    
+		                <th>&nbsp</th>
+		                <th>&nbsp </th>                    
+		            </tr>
+		        </thead>
 		<c:forEach items="${suppliers }" var="supplier">
+				
 				<tr>
 				<td>
 					<strong><c:out value="${supplier.supplierName }"/></strong>
 				</td>
 				<td>
-					<a class="btn btn-info" href='<c:url value="/admin/addSupplier"></c:url>'>
+					<a  href='<c:url value="/admin/addSupplier"></c:url>'>
 				create
 				</a>
 				</td>
 				<td>
-					<a class="btn btn-info"
+					<a 
 				href='<c:url value="/admin/readSupplier/${supplier.id}"></c:url>'>
 				read			</a>
 				</td>
 				<td>
-					<a class="btn btn-info"
+					<a 
 			    href='<c:url value="/admin/updateSupplier/${supplier.id}"></c:url>'>
 				update
 				</a>
 				</td>
 				<td>
-					<a class="btn btn-info"
+					<a 
 				href='<c:url value="/admin/deleteSupplier/${supplier.id}"></c:url>'>
 				delete 
 				</a>
