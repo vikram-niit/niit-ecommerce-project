@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import com.niit.shoppingcart.dao.OrderDAO;
@@ -124,8 +127,18 @@ public class OrderWebFlow implements Serializable{
 		order2.setShippingAddress(order.getShippingAddress());
 		order2.setTotal(order.getTotal());
 		order2.setProductList(order.getProductList());
-		order2.setUserid(order.getUserid());
-		//orderdao.saveOrder(order2);
+		
+		/* Sets the userid with the currently logged in user's name */
+		Authentication auth = 
+				SecurityContextHolder.getContext().getAuthentication();
+		if(auth!=null){
+			UserDetails userDetails = (UserDetails)auth.getPrincipal();
+			String loggedInUsername = userDetails.getUsername();
+			order2.setUserid(loggedInUsername);
+		}
+		/* End of setting the userid with the currently logged in user's name */	
+		
+		orderdao.saveOrder(order2);
 		
 		return "success";
 	}

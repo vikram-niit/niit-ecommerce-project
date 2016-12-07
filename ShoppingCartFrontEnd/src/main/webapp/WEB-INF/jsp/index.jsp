@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"  %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -147,9 +148,13 @@ rel="stylesheet" />
 		</c:forEach>
 	</ul>
 	</div> --%>
-    <c:if test="${isAdmin }">
+	
+	<sec:authorize access="hasRole('ADMIN')">
+	 <c:if test="${isAdmin }">
      <jsp:include page="./admin/admin.jsp"></jsp:include>
      </c:if>
+	</sec:authorize>
+   
      
     <%--  <div>${flowRequestContext.flowScope}</div>
      <c:if test="${admin }">

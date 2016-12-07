@@ -23,7 +23,7 @@ color:#ffffff;
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div id="main-nav" class="container-fluid" >
         
-       
+      <%--  <c:out value="${pageContext.request.userPrincipal.name }"></c:out> --%>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -32,7 +32,11 @@ color:#ffffff;
                  <c:if test="${loggedin == true}">   
                   <ul class="nav navbar-nav "> 
                  <li>
-                        <a class="page-scroll" href="#">Welcome <c:out value="${userDetails.username }"></c:out></a>
+                        <a class="page-scroll" href="#">Welcome <c:out value="${userDetails.username }"></c:out>
+                        
+                       <%--  ${pageContext.request.userPrincipal.name } --%>
+                       <%--  <c:out value="${pageContext.request.userPrincipal.name }"></c:out> --%>
+                        </a>
       </li>
       </ul>
       </c:if>

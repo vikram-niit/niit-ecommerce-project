@@ -48,7 +48,7 @@ public class Order implements Serializable{
 		this.userid = userid;
 	}
 
-	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	@JoinTable(name="order_product", joinColumns={@JoinColumn(referencedColumnName="orderid")}
 			, inverseJoinColumns={@JoinColumn(referencedColumnName="id")})
 	private List<Product> productList;
