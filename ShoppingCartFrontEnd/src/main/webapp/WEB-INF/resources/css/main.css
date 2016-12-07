@@ -23,3 +23,12 @@
 	border-radius: 5px 5px 5px 5px;
 	
 }
+
+.submit{
+	margin-top:50px;
+	padding-left:300px;	
+}
+
+ul li{
+	list-style-type:none !important;	
+}

@@ -117,7 +117,11 @@ rel="stylesheet" />
     <div id="content">
    <!--  <a href="flows">Start flow</a> -->
    
-   <ul class="accordion">
+    <%-- <div class="dropdown">
+   <a href="#" data-toggle="dropdown">Categories
+   <span class="caret" ></span>
+   </a>
+   <ul class="dropdown-menu">
    <c:forEach items="${categories }" var="category">
 				
 				<li>
@@ -142,15 +146,15 @@ rel="stylesheet" />
 				</li>
 		</c:forEach>
 	</ul>
-	
+	</div> --%>
     <c:if test="${isAdmin }">
      <jsp:include page="./admin/admin.jsp"></jsp:include>
      </c:if>
      
-     <div>${flowRequestContext.flowScope}</div>
+    <%--  <div>${flowRequestContext.flowScope}</div>
      <c:if test="${admin }">
      <div>Checkout flow scope variables working</div>
-     </c:if>
+     </c:if> --%>
      
     
     

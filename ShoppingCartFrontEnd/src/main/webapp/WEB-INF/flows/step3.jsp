@@ -8,14 +8,7 @@
     <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.min.js" /> " ></script>
     
 <style>
-#div1{
-margin-top:100px;
-margin-right:100px;
-margin-left:100px;
-margin-bottom:50px;
-background:#ecf0f1;
 
-}
 
 #div2{
 border-radius:5px;
@@ -28,7 +21,7 @@ text-align:center;
     
 <div id="embeddedFlow">
 
-<div id="div1">
+
 <div id="div2">
 	<!-- <p class="notice">This is step 1 of the embedded flow</p> -->
 	<div class="header-content" id="label">Enter Shipping Address</div>
@@ -99,19 +92,19 @@ text-align:center;
     </div>
   </div>
   
-  
-  		<div class="form-group">
-  		<div class="col-sm-2 col-sm-10">
-		<input id="cancel" type="submit" name="_eventId_cancel" value="cancel" class="btn btn-default"/>
-			<button id="previous" type="submit" name="_eventId_previous">&lt;&lt; Previous</button>
-		<input id="next" type="submit" name="_eventId_next" value="next" class="btn btn-default"/> &gt;&gt;
+  		<br/>
+  		<span>&nbsp</span>
+  		<div class="submit">  		
+		<input id="cancel" type="submit" name="_eventId_cancel" value="cancel" class="btn btn-danger"/>
+			<button id="previous" class="btn btn-danger" type="submit" name="_eventId_previous">&lt;&lt; Previous</button>
+		<input id="next" type="submit" name="_eventId_next" value="next &gt;&gt;" class="btn btn-danger"> 
 		</div>
-		</div>
+		
 		<!-- <script type="text/javascript">
 			Spring.addDecoration(new Spring.AjaxEventDecoration({elementId:'next',event:'onclick',formId:'step1',params:{fragments:"body"}}));
 			Spring.addDecoration(new Spring.AjaxEventDecoration({elementId:'cancel',event:'onclick',formId:'step1',params:{fragments:"body"}}));
 		</script> -->
 	</form:form>
 	</div>
-	</div>
+	
 </div>

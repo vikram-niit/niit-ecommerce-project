@@ -242,7 +242,7 @@ public class ProductController {
 	System.out.println(list+" list-size="+list.size());
 	
 	model.addAttribute("products", list);
-	session.setAttribute("products", list);
+	//session.setAttribute("products", list);
 	
 	return "index";
 }
@@ -253,6 +253,8 @@ public class ProductController {
 		List<Product> productsByCategory = productdao.getProductsByCategory(id);
 		model.addAttribute("productsByCategory", productsByCategory);
 		model.addAttribute("categoryId", id);
+		
+		model.addAttribute("displayProductsPage", true);
 		
 		return "index";
 	}

@@ -3,20 +3,54 @@ package com.niit.shoppingcart.model;
 import java.io.Serializable;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="Order2")
+@Component
 public class Order implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ShippingAddress shippingAddress;
-	private BillingAddress billingAddress;
+	
+	@Id
+	String orderid;
+	private String shippingAddress;
+	private String billingAddress;
 	private String paymentMethod;
+	private Integer total;
+	private String userid;
 	
-	
+	public String getOrderid() {
+		return orderid;
+	}
 
+	public void setOrderid(String orderid) {
+		this.orderid = orderid;
+	}
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinTable(name="order_product", joinColumns={@JoinColumn(referencedColumnName="orderid")}
+			, inverseJoinColumns={@JoinColumn(referencedColumnName="id")})
 	private List<Product> productList;
 	
 	
@@ -28,22 +62,24 @@ public class Order implements Serializable{
 		this.productList = productList;
 	}
 
-	public ShippingAddress getShippingAddress() {
+	
+	
+	public String getShippingAddress() {
 		return shippingAddress;
 	}
 
-	public void setShippingAddress(ShippingAddress shippingAddress) {
+	public void setShippingAddress(String shippingAddress) {
 		this.shippingAddress = shippingAddress;
 	}
-	
-	public BillingAddress getBillingAddress() {
+
+	public String getBillingAddress() {
 		return billingAddress;
 	}
 
-	public void setBillingAddress(BillingAddress billingAddress) {
+	public void setBillingAddress(String billingAddress) {
 		this.billingAddress = billingAddress;
 	}
-	
+
 	public String getPaymentMethod() {
 		return paymentMethod;
 	}
@@ -52,10 +88,20 @@ public class Order implements Serializable{
 		this.paymentMethod = paymentMethod;
 	}
 
+	public Integer getTotal() {
+		return total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [shippingAddress=" + shippingAddress + ", billingAddress=" + billingAddress + ", paymentMethod="
-				+ paymentMethod + ", productList=" + productList + "]";
+				+ paymentMethod + ", total=" + total + ", productList=" + productList + "]";
 	}
+	
+	
  
 }

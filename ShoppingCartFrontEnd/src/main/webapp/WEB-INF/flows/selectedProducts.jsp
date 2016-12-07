@@ -5,31 +5,74 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+img{
+height:400px;
+width:300px;
+}
+
+h3{
+text-align:center;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 			<div id="div1">
 				<div id="div2">
-				<p class="notice">This is step 1 of the order flow</p>
-				<div class="header-content" id="label">Selected Products</div>
 				
+				<div class="header-content" id="label"><h3>Selected Products</h3></div>
+				
+				<!-- Start of Product List -->
 				<c:forEach items="${order.productList }" var="product">
-					<c:out value="${product.name }"></c:out>										
-				</c:forEach>
+															
 				
+				
+				<table class="table">
+     			<tr>     			
+     			<td><img id="productImage" alt="Image not available" src='<c:url 
+     			value="/resources/uploadedImages/${product.id}.jpg"></c:url>'/>
+     			</td>
+     			<td>
+	     					
+			     			<strong>Product Id:${product.id }</strong><br/>
+			     			
+			     			
+			     			
+			     			
+			     			<strong>Product Name:${product.name }</strong><br/>
+			     			
+			     			
+			     			
+			     			<strong>Product Description:${product.description }</strong><br/>
+			     			
+			     			
+			     			
+			     			
+			     			<strong>Product price:${product.price }</strong><br/>	     			
+	     					
+     			</td>
+     			</tr>    			
+     			
+     		</table>
+		</c:forEach>
+		<!-- End of selected Products list -->		
+		
 				<c:url value="/flows" var="flowURL"/>
 			             
 				<form:form id="step1"  action="${flowExecutionUrl}" method="POST" >
 					
 			  
-			  		<div class="form-group">
-			  		<div class="col-sm-2 col-sm-10">
-					<input id="cancel" type="submit" name="_eventId_cancel" value="cancel" class="btn btn-default"/>
-						<button id="previous" type="submit" name="_eventId_previous">&lt;&lt; Previous</button>
-					<input id="next" type="submit" name="_eventId_next" value="next" class="btn btn-default"/> &gt;&gt;
-					</div>
-					</div>
+			  	<br/>
+  		<span>&nbsp</span>
+  		<div class="submit">  		
+		<input id="cancel" type="submit" name="_eventId_cancel" value="cancel" class="btn btn-danger"/>
+			<button id="previous" class="btn btn-danger" type="submit" name="_eventId_previous">&lt;&lt; Continue Shopping</button>
+		<input id="next" type="submit" name="_eventId_next" value="Checkout &gt;&gt;" class="btn btn-danger"> 
+		</div>
+		
+					
 					
 				</form:form>
 			</div>

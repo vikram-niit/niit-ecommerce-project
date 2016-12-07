@@ -1,6 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<style>
+a {
+color:#ffffff;
+}
+
+
+ul li a.categories > a:focus, a:hover{
+background:coral !important;
+}
+
+ul li a.categories{
+background:none !important;
+}
+
+.caret{
+color:#ffffff;
+}
+</style>
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div id="main-nav" class="container-fluid" >
         
@@ -29,8 +48,23 @@
                     <li>
                         <a class="page-scroll" href='<c:url value="/about"></c:url>'>About</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href='<c:url value="/Products"></c:url>'>Products</a>
+                    <li class="dropdown">
+                       <%--  <a class="page-scroll" href='<c:url value="/Products"></c:url>'>Products</a> --%>
+                       
+							   <a href='<c:url value="/Products"></c:url>'
+							    class="categories" data-toggle="dropdown">Categories
+							   <span class="caret" ></span>
+							   </a>
+							   <ul class="dropdown-menu">
+							   <c:forEach items="${categories }" var="category">				
+									<li>								
+										<a  href='<c:url value="/getProductsByCategory/${category.id }"></c:url>'>
+											<strong><c:out value="${category.name }"/></strong>
+										</a>	
+									
+									</li>
+								</c:forEach>
+							   </ul>						
                     </li>
                     <li>
                         <a class="page-scroll" href='<c:url value="/contact"></c:url>'>Contact</a>
@@ -81,3 +115,5 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    
+   

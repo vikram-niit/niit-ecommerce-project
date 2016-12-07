@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <section class="no-padding" id="products">
+    
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -17,6 +17,8 @@
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
     <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+    <li data-target="#myCarousel" data-slide-to="5"></li>
   </ol>
 
   <!-- Wrapper for slides -->
@@ -41,20 +43,10 @@
        <img src="<c:url value="/resources/img/electronicDevices/4.jpg" />" class="img-responsive" alt="">
     </div>
     
-    <div class="item">
-     <a href="<c:url value="/resources/img/electronicDevices/5.jpg" />" >
-       <img src="<c:url value="/resources/img/electronicDevices/5.jpg" />" class="img-responsive" alt="">
-    </div>
-    
-    <div class="item">
+     <div class="item">
      <a href="<c:url value="/resources/img/electronicDevices/6.jpg" />" >
-       <img src="<c:url value="https://rukminim1.flixcart.com/flap/3376/560/brandtest/0c22be4686953814092555569.jpg?q=50" />" class="img-responsive" alt="">
-    </div>
-    
-    <div class="item">
-     <a href="<c:url value="/resources/img/electronicDevices/6.jpg" />" >
-       <img src="<c:url value="https://rukminim1.flixcart.com/flap/50/50/brandtest/3d6553977760090958650613.jpg?q=50" />" class="img-responsive" alt="">
-    </div>
+       <img src="<c:url value="/resources/img/electronicDevices/6.jpg" />" class="img-responsive" alt="">
+    </div>    
     
     <div class="item">
      <a href="<c:url value="/resources/img/electronicDevices/7.jpg" />" >
@@ -72,7 +64,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-    </section>
+ 
 
 </body>
 </html>

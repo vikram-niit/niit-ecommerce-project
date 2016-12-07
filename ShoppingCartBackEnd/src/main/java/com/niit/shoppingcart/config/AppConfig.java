@@ -73,6 +73,7 @@ public class AppConfig {
     sessionBuilder.addAnnotatedClasses(Supplier.class);
     sessionBuilder.addAnnotatedClasses(User.class);
     sessionBuilder.addAnnotatedClasses(UserRole.class);
+    sessionBuilder.addAnnotatedClasses(Order.class);
     
     return sessionBuilder.buildSessionFactory();
     }
@@ -118,7 +119,6 @@ public UserDao3 getUserDao(HibernateTemplate template){
 @Bean(name="order")
 public Order order(){
 	Order order =  new Order();
-	order.setShippingAddress(getShippingAddress());
 	
 	return order;
 }
