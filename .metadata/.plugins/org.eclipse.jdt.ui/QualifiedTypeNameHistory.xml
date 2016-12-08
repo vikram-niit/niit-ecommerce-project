@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
-<fullyQualifiedTypeName name="com.niit.shoppingcart.model.UserRole"/>
-<fullyQualifiedTypeName name="org.springframework.security.core.context.SecurityContextHolder"/>
-<fullyQualifiedTypeName name="org.springframework.security.core.userdetails.User"/>
-<fullyQualifiedTypeName name="org.springframework.webflow.config.AbstractFlowConfiguration"/>
-<fullyQualifiedTypeName name="org.codehaus.plexus.component.annotations.Configuration"/>
 <fullyQualifiedTypeName name="com.niit.shoppingcart.model.Category"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
@@ -39,7 +33,6 @@
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="org.hibernate.service.spi.InjectService"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.niit.shoppingcart.model.Product"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -55,9 +48,16 @@
 <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="com.niit.shoppingcart.model.Order"/>
 <fullyQualifiedTypeName name="org.springframework.orm.hibernate4.HibernateTemplate"/>
 <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
 <fullyQualifiedTypeName name="javax.persistence.Table"/>
 <fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="com.niit.shoppingcart.model.User"/>
+<fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+<fullyQualifiedTypeName name="javax.persistence.Query"/>
+<fullyQualifiedTypeName name="org.hibernate.Session"/>
+<fullyQualifiedTypeName name="org.hibernate.Query"/>
+<fullyQualifiedTypeName name="com.niit.shoppingcart.dao.OrderDAO"/>
+<fullyQualifiedTypeName name="com.niit.shoppingcart.model.Order"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

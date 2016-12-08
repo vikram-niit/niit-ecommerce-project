@@ -83,6 +83,10 @@ color:#ffffff;
       								<span class="glyphicon glyphicon-log-out"></span> Logout
       							</a>
       						</li>
+      						
+      						 <li>
+                        <a class="page-scroll glyphicon glyphicon-shopping-cart" href="#" ></a>
+                    </li>
       
                      	</c:when>
                      	<c:otherwise>
@@ -112,6 +116,7 @@ color:#ffffff;
                     </c:if>
                    --%>
                     
+                 
                   
                 </ul>
             </div>
