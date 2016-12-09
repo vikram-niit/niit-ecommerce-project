@@ -201,6 +201,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
         .authorizeRequests()
         .antMatchers("/resources/**").permitAll()
+        .antMatchers("/").permitAll()
+        .antMatchers("/getProductsByCategory/*").permitAll()
         //.antMatchers("/flows/**").permitAll()
         //.antMatchers("/").permitAll()
         .antMatchers("/Registration*").permitAll()
@@ -226,7 +228,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .anyRequest().authenticated() 
             .and()
         .formLogin().loginPage("/login").permitAll()
-        .defaultSuccessUrl("/")
+        .defaultSuccessUrl("/home")
         .and()
         .logout().permitAll();
 		

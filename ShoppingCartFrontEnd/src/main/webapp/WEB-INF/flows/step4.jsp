@@ -38,12 +38,16 @@ text-align:center;
 		
   
     <div class="form-group">
-    	<label class="control-label col-sm-2" for="pwd">Payment Method</label>
+    	<!-- <label class="control-label col-sm-2" for="pwd">Payment Method</label> -->
 	    <div class="col-sm-10"> 	      
-	    <input name="paymentMethod" value="Debit Card"/>
-	      <%-- 	<form:radiobutton class="form-control" 	path="paymentMethod"/>
-	      		<form:radiobutton class="form-control" 	path="paymentMethod"/>
-	      			<form:radiobutton class="form-control" 	path="paymentMethod"/>    --%>		
+	    <!-- <input name="paymentMethod" value="Debit Card"/> -->
+	    
+	    <label for="paymentMethod">Debit Card</label><input name="paymentMethod" type="radio" value="Debit Card"/>
+	     <label for="paymentMethod">Cash On Delivery</label><input name="paymentMethod" type="radio" value="Cash On Delivery"/>
+	    
+	      	<%-- <form:radiobutton class="form-control" 	path="paymentMethod" value="Debit Card"/>
+	      		<form:radiobutton class="form-control" 	path="paymentMethod" value="Cash On Delivery"/> --%>
+	      			<%-- <form:radiobutton class="form-control" 	path="paymentMethod" /> --%>   		
 	      
 	    </div>
   	</div>

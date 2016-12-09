@@ -3,6 +3,7 @@ package com.niit.shoppingcartfrontend.controller;
 import java.nio.file.Paths;
 import java.util.Collection;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -29,6 +30,9 @@ import com.niit.shoppingcart.model.Supplier;
 public class HomeController {
 
 	@Autowired
+	ServletContext servletContext;
+	
+	@Autowired
 	CategoryDAO categorydao;
 	
 	@Autowired
@@ -54,6 +58,10 @@ public class HomeController {
 		System.out.println("session:"+ session.getValueNames());
 		for(String x:session.getValueNames())
 			System.out.println(x);
+		
+		servletContext.setAttribute("categories", categorydao.getCategories());
+		servletContext.setAttribute("suppliers", supplierdao.getSuppliers());
+		
 		session.setAttribute("categories", categorydao.getCategories());
 		session.setAttribute("displayProductMenu", true);
 		session.setAttribute("category", category);
@@ -71,7 +79,7 @@ public class HomeController {
 		
 		
 		
-		//model.addAttribute("loggedin", "true");
+		/*//model.addAttribute("loggedin", "true");
 		session.setAttribute("loggedin", true);
 		
 		//model.addAttribute("displayManageCategoriesPage", true);
@@ -95,7 +103,7 @@ public class HomeController {
 				session.setAttribute("isAdmin", true);				
 			}			
 		}
-		
+		*/
 		
 		
 		return "index";

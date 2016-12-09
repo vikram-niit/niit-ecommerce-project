@@ -34,9 +34,23 @@ color:#ffffff;
                  <li>
                         <a class="page-scroll" href="#">Welcome <c:out value="${userDetails.username }"></c:out>
                         
-                       <%--  ${pageContext.request.userPrincipal.name } --%>
-                       <%--  <c:out value="${pageContext.request.userPrincipal.name }"></c:out> --%>
-                        </a>
+                        
+                       <%--  ${pageContext.request.userPrincipal.name }
+                        <c:out value="${pageContext.request.userPrincipal.name }"></c:out>--%>
+                        </a> 
+      </li>
+      </ul>
+      </c:if>
+      <c:if test="${not empty pageContext.request.userPrincipal.name }">   
+                  <ul class="nav navbar-nav "> 
+                 <li>
+                      <%--   <a class="page-scroll" href="#">Welcome <c:out value="${userDetails.username }"></c:out> --%>
+                           <a class="page-scroll" href="#">Welcome <c:out value="${pageContext.request.userPrincipal.name }"></c:out>
+                        
+                        
+                       <%--  ${pageContext.request.userPrincipal.name }
+                        <c:out value="${pageContext.request.userPrincipal.name }"></c:out>--%>
+                        </a> 
       </li>
       </ul>
       </c:if>
@@ -76,8 +90,27 @@ color:#ffffff;
                     <%--  <li>
                         <a class="page-scroll" href='<c:url value="/LoginForm"></c:url>'>Login</a>
                      </li> --%>
-                     <c:choose>
+                     <%-- <c:choose>
                      	<c:when test="${loggedin == true}">
+                     		<li>	
+      							<a href='<c:url value="/logout"></c:url>'>
+      								<span class="glyphicon glyphicon-log-out"></span> Logout
+      							</a>
+      						</li>
+      						
+      						 <li>
+                        <a class="page-scroll glyphicon glyphicon-shopping-cart" href="#" ></a>
+                    </li>
+      
+                     	</c:when>
+                     	<c:otherwise>
+                     		<li><a href='<c:url value="/RegistrationForm"></c:url>'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      						<li><a href='<c:url value="/login"></c:url>'><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                     	</c:otherwise>
+                     </c:choose> --%>
+                     
+                     <c:choose>
+                     	<c:when test="${not empty pageContext.request.userPrincipal.name}">
                      		<li>	
       							<a href='<c:url value="/logout"></c:url>'>
       								<span class="glyphicon glyphicon-log-out"></span> Logout

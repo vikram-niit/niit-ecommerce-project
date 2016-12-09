@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%-- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"  %> --%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"  %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"  %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -149,20 +149,29 @@ rel="stylesheet" />
 	</ul>
 	</div> --%>
 	
-	<sec:authorize access="hasRole('ADMIN')">
-	 <c:if test="${isAdmin }">
-     <jsp:include page="./admin/admin.jsp"></jsp:include>
-     </c:if>
-	</sec:authorize>
-   
-     
+	<%-- <div sec:authorize="hasRole('ROLE_USER')">
+		<jsp:include page="./admin/admin.jsp"></jsp:include>
+	</div> --%>
+	
+   <%-- <div>${ pageContext.request.session.valueNames}</div>
+     <div>${pageContext}</div>
+     ${pageContext.request.userPrincipal.name }
+                        <c:out value="${pageContext.request.userPrincipal.name }"></c:out> --%>
     <%--  <div>${flowRequestContext.flowScope}</div>
      <c:if test="${admin }">
      <div>Checkout flow scope variables working</div>
      </c:if> --%>
      
     
-    
+    <sec:authorize access="hasRole('ADMIN')">	 
+     <jsp:include page="./admin/admin.jsp"></jsp:include>     
+	</sec:authorize>
+	
+	
+	<%--  <c:if test="${isAdmin }">
+     <jsp:include page="./admin/admin.jsp"></jsp:include>
+     </c:if> --%>
+	
     
         <c:if test="${displayLoginPage }">
      <jsp:include page="loginForm.jsp"></jsp:include>
@@ -198,11 +207,12 @@ rel="stylesheet" />
 
 
     
-    
+    <sec:authorize access="hasRole('USER') or isAnonymous()" >
     <c:if test="${displayHomePage }">
        <jsp:include page="home.jsp"/>
         </c:if>
-        
+      </sec:authorize>
+       
         <%-- <c:if test="${displayManageCategories == true }">
 			<jsp:include page="categories.jsp"/>
 		</c:if> --%>

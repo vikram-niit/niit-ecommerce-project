@@ -1,8 +1,8 @@
 package com.niit.shoppingcartfrontend.controller;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +17,9 @@ import com.niit.shoppingcart.model.Category;
 @Controller
 public class CategoryController {
 
+	@Autowired
+	ServletContext servletContext;
+	
 	@Autowired
 	CategoryDAO categorydao;
 	
@@ -46,6 +49,7 @@ public class CategoryController {
 		model.addAttribute("displayManageCategoriesPage", true);
 		
 		session.setAttribute("categories", categorydao.getCategories());
+		servletContext.setAttribute("categories", categorydao.getCategories());
 		model.addAttribute("category", categorydao.getCategoryById(id));
 		model.addAttribute("displayCategoryDetails", true);
 		
@@ -76,6 +80,7 @@ public class CategoryController {
 		categorydao.updateCategory(category);
 		model.addAttribute("displayCreateCategoryForm", false);
 		session.setAttribute("categories", categorydao.getCategories());
+		servletContext.setAttribute("categories", categorydao.getCategories());
 		return new ModelAndView("index", "command", category);
 	}
 	
@@ -97,6 +102,7 @@ public class CategoryController {
 		
 		
 		session.setAttribute("categories", categorydao.getCategories());
+		servletContext.setAttribute("categories", categorydao.getCategories());
 		
 		return "index";
 	}
@@ -118,6 +124,7 @@ public class CategoryController {
 		categorydao.saveCategory(category);
 		model.addAttribute("displayCreateCategoryForm", false);
 		session.setAttribute("categories", categorydao.getCategories());
+		servletContext.setAttribute("categories", categorydao.getCategories());
 		}
 		return new ModelAndView("index", "command", category);
 	}

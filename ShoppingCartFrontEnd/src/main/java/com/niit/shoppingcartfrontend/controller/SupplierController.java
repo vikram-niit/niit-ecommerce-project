@@ -1,5 +1,6 @@
 package com.niit.shoppingcartfrontend.controller;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ import com.niit.shoppingcart.model.Supplier;
 @Controller
 public class SupplierController {
 
+	@Autowired
+	ServletContext servletContext;
+	
 	@Autowired
 	SupplierDAO supplierdao;
 	
@@ -46,6 +50,7 @@ public class SupplierController {
 		model.addAttribute("displayManageSuppliersPage", true);
 		
 		session.setAttribute("suppliers", supplierdao.getSuppliers());
+		servletContext.setAttribute("suppliers", supplierdao.getSuppliers());
 		model.addAttribute("supplier", supplierdao.getSupplierById(id));
 		model.addAttribute("displaySupplierDetails", true);
 		
@@ -61,6 +66,7 @@ public class SupplierController {
 		
 		
 		session.setAttribute("suppliers", supplierdao.getSuppliers());
+		servletContext.setAttribute("suppliers", supplierdao.getSuppliers());
 		
 		model.addAttribute("displayEditSupplierForm", true);
 		return new ModelAndView("index", "command", supplierdao.getSupplierById(id));
@@ -78,6 +84,7 @@ public class SupplierController {
 		supplierdao.updateSupplier(supplier);
 		model.addAttribute("displayCreateSupplierForm", false);
 		session.setAttribute("suppliers", supplierdao.getSuppliers());
+		servletContext.setAttribute("suppliers", supplierdao.getSuppliers());
 		return new ModelAndView("index", "command", supplier);
 	}
 	
@@ -99,6 +106,7 @@ public class SupplierController {
 		
 		
 		session.setAttribute("suppliers", supplierdao.getSuppliers());
+		servletContext.setAttribute("suppliers", supplierdao.getSuppliers());
 		
 		return "index";
 	}
@@ -120,6 +128,7 @@ public class SupplierController {
 		supplierdao.saveSupplier(supplier);
 		model.addAttribute("displayCreateSupplierForm", false);
 		session.setAttribute("suppliers", supplierdao.getSuppliers());
+		servletContext.setAttribute("suppliers", supplierdao.getSuppliers());
 		}
 		return new ModelAndView("index", "command", supplier);
 	}
