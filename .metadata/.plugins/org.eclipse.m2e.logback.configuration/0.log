@@ -7731,3 +7731,65 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2016-12-02 22:17:53,306 [Worker-41] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.3.1.RELEASE/spring-beans-4.3.1.RELEASE-sources.jar
 2016-12-02 22:18:00,606 [Worker-41] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.3.1.RELEASE/spring-beans-4.3.1.RELEASE-sources.jar
 2016-12-02 22:18:01,235 [Worker-41] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-beans:4.3.1.RELEASE
+2016-12-09 21:00:00,163 [Worker-124] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2016-12-09 21:00:09,541 [Worker-124] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.niit.shoppingcart:ShoppingCartFrontEnd:1.0-SNAPSHOT @ E:\niit\workspace\niit-ecommerce-project\ShoppingCartFrontEnd\pom.xml.
+2016-12-09 21:00:12,967 [Worker-124] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-webmvc/4.2.8.RELEASE/spring-webmvc-4.2.8.RELEASE.jar
+2016-12-09 21:00:20,749 [Worker-124] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-webmvc/4.2.8.RELEASE/spring-webmvc-4.2.8.RELEASE.jar
+2016-12-09 21:00:21,034 [Worker-124] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-web/4.2.8.RELEASE/spring-web-4.2.8.RELEASE.jar
+2016-12-09 21:00:23,359 [Worker-124] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-web/4.2.8.RELEASE/spring-web-4.2.8.RELEASE.jar
+2016-12-09 21:00:31,695 [Worker-124] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ShoppingCartFrontEnd/src/main/java
+2016-12-09 21:00:31,696 [Worker-124] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ShoppingCartFrontEnd/src/main/resources
+2016-12-09 21:00:31,697 [Worker-124] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ShoppingCartFrontEnd/src/test/java
+2016-12-09 21:00:34,853 [Worker-124] WARN  o.e.m.w.AbstractProjectConfiguratorDelegate - ShoppingCartBackEnd Utility Facet configuration is aborted as the Java Configuration is inconsistent
+2016-12-09 21:01:17,115 [Worker-124] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for ShoppingCartFrontEnd
+2016-12-09 21:01:17,139 [Worker-124] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 77 sec
+2016-12-09 21:18:50,285 [Worker-151] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2016-12-09 21:18:52,348 [Worker-151] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.niit.shoppingcart:ShoppingCartFrontEnd:1.0-SNAPSHOT @ E:\niit\workspace\niit-ecommerce-project\ShoppingCartFrontEnd\pom.xml.
+2016-12-09 21:18:54,085 [Worker-151] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/jsp-api/2.0/jsp-api-2.0.pom
+2016-12-09 21:18:54,365 [Worker-151] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/jsp-api/2.0/jsp-api-2.0.pom
+2016-12-09 21:18:54,627 [Worker-151] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.4/servlet-api-2.4.pom
+2016-12-09 21:18:54,885 [Worker-151] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.4/servlet-api-2.4.pom
+2016-12-09 21:18:56,091 [Worker-151] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/jsp-api/2.0/jsp-api-2.0.jar
+2016-12-09 21:18:57,441 [Worker-151] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/jsp-api/2.0/jsp-api-2.0.jar
+2016-12-09 21:18:57,753 [Worker-151] WARN  o.e.m.w.AbstractProjectConfiguratorDelegate - ShoppingCartBackEnd Utility Facet configuration is aborted as the Java Configuration is inconsistent
+2016-12-09 21:19:00,239 [Worker-151] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ShoppingCartFrontEnd/src/main/java
+2016-12-09 21:19:00,240 [Worker-151] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ShoppingCartFrontEnd/src/main/resources
+2016-12-09 21:19:00,241 [Worker-151] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ShoppingCartFrontEnd/src/test/java
+2016-12-09 21:19:01,726 [Worker-151] WARN  o.e.m.w.AbstractProjectConfiguratorDelegate - ShoppingCartBackEnd Utility Facet configuration is aborted as the Java Configuration is inconsistent
+2016-12-09 21:19:02,906 [Worker-151] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for ShoppingCartFrontEnd
+2016-12-09 21:19:02,909 [Worker-151] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 12 sec
+2017-03-11 15:07:06,936 [Worker-44] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2017-03-11 15:07:08,994 [Worker-44] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.niit.shoppingcart:ShoppingCartFrontEnd:1.0-SNAPSHOT @ E:\niit\workspace\niit-ecommerce-project\ShoppingCartFrontEnd\pom.xml.
+2017-03-11 15:07:13,527 [Worker-44] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ShoppingCartFrontEnd/src/main/java
+2017-03-11 15:07:13,529 [Worker-44] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ShoppingCartFrontEnd/src/main/resources
+2017-03-11 15:07:13,530 [Worker-44] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ShoppingCartFrontEnd/src/test/java
+2017-03-11 15:07:14,177 [Worker-44] WARN  o.e.m.w.AbstractProjectConfiguratorDelegate - ShoppingCartBackEnd Utility Facet configuration is aborted as the Java Configuration is inconsistent
+2017-03-11 15:07:17,793 [Worker-44] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for ShoppingCartFrontEnd
+2017-03-11 15:07:17,857 [Worker-44] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 10 sec
+2017-03-11 15:42:18,471 [Worker-61] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/4.3.1.RELEASE/spring-websocket-4.3.1.RELEASE.pom
+2017-03-11 15:42:18,815 [Worker-61] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/4.3.1.RELEASE/spring-websocket-4.3.1.RELEASE.pom
+2017-03-11 15:42:19,462 [Worker-61] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/4.3.1.RELEASE/spring-websocket-4.3.1.RELEASE.jar
+2017-03-11 15:42:21,507 [Worker-61] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/4.3.1.RELEASE/spring-websocket-4.3.1.RELEASE.jar
+2017-03-11 15:45:53,744 [Worker-42] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2017-03-11 15:45:55,011 [Worker-42] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.niit.shoppingcart:ShoppingCartFrontEnd:1.0-SNAPSHOT @ E:\niit\workspace\niit-ecommerce-project\ShoppingCartFrontEnd\pom.xml.
+2017-03-11 15:45:56,431 [Worker-42] WARN  o.e.m.w.AbstractProjectConfiguratorDelegate - ShoppingCartBackEnd Utility Facet configuration is aborted as the Java Configuration is inconsistent
+2017-03-11 15:46:00,264 [Worker-42] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ShoppingCartFrontEnd/src/main/java
+2017-03-11 15:46:00,265 [Worker-42] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ShoppingCartFrontEnd/src/main/resources
+2017-03-11 15:46:00,266 [Worker-42] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ShoppingCartFrontEnd/src/test/java
+2017-03-11 15:46:02,822 [Worker-42] WARN  o.e.m.w.AbstractProjectConfiguratorDelegate - ShoppingCartBackEnd Utility Facet configuration is aborted as the Java Configuration is inconsistent
+2017-03-11 15:46:05,109 [Worker-42] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for ShoppingCartFrontEnd
+2017-03-11 15:46:05,119 [Worker-42] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 11 sec
+2017-03-11 16:24:41,857 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/4.2.6.RELEASE/spring-messaging-4.2.6.RELEASE.pom
+2017-03-11 16:24:42,062 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/4.2.6.RELEASE/spring-messaging-4.2.6.RELEASE.pom
+2017-03-11 16:24:42,285 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.pom
+2017-03-11 16:24:42,513 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.pom
+2017-03-11 16:24:42,716 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.pom
+2017-03-11 16:24:43,024 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.pom
+2017-03-11 16:24:43,313 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.pom
+2017-03-11 16:24:43,539 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.pom
+2017-03-11 16:24:43,774 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.pom
+2017-03-11 16:24:43,984 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.pom
+2017-03-11 16:24:44,185 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.pom
+2017-03-11 16:24:44,405 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.pom
+2017-03-11 16:24:45,084 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/4.2.6.RELEASE/spring-messaging-4.2.6.RELEASE.jar
+2017-03-11 16:24:46,775 [Worker-80] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/4.2.6.RELEASE/spring-messaging-4.2.6.RELEASE.jar

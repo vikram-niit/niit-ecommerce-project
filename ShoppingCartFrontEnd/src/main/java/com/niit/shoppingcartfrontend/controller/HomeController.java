@@ -62,6 +62,7 @@ public class HomeController {
 		servletContext.setAttribute("categories", categorydao.getCategories());
 		servletContext.setAttribute("suppliers", supplierdao.getSuppliers());
 		
+		session.setAttribute("products", productdao.getProducts());
 		session.setAttribute("categories", categorydao.getCategories());
 		session.setAttribute("displayProductMenu", true);
 		session.setAttribute("category", category);

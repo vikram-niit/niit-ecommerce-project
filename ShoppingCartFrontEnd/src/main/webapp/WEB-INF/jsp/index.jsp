@@ -213,6 +213,10 @@ rel="stylesheet" />
         </c:if>
       </sec:authorize>
        
+       <c:if test="${displayWebSocketsPage }">
+       <jsp:include page="index-websocket.jsp"/>
+        </c:if>	
+       
         <%-- <c:if test="${displayManageCategories == true }">
 			<jsp:include page="categories.jsp"/>
 		</c:if> --%>

@@ -46,7 +46,7 @@ color:#ffffff;
                  <li>
                       <%--   <a class="page-scroll" href="#">Welcome <c:out value="${userDetails.username }"></c:out> --%>
                            <a class="page-scroll" href="#">Welcome <c:out value="${pageContext.request.userPrincipal.name }"></c:out>
-                        
+                        <span class="icon__kTqJY"></span>
                         
                        <%--  ${pageContext.request.userPrincipal.name }
                         <c:out value="${pageContext.request.userPrincipal.name }"></c:out>--%>

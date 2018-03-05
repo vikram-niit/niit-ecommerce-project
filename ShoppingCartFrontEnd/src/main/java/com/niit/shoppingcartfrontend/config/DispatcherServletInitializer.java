@@ -20,7 +20,8 @@ public class DispatcherServletInitializer  extends AbstractAnnotationConfigDispa
 			//DataAccessConfig.class,
 			WebMvcConfig.class,
 			WebFlowConfig.class,
-			MultipartFileUploadConfig.class
+			MultipartFileUploadConfig.class,
+			WebSocketConfig.class
 		};
 	}
 
