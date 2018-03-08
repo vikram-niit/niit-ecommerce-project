@@ -45,4 +45,28 @@ public class OrderController {
 		
 		return new ModelAndView("index");
 	}
+	
+	@RequestMapping("/getOrdersByUserId")
+	public ModelAndView displayOrders(Model model, HttpSession session){		
+		
+		model.addAttribute("displayOrderConfirmationPage", true);
+		String loggedInUsername = "";
+		
+		/* Sets the userid with the currently logged in user's name */
+		Authentication auth = 
+				SecurityContextHolder.getContext().getAuthentication();
+		if(auth!=null){
+			UserDetails userDetails = (UserDetails)auth.getPrincipal();
+			loggedInUsername = userDetails.getUsername();
+			
+		}
+		/* End of setting the userid with the currently logged in user's name */	
+		
+		List<Order> orders = orderdao.getOrdersByUser(loggedInUsername);
+		
+		System.out.println("Orders="+orders);
+		model.addAttribute("orders", orders);
+		
+		return new ModelAndView("index");
+	}
 }

@@ -31,6 +31,7 @@ public class Order implements Serializable{
 	private String paymentMethod;
 	private Integer total;
 	private String userid;
+	private String status;
 	
 	public String getOrderid() {
 		return orderid;
@@ -96,12 +97,18 @@ public class Order implements Serializable{
 		this.total = total;
 	}
 
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String Status) {
+		this.status = status;
+	}
+	
 	@Override
 	public String toString() {
 		return "Order [shippingAddress=" + shippingAddress + ", billingAddress=" + billingAddress + ", paymentMethod="
-				+ paymentMethod + ", total=" + total + ", productList=" + productList + "]";
-	}
-	
-	
- 
+				+ paymentMethod + ", total=" + total + ", productList=" + productList + "status=" + status + "]";
+	}	 
 }

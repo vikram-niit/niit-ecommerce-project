@@ -68,6 +68,7 @@ public class ProductController {
 	public ModelAndView manageProducts(Model model, HttpSession session){		
 		
 		model.addAttribute("displayManageProductsPage", true);
+		session.setAttribute("categories", categorydao.getCategories());
 		
 		return new ModelAndView("index");
 	}

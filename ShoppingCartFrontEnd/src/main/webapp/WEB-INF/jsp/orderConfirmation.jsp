@@ -66,6 +66,10 @@ display:block !important;
 					$${order.total }				
 				</td>
 				
+				<td>
+					<c:out value="${order.status }"/>
+				</td>	
+				
 				</tr>
 		</c:forEach>
 			

@@ -19,11 +19,14 @@
     <li data-target="#myCarousel" data-slide-to="3"></li>
     <li data-target="#myCarousel" data-slide-to="4"></li>
     <li data-target="#myCarousel" data-slide-to="5"></li>
+	<li data-target="#myCarousel" data-slide-to="6"></li>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item active">
+   
+<!-- electronicDevices 
+   <div class="item active">
       <a href="<c:url value="/resources/img/electronicDevices/1.jpg" />" >
        <img src="<c:url value="/resources/img/electronicDevices/1.jpg" />" class="img-responsive" alt="">
     </div>
@@ -51,7 +54,40 @@
     <div class="item">
      <a href="<c:url value="/resources/img/electronicDevices/7.jpg" />" >
        <img src="<c:url value="/resources/img/electronicDevices/7.jpg" />" class="img-responsive" alt="">
+    </div>	
+	-->
+	 <div class="item active">
+     <a href="<c:url value="/resources/img/catering/7.jpg" />" >
+       <img src="<c:url value="/resources/img/catering/7.jpg" />" class="img-responsive" alt="">
     </div>
+	
+	<div class="item">
+     <a href="<c:url value="/resources/img/catering/7.jpg" />" >
+       <img src="<c:url value="/resources/img/catering/7.jpg" />" class="img-responsive" alt="">
+    </div>
+	
+	<div class="item">
+     <a href="<c:url value="/resources/img/catering/7.jpg" />" >
+       <img src="<c:url value="/resources/img/catering/7.jpg" />" class="img-responsive" alt="">
+    </div>
+	
+	<div class="item">
+     <a href="<c:url value="/resources/img/catering/7.jpg" />" >
+       <img src="<c:url value="/resources/img/catering/7.jpg" />" class="img-responsive" alt="">
+    </div>
+	
+	<div class="item">
+     <a href="<c:url value="/resources/img/catering/7.jpg" />" >
+       <img src="<c:url value="/resources/img/catering/7.jpg" />" class="img-responsive" alt="">
+    </div>
+	
+	<div class="item">
+     <a href="<c:url value="/resources/img/catering/7.jpg" />" >
+       <img src="<c:url value="/resources/img/catering/7.jpg" />" class="img-responsive" alt="">
+    </div>
+	
+	
+	
   </div>
 
   <!-- Left and right controls -->
