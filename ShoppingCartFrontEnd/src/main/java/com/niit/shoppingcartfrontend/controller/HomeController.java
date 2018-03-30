@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.niit.shoppingcart.dao.CategoryDAO;
+import com.niit.shoppingcart.dao.OrderDAO;
 import com.niit.shoppingcart.dao.ProductDAO;
 import com.niit.shoppingcart.dao.SupplierDAO;
 import com.niit.shoppingcart.model.Category;
+import com.niit.shoppingcart.model.Order;
 import com.niit.shoppingcart.model.Product;
 import com.niit.shoppingcart.model.Supplier;
 
@@ -42,13 +44,20 @@ public class HomeController {
 	ProductDAO productdao;
 	
 	@Autowired
+	OrderDAO orderdao;	
+	
+	@Autowired
 	Category category;
 	
 	@Autowired
 	Supplier supplier;
 	
 	@Autowired
-	Product product;
+	Product product;	
+	
+	@Autowired
+	Order order;
+
 	
 	@RequestMapping("/")
 	public String home(Model model, HttpSession session){
@@ -68,6 +77,7 @@ public class HomeController {
 		session.setAttribute("category", category);
 		session.setAttribute("categories", categorydao.getCategories());
 		session.setAttribute("suppliers", supplierdao.getSuppliers());
+		session.setAttribute("orders", orderdao.getAllOrders());
 		
 		session.setAttribute("products", productdao.getProducts());
 		

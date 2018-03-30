@@ -102,7 +102,7 @@ public class Order implements Serializable{
 		return status;
 	}
 
-	public void setStatus(String Status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	

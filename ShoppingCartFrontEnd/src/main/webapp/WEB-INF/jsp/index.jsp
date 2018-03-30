@@ -168,6 +168,8 @@ rel="stylesheet" />
 	</sec:authorize>
 	
 	
+	<%--  <jsp:include page="server5.jsp"></jsp:include> --%>
+
 	<%--  <c:if test="${isAdmin }">
      <jsp:include page="./admin/admin.jsp"></jsp:include>
      </c:if> --%>

@@ -59,6 +59,14 @@
 				" href="<c:url value="/admin/manageSuppliers" />">Manage Suppliers
 				</a>
 			</li>
+			<li>
+				<a class="list-group-item 
+					<c:if test="${displayManageOrdersPage == true }">
+						<c:out value="active"/>
+					</c:if>	
+				" href="<c:url value="/admin/manageOrders" />">Manage Orders
+				</a>
+			</li>
 		</ul>
 		</div>
 		
@@ -80,6 +88,10 @@
 		
 		<c:if test="${displayManageSuppliersPage == true }">
 			<jsp:include page="suppliers.jsp"/>
+		</c:if>
+		
+		<c:if test="${displayManageOrdersPage == true }">
+			<jsp:include page="orders.jsp"/>
 		</c:if>
 	</div>
 </div>
